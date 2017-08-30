@@ -1,0 +1,57 @@
+{
+  "name": "universal-cali",
+  "version": "1.0.0",
+  "description": "The Cognitive Asset Library",
+  "private": true,
+  "engines": {
+    "node": "^6.9.0"
+  },
+  "author": "Austin Riedel",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serve/development.js",
+    "test:dev": "node source/server/development.js"
+  },
+  "dependencies": {
+    "carbon-components": "^7.20.0",
+    "carbon-components-react": "^3.9.0",
+    "carbon-icons": "^6.1.0",
+    "express": "^4.15.4",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-grid-system": "^2.9.6",
+    "react-helmet": "^5.1.3",
+    "react-redux": "^5.0.6",
+    "react-router-config": "^1.0.0-beta.3",
+    "react-router-dom": "^4.1.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "isomorphic-style-loader": "^4.0.0",
+    "node-sass": "^4.5.3",
+    "optimize-css-assets-webpack-plugin": "^3.1.1",
+    "redux-logger": "^3.0.6",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.5",
+    "webpack-cleanup-plugin": "^0.5.1",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-hot-server-middleware": "^0.1.0"
+  }
+}

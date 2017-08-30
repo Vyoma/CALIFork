@@ -1,0 +1,232 @@
+$brand01: #3d70b2; 
+$brand02: #5596e6; 
+$brand03:	#41d6c3; 
+
+$ui01: #fff; 
+$ui02: #F5F7FA; 
+$ui03: #F0F3F6;
+$ui04: #DFE3E6; 
+$ui05: #8C9BA5; 
+
+$text01: #152934; 
+$text02: #5A6872; 
+$text03: #5A6872; 
+
+$inverse01: #fff; 
+
+$blue00: #8497A3;
+$blue01: #83B6D8;
+$blue02: #D0E3F0;
+$blue03: #E4EFF6;
+
+$gray01: #CFD7D8;
+
+$blueGradient01: #3d70b2;
+$blueGradient02: #5596e6;
+
+html, body {
+	background-color: #f5f7fa;
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	height: 100%; 
+}
+
+#app {
+	height: 100%; 
+}
+
+
+// ---------------------- ASSET CARD ----------------------//
+.ar-card {
+  min-height: 400px;
+  width: 90%;
+  margin: 10px; 
+  background-color: $ui01; 
+  box-shadow: 2px 2px 2px $gray01; 
+}
+
+.ar-card-img {
+  width: 100%;
+  height: 195px; 
+}
+
+.ar-card-title-div {
+	height: 56px; 
+	display: flex; 
+	// text-align: justify
+}
+
+.ar-card-title-text {
+	font-size: 18px; 
+	color: #2E3133; 
+	padding-left: 15px; 
+	align-self: center; 
+}
+
+.ar-card-action-button { 
+	align-self: center;
+	background: transparent;
+	border: none;   
+}
+
+
+.ar-card-desc-div {
+	// text-overflow: clip;
+	overflow-y: hidden;
+	height: 88px !important;
+}
+
+.ar-asset-member-name {
+	font-size: 18px; 
+	color: $blueGradient02;
+	// color: $blue01;
+
+	// color: black;
+	text-decoration: none; 
+	line-height: 22px;  
+	// background-color: $blueGradient01; 
+}
+
+.ar-card-desc-div-expand {
+	// text-overflow: clip;
+	overflow-y: hidden;
+	// height: 110px !important;
+	min-height: 60px !important; 
+	max-height: 110px !important;
+}
+
+.ar-card-more-div { 
+	min-height: 20px; 
+	max-height: 70px; 
+}
+
+.ar-card-desc-text {
+	text-overflow: ellipsis;
+	overflow-y: hidden; 
+	padding-left: 12px; 
+	padding-right: 14px;
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif; 
+	font-weight: 300; 
+}
+
+.ar-card-button-more {
+	align-self: center;
+	background: transparent;
+	border: none; 
+	font-size: 15px;
+	font-family: 'Montserrat', sans-serif; 
+	font-weight: 300; 
+	padding-left: 10px; 
+	color: #5596e6; 
+}
+
+
+.ar-card-button-more:hover,.ar-card-button-more:active, .ar-card-button-more:focus, .ar-card-button-more:visited {
+	outline: none;
+	color: #3d70b2; 
+}
+
+.ar-tag-flexbox {
+  display: flex; 
+  flex-wrap: wrap;
+  margin-left: 15px; 
+  margin-right: 15px;  
+}
+
+.ar-tag-flexbox-footer {
+  display: flex; 
+  flex-wrap: wrap;
+  margin-left: 15px; 
+  margin-right: 15px;  
+  min-height: 56px;
+  margin-top: 5px;  
+}
+
+.ar-tag-div {
+  color: #ffffff;
+  background: linear-gradient(45deg, #3d70b2, #5596e6);
+  background: #5596e6; 
+  background: -webkit-linear-gradient(45deg, #3d70b2, #5596e6); 
+  background: -o-linear-gradient(45deg, #3d70b2, #5596e6); 
+  background: -moz-linear-gradient(45deg, #3d70b2, #5596e6); 
+  border-radius:100px; 
+  padding-left:10px; 
+  padding-right:10px; 
+  padding-top:2px; 
+  padding-bottom:2px; 
+  margin-right: 5px; 
+  margin-left: 5px; 
+  margin-bottom: 7px; 
+  flex-basis: auto; 
+  text-align: center; 
+  white-space: nowrap;
+  align-self: center;
+}
+
+.ar-tag-text {
+	font-size: 14px;
+}
+
+
+.ar-row-margin10 {
+	margin-top: 10px; 
+	margin-bottom: 10px; 
+}
+
+
+// ---------------------- FILTER TABS ----------------------//
+
+.ar-tab-flex-container {
+	display: flex;
+	margin-bottom: 10; 
+}
+
+.ar-tab-header {
+	font-weight: 300; 
+	font-size: 22px; 
+	margin-right: 5px;
+	margin-top: 0.2rem;
+}
+
+
+.tab {
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	background-color: transparent; 
+	font-weight: 300; 
+	font-size: 22px; 
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 5px; 
+	margin-left: 5px; 
+}
+
+.tab.active {
+	// outline: 0.5em solid $ui02; 
+	border-bottom-width: 0.10em;
+	border-bottom-style: solid; 
+	-webkit-border-image: 
+	  -webkit-linear-gradient(45deg, $blueGradient01, $blueGradient02);
+	-moz-border-image:
+	  -moz-linear-gradient(45deg, $blueGradient01, $blueGradient02);  
+	-o-border-image:
+	  -o-linear-gradient(45deg, $blueGradient01, $blueGradient02);
+	border-image:
+	  linear-gradient(45deg, $blueGradient01, $blueGradient02); 
+	// box-shadow: 0px 3px 2px rgba(85,150,230, 0.75); 
+	border-image-slice: 1;
+	color: $blueGradient02; 
+}
+
+.tab:active, .tab:focus, .tab:visited {
+	outline: none; 
+}
+
+.bx--checkbox-wrapper {
+	height: 30px !important;  
+}
+
+.ar-checkbox-filter {
+	height: 30px;
+}
