@@ -15,7 +15,7 @@ import ModalWrapper from './ModalWrapper.js'
 import SelectArtifactType from './SelectArtifactType'
 
 // ACTION CREATORS
-import { getAssetTags, addAssetArtifact, startFileLoad } from '../../../state/modules/publish'
+import { getAssetTagsThunk, addAssetArtifactThunk, startFileLoad } from '../../../state/modules/publish'
 
 const LOCAL_ModalHeaderComponent = () => (
 	<div>
@@ -28,16 +28,30 @@ const LOCAL_ModalHeaderComponent = () => (
 	</div>
 )
 
+const initialState = {
+  type: '',
+  url: '',
+  name: '',
+  // fileName: '',
+  description: '',
+  confidential: false, 
+  open: false,
+  file: null, 
+}
+
+const initialTestState = {
+  type: 'Whitepaper',
+  url: '',
+  name: 'Test Whitepaper-v2',
+  // fileName: '',
+  description: 'I am testing the upload for a document',
+  confidential: false, 
+  open: false,
+  file: null, 
+}
+
 class PublishAddAssetModal extends Component {
-	state = {
-    type: '',
-    name: '',
-    url: '',
-    fileName: '',
-    description: '',
-    confidential: false, 
-    open: false,
-  }
+	state = initialTestState
 
   handleChangeType = (event) => {
   	const type = event.target.value
@@ -64,31 +78,59 @@ class PublishAddAssetModal extends Component {
   	this.setState({ confidential: !confidential }); 
   }
 
+  // handleUpload = (event) => {
+  //   event.stopPropagation();    
+  //   let files = event.target.files
+  //   console.log('files', files)
+  //   this.props.startFileLoad()
+  //   if (files.length > 0) {
+  //     let singleFile = files[0]
+  //     this.setState({fileName: singleFile.name})
+  //     this.props.getAssetTags(files)
+  //   }
+
+  //   // TODO: TRIGGER UPLOAD THUNK 
+  //   // -> SET LOAD
+  //   // -> SEND TO BARAK
+  // }
+
   handleUpload = (event) => {
-    event.stopPropagation();    
+    event.stopPropagation(); 
+    // ERROR HANDLING FOR FILE ATTACHED
     let files = event.target.files
-    console.log('files', files)
-    this.props.startFileLoad()
-    if (files.length > 0) {
-      let singleFile = files[0]
-      this.setState({fileName: singleFile.name})
-      this.props.getAssetTags(files)
+    if (files.length === 0) {
+      return; 
     }
 
-    // TODO: TRIGGER UPLOAD THUNK 
-    // -> SET LOAD
-    // -> SEND TO BARAK
+    // 
+    const { getAssetTagsThunk } = this.props; 
+    let file = files[0]
+    getAssetTagsThunk(file); 
+    this.setState({ file }); 
   }
 
   handleSubmit = (event) => {
-    this.props.addAssetArtifact(this.state)
+    console.log('FIRING SUBMIT')
+    event.preventDefault(); 
+    const { addAssetArtifactThunk } = this.props; 
+
+    // ERROR HANDLING FOR BLANK FIELDS 
+    const { name, type, description, url, file } = this.state; 
+    if (!name || !type || !description || (!url && !file)) {
+      return; 
+    }
+
+    addAssetArtifactThunk(this.state)
+
+    // RESET TO INITIAL STATE AND CLOSE MODAL
     this.setState({
       type: '',
       name: '',
       url: '',
-      fileName: '',
+      // fileName: '',
       description: '',
       confidential: false,
+      file: null, 
     })
     this.handleCloseModal()
   }
@@ -98,12 +140,11 @@ class PublishAddAssetModal extends Component {
   }
 
   handleCloseModal = () => {
-    this.setState({ open: false })
+    this.setState({ open: false, type: '' })
   }
 
   isLink = (type) => {
     const links = ['Demo Video Link','Code Repo','Reference Website']
-    console.log('isLink returns: ', links.includes(type))
     return links.includes(type)
   }
 
@@ -155,8 +196,6 @@ class PublishAddAssetModal extends Component {
     	)
     }
 
-    console.log('LOADING PARAMETER'); 
-    console.log('ACTIVE', this.props.loading)
     return (
     	<Container fluid={true}>
     		{interfaceComponent}
@@ -216,11 +255,11 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getAssetTags: (assetTitle) => {
-    dispatch(getAssetTags(assetTitle))
+  getAssetTagsThunk: (assetTitle) => {
+    dispatch(getAssetTagsThunk(assetTitle))
   },
-  addAssetArtifact: (artifact) => {
-    dispatch(addAssetArtifact(artifact))
+  addAssetArtifactThunk: (artifact) => {
+    dispatch(addAssetArtifactThunk(artifact))
   },
   startFileLoad: () => {
     dispatch(startFileLoad())

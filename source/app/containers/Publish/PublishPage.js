@@ -14,7 +14,20 @@ import PublishPage1 from './Pages/PublishPage1'
 import PublishPage2 from './Pages/PublishPage2'
 import PublishPage3 from './Pages/PublishPage3'
 
+// ACTION CREATORS
+import { initializeAssetConditional } from '../../state/modules/publish'
+
 class PublishPage extends Component {
+  static PropTypes = {
+    page: PropTypes.number.isRequired,
+    initializeAssetConditional: PropTypes.func.isRequired, 
+  }
+
+  componentWillMount = () => {
+    const { initializeAssetConditional } = this.props; 
+    initializeAssetConditional(); 
+  }
+
   render() {
     const { page } = this.props; 
 
@@ -40,4 +53,10 @@ const mapStateToProps = (state, ownProps) => ({
   page: state.publish.page
 })
 
-export default connect(mapStateToProps, null)(PublishPage)
+const mapDispatchToProps = (dispatch) => ({
+  initializeAssetConditional: () => {
+    dispatch(initializeAssetConditional())
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PublishPage)

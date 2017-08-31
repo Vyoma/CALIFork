@@ -10,12 +10,13 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 const SelectArtifactType = ({ type, handleChangeType }) => {
+	// NOTE: The empty string will be used as the placeholder select item
 	return (
-		<Select className='some-class' labelText='Artifact Type' id='select-1' value={type} defaultValue='placeholder-item' onChange={handleChangeType}>
+		<Select className='some-class' labelText='Artifact Type' id='select-1' value={type} onChange={handleChangeType}>
 		  <SelectItem
 		    disabled
 		    hidden
-		    value='placeholder-item'
+		    value=''
 		    text='Select Artifact Type'
 		   />
 		  <SelectItem value='Contracts' text='Contracts' />

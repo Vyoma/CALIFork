@@ -56,6 +56,13 @@ class PublishAssetContributors extends Component {
 
   handleAdd = () => {
   	const { setAssetContributor } = this.props; 
+
+    // ERROR HANDLING FOR BLANK FIELDS 
+    const { name, role, email } = this.state; 
+    if (!name || !role || !email) {
+      return; 
+    }
+
     setAssetContributor(this.state)
     this.setState({
       name: '',

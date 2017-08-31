@@ -48,7 +48,7 @@ class ModalWrapper extends Component {
       primaryButtonText,
       secondaryButtonText,
       open,
-      ...other
+      // ...other
     } = this.props;
 
     const props = {
@@ -66,7 +66,7 @@ class ModalWrapper extends Component {
     return (
       <div onKeyDown={this.handleKeyDown}>
         <Button onClick={this.props.handleOpen}>{buttonTriggerText}</Button>
-        <Modal {...props} {...other}>
+        <Modal {...props}>
           {this.props.children}
         </Modal>
       </div>

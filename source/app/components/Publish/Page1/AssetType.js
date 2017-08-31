@@ -39,14 +39,15 @@ const PublishAssetType = (props) => {
   const handleChange = (event) => {
     props.setAssetType(event.target.value)
   }
-
+  
+  // NOTE: The empty string will be used as the placeholder select item
   return (
     <Row className=''style={{marginTop: 20}}>
       <Col md={2} offset={{md: 1}}>
         <ToolTipSpan />        
       </Col>
       <Col md={4}>
-        <Select className='some-class' labelText='' id='select-1' value={props.assetType} defaultValue='placeholder-item' onChange={handleChange}>
+        <Select className='some-class' labelText='' id='select-1' value={props.assetType} onChange={handleChange}>
           <SelectItem disabled hidden value='placeholder-item' text='Select Asset Type' />
           <SelectItem value='Art of the Possible' text='Art Of The Possible' />
           <SelectItem value='Prototype' text='Prototype' />

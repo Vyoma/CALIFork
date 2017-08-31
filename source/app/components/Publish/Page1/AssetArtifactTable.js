@@ -15,15 +15,22 @@ import ModalWrapper from './ModalWrapper.js'
 import SelectArtifactType from './SelectArtifactType'
 
 // ACTION CREATORS
-import { deleteArtifact } from '../../../state/modules/publish'
+import { deleteArtifactThunk } from '../../../state/modules/publish'
 
 class AssetArtifactTable extends Component {
   static PropTypes = {
-    deleteArtifact: PropTypes.func.isRequired, 
+    deleteArtifactThunk: PropTypes.func.isRequired, 
+  }
+
+  handleDeleteArtifact = (index) => {
+    const { deleteArtifactThunk } = this.props; 
+    console.log('Deleting artifact'); 
+    console.log(index)
+    deleteArtifactThunk(index)
   }
   
   mapArtifacts = () => {
-    const { artifacts } = this.props; 
+    const { artifacts, deleteArtifactThunk } = this.props; 
     let displayTable = artifacts.length > 0; 
 
     if (displayTable) {
@@ -31,9 +38,9 @@ class AssetArtifactTable extends Component {
         artifacts.map((artifact, index) => {
           return (
             <TableRow key={index}>
-              <TableData>{artifact.name}</TableData>
-              <TableData>{artifact.type}</TableData>
-              {artifact.url && <TableData>{artifact.url}</TableData>}
+              <TableData>{artifact.artifactTitle}</TableData>
+              <TableData>{artifact.artifactType}</TableData>
+              {artifact.artifactLink && <TableData>{artifact.artifactLink}</TableData>}
               {artifact.fileName && <TableData>{artifact.fileName}</TableData>}
               <TableData>
                 <Button
@@ -41,9 +48,7 @@ class AssetArtifactTable extends Component {
                   icon='delete'
                   iconDescription='Delete'
                   style={{margin: 3}}
-                  onClick={()=>{
-                    deleteArtifact(index)
-                  }}
+                  onClick={() => {this.handleDeleteArtifact(index)}}
                 />
               </TableData>
             </TableRow>
@@ -77,7 +82,7 @@ class AssetArtifactTable extends Component {
             <TableHead>
               <TableRow header>
                 <TableHeader>Artifact Name</TableHeader>
-                <TableHeader>Artifact Type</TableHeader>
+                <TableHeader>Artifact Type-0</TableHeader>
                 <TableHeader>FileName/URL</TableHeader>
                 <TableHeader />
               </TableRow>
@@ -94,8 +99,8 @@ class AssetArtifactTable extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteArtifact: (index) => {
-    dispatch(deleteArtifact(index))
+  deleteArtifactThunk: (index) => {
+    dispatch(deleteArtifactThunk(index))
   },
 })
 
