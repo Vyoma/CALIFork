@@ -34,6 +34,44 @@ html, body {
 	height: 100%; 
 }
 
+// ---------------------- NAV BAR ----------------------//
+
+.tl-nav-container {
+	background-color:#364B59; 
+	height:70px;
+}
+.tl-nav-header {
+	font-size:30px; 
+	color:white; 
+	font-weight: 300; 
+	margin-left:20px; 
+	line-height:47px;
+}
+
+.tl-nav-brand {
+	margin-top:5px;
+}
+
+.tl-nav-right { 
+	text-align: right; 
+	margin-top:0px;
+}
+
+.tl-nav-button{
+	color:white; 
+	margin-top: 10px; 
+	padding-left: 5px; 
+	padding-right: 5px;
+	background-color:transparent; 
+	border:none; 
+	font-size:16px; 
+	font-weight:300; 
+	font-family: 'Montserrat', 'IBM Helvetica', sans-serif; 
+	border-right: white 2px solid;
+	text-decoration: none; 
+
+}
+
 
 // ---------------------- ASSET CARD ----------------------//
 .ar-card {
@@ -203,7 +241,17 @@ html, body {
 	margin-left: 5px; 
 }
 
-.tab.active {
+.tab-active {
+	font-family: 'Montserrat', 'Open Sans', sans-serif;
+	background-color: transparent; 
+	font-weight: 300; 
+	font-size: 22px; 
+	border: none;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin-right: 5px; 
+	margin-left: 5px; 
 	// outline: 0.5em solid $ui02; 
 	border-bottom-width: 0.10em;
 	border-bottom-style: solid; 
