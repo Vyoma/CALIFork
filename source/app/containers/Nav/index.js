@@ -22,7 +22,7 @@ export default () => (
 			<Col sm={5} md={5} className={styles["tl-nav-right"]}>
 			  <Link to={`/`} className={styles["tl-nav-button"]} id="header-link2" kind='secondary'>Home</Link>
 			  <Link to={`/`} className={styles["tl-nav-button"]} id="header-link1" kind='secondary'>Engage Us</Link>
-			  <Link to={`/`} className={styles["tl-nav-button"]} id="header-link1" kind='secondary'>About Us</Link>
+			  <Link to={`/about`} className={styles["tl-nav-button"]} id="header-link1" kind='secondary'>About Us</Link>
 			  <Link to={`/publish`} className={styles["tl-nav-button"]} id="header-link1" kind='secondary'>Publish</Link>
 			</Col>
 		</Row>
