@@ -37,7 +37,8 @@ html, body {
 
 // ---------------------- ASSET CARD ----------------------//
 .ar-card {
-  min-height: 400px;
+  // min-height: 400px;
+  height: 410px; 
   width: 90%;
   margin: 10px; 
   background-color: $ui01; 
