@@ -15,6 +15,7 @@
     "test:dev": "node source/server/development.js"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "carbon-components": "^7.20.0",
     "carbon-components-react": "^3.9.0",
     "carbon-icons": "^6.1.0",

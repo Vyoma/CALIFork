@@ -289,7 +289,7 @@ export const getAssetTagsFailure = (error) => {
   console.log(error)
 }
 
-export const getAssetTagsThunk = (file) => {
+export const getAssetTagsThunk = (file, text) => {
   return (dispatch) => {
     dispatch(startFileLoad())
     const fileMimeType = file.type; 
@@ -299,11 +299,14 @@ export const getAssetTagsThunk = (file) => {
       return; 
     }
 
+    // HANDLE UPLOADING FILE DATA  
     let data = new FormData()
     data.append('file', file)
     data.append('industry', 'True')
     data.append('technology', 'True')
     data.append('password', 'Cali')
+
+    // CALL TAGGING MICROSERVICE
     axios.post('https://autotagger-rudderlike-notedness.mybluemix.net/attachments', data)
     .then(response => {
       dispatch(getAssetTagsSuccess(response.data))
@@ -314,6 +317,24 @@ export const getAssetTagsThunk = (file) => {
       dispatch(finishFileLoad())
     })
   }
+}
+
+export const getAssetTagsFromText = (text) => {
+  // HANDLE UPLOADING TEXT DATA 
+  let data = new FormData()
+  data.append('text', text)
+  data.append('industry', 'True')
+  data.append('technology', 'True')
+  data.append('password', 'Cali')
+
+  // CALL TAGGING MICROSERVICE
+  axios.post('https://autotagger-rudderlike-notedness.mybluemix.net/attachments', data)
+  .then(response => {
+    dispatch(getAssetTagsSuccess(response.data))
+  })
+  .catch(error => {
+    dispatch(getAssetTagsFailure(error))
+  })
 }
 
 // ===== ASSET ARTIFACT - ADD TO ASSET THUNK ====== //
@@ -390,8 +411,7 @@ export const uploadFileToBoxThunk = ({ file, type, name, description, confidenti
     data.append('name', encodedName); 
     data.append('assetID', assetID);
 
-    assetTitle = assetTitle || `Austin's Project`
-
+    assetTitle = assetTitle || assetID; 
 
     // DETERMINE PROPER ROUTING
     // let path = 'https://calibox.mybluemix.net/folder';
@@ -490,10 +510,11 @@ export const deleteArtifactThunk = (index) => {
     console.log(state.publish.artifacts[index]); 
     const artifactFileID = state.publish.artifacts[index].boxFileID; 
     console.log(artifactFileID)
-    const deletePath = `https://calibox.mybluemix.net/folder/delete/${artifactFileID}`
-    fetchBoxMicroservice(deletePath)
+    let path = `http://localhost:2000/folder/delete/${artifactFileID}`
+    // const deletePath = `https://calibox.mybluemix.net/folder/delete/${artifactFileID}`
+    fetchBoxMicroservice(path)
       .then((response) => {
-        deleteArtifact(index); 
+        dispatch(deleteArtifact(index)); 
       })
       .catch((err) => {
         console.log(err); 
