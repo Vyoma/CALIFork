@@ -45,19 +45,20 @@ class Autocomplete extends Component {
 		onSubmit(); 
 	}
 
-	handleBlur = (e) => {
-		const blurTargetClassName = e.target.className; 
-		const { onBlur } = this.props; 
-		if (blurTargetClassName === 'bx--text-input' || blurTargetClassName === 'bx--dropdown-link') {
-			this.handleSelectSuggestion(e.target.id)
-		}
-		onBlur(); 
-	}
+	// TODO: IMPLEMENT BLUR FUNCTIONALITY FOR AUTOCOMPLETE BAR
+	// handleBlur = (e) => {
+	// 	const blurTargetClassName = e.target.className; 
+	// 	const { onBlur } = this.props; 
+	// 	if (blurTargetClassName === 'bx--text-input' || blurTargetClassName === 'bx--dropdown-link') {
+	// 		this.handleSelectSuggestion(e.target.id)
+	// 	}
+	// 	onBlur(); 
+	// }
 
-	handleFocus = () => {
-		const { onFocus } = this.props; 
-		onFocus(); 
-	}
+	// handleFocus = () => {
+	// 	const { onFocus } = this.props; 
+	// 	onFocus(); 
+	// }
 
 	renderDropdown = () => {
 		const { searchParameter, searchSuggestions, dropdownOpen } = this.props; 
@@ -133,7 +134,6 @@ class Autocomplete extends Component {
 							  	placeholder="Search for Cognitive Projects" 
 							  	value={searchParameter}
 							  	onChange={this.handleSearchInput}
-							  	onFocus={this.handleFocus}
 							  />
 							  <Icon className='ar-search-icon' name="search" />
 						  </form>

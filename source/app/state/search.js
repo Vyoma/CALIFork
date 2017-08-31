@@ -138,9 +138,43 @@ export const setSearchResultsFailure = (error) => {
 	}
 }
 
+export const searchAssetsThunk = (searchParameter) => {
+	return (dispatch) => {
+		dispatch(setSearchParameter(searchParameter))
+		dispatch(setSearchResultsRequest(searchParameter))
+		const path = `${API_ROOT}/elastic/search`;
+		fetch(path, {
+			method: 'POST', 
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				searchParameter: searchParameter, 
+			})
+		}).then((response) => {
+			console.log(response); 
+			return response.json(); 
+		}).then((body) => {
+			console.log(body);
+			const { searchResults } = body; 
+			let resultsItems = []; 
+			let resultsEntities = {}; 
+			searchResults.forEach((result) => {
+				resultsEntities[`${result.assetID}`] = result; 
+				resultsItems.push(result.assetID); 
+			})
+			dispatch(setSearchResultsSuccess(resultsItems, resultsEntities)); 
+		}).catch((err) => {
+			console.log(`ERROR: ${err}`); 
+			dispatch(setSearchResultsFailure()); 
+		})
+	}
+}
+
+
 export const fetchAllAssetsThunk = () => {
 	return (dispatch) => {
-
 		// HIT APICONNECT/OPENWHISK ENDPOINT
 		const allEndpoint = `${API_ROOT}/elastic/all`; 
 		return fetch(allEndpoint, {

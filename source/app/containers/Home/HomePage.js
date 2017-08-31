@@ -43,8 +43,8 @@ class HomePage extends Component {
   }
 
   handleSelectAsset = (assetID) => {
-  	const { selectAsset } = this.props; 
-  	selectAsset(assetID);
+  	const { selectAssetThunk } = this.props; 
+  	selectAssetThunk(assetID);
 
   	// TODO: REFACTOR TO WORK AS LINK 
   	// -> SERVER CAN MAKE REQUEST TO MONGODB OBJECT  
@@ -71,8 +71,6 @@ class HomePage extends Component {
   						onChange={this.handleChangeSearchParameter}
   						onSelect={this.handleSelectSuggestion}
   						onSelectAsset={this.handleSelectAsset}
-  						onBlur={this.handleBlur}
-  						onFocus={this.handleFocus}
   					/> 
   				</Col>
   			</Row>
@@ -104,9 +102,9 @@ const mapDispatchToProps = (dispatch) => ({
   searchAssetsThunk: (searchParameter) => {
     dispatch(searchAssetsThunk(searchParameter))
   },
-  // selectAsset: (assetID) => {
-  //   dispatch(selectAsset(assetID))
-  // },
+  selectAssetThunk: (assetID) => {
+    dispatch(selectAssetThunk(assetID))
+  },
   // navToAssetPage: (assetTitle) => {
   //   dispatch(navToAssetPage(assetTitle))
   // },

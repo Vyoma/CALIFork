@@ -48,7 +48,6 @@ class AssetCard extends Component {
 		const cardImage = assetCardImage ? assetCardImage : imageUrl; 
 		const renderCognitiveTagsBoolean = cognitiveTags.length > 0; 
 		const cardDescriptionClass = (renderCognitiveTagsBoolean) ? styles["ar-card-desc-div"] : styles["ar-card-desc-div-expand"]
-		const oneLinerString = assetOneLiner; 
 		const followUp = renderCognitiveTagsBoolean ? (<div style={{display: 'none'}}></div>) : (<div className={styles["ar-card-more-div"]}><button className={styles["ar-card-button-more"]} onClick={handleSelectAsset}>See More...</button></div>); 
 
 		return (
@@ -72,7 +71,7 @@ class AssetCard extends Component {
 					<Col sm={12} md={12}>
 						<div className={cardDescriptionClass}>
 							<p className={styles["ar-card-desc-text"]}>
-								{oneLinerString}
+								{assetOneLiner}
 							</p>
 						</div>
 						{followUp}
