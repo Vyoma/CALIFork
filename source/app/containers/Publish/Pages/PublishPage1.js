@@ -11,7 +11,7 @@ import Col from '../../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR S
 import { Module, ModuleHeader, ModuleBody, Button } from 'carbon-components-react'
 
 // ACTION CREATORS
-import { setAssetTitle, setAssetType, setAssetOwner, setAssetContributor, setNextPage, setPrevPage } from '../../../state/modules/publish'
+import { setAssetTitle, setAssetType, setAssetOwner, setAssetContributor, setAssetDescription, setNextPage, setPrevPage } from '../../../state/modules/publish'
 
 // APP COMPONENTS
 import PublishAssetTitle from '../../../components/Publish/Page1/AssetTitle'
@@ -26,8 +26,12 @@ import PublishAssetArtifactTable from '../../../components/Publish/Page1/AssetAr
 
 class PublishPage1 extends Component {
   render () {
-    const { setAssetTitle, setAssetType, setAssetOwner, setAssetContributor,
-      assetContributors, artifacts, setNextPage, assetTitle, assetType, assetOwner } = this.props;
+    const { 
+      // STATE
+      assetDescription, assetContributors, artifacts, assetTitle, assetType, assetOwner,
+      // ACTIONS
+      setAssetTitle, setAssetType, setAssetOwner, setAssetContributor, setNextPage
+    } = this.props;
 
     return (
       <Container fluid={true}>
@@ -44,10 +48,7 @@ class PublishPage1 extends Component {
   	              <PublishAssetType setAssetType={setAssetType} assetType={assetType} />
 
   	              {/* Asset Description Section */}
-  	              <PublishAssetDescription />
-
-  	              {/* Asset Publisher Section */}
-  	              <PublishAssetPublisher />
+  	              <PublishAssetDescription assetDescription={assetDescription} setAssetDescription={setAssetDescription}/>
 
   	              {/* Asset Owner Section */}
   	              <PublishAssetOwner setAssetOwner={setAssetOwner} assetOwner={assetOwner} />
@@ -77,12 +78,16 @@ class PublishPage1 extends Component {
   }
 }
 
+// { Asset Publisher Section }
+// <PublishAssetPublisher />
+
 const mapStateToProps = (state, ownProps) => ({
-  assetContributors: state.publish.assetContributors,
-  artifacts: state.publish.artifacts,
   assetTitle: state.publish.assetTitle,
   assetType: state.publish.assetType,
-  assetOwner: state.publish.assetOwner
+  assetOwner: state.publish.assetOwner,
+  assetDescription: state.publish.assetDescription,
+  assetContributors: state.publish.assetContributors,
+  artifacts: state.publish.artifacts,
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -96,6 +101,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setAssetOwner(ownerSubType, value))
   },
   setAssetContributor: (contributor) => {
+    dispatch(setAssetContributor(contributor))
+  },
+  setAssetDescription: (contributor) => {
     dispatch(setAssetContributor(contributor))
   },
   setNextPage: () => {
