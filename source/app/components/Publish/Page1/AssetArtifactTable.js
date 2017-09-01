@@ -24,8 +24,6 @@ class AssetArtifactTable extends Component {
 
   handleDeleteArtifact = (index) => {
     const { deleteArtifactThunk } = this.props; 
-    console.log('Deleting artifact'); 
-    console.log(index)
     deleteArtifactThunk(index)
   }
   
@@ -38,10 +36,9 @@ class AssetArtifactTable extends Component {
         artifacts.map((artifact, index) => {
           return (
             <TableRow key={index}>
-              <TableData>{artifact.artifactTitle}</TableData>
-              <TableData>{artifact.artifactType}</TableData>
-              {artifact.artifactLink && <TableData>{artifact.artifactLink}</TableData>}
-              {artifact.fileName && <TableData>{artifact.fileName}</TableData>}
+              <TableData>{artifact.title}</TableData>
+              <TableData>{artifact.type}</TableData>
+              {artifact.url && <TableData>{artifact.url}</TableData>}
               <TableData>
                 <Button
                   kind='ghost'
@@ -82,7 +79,7 @@ class AssetArtifactTable extends Component {
             <TableHead>
               <TableRow header>
                 <TableHeader>Artifact Name</TableHeader>
-                <TableHeader>Artifact Type-0</TableHeader>
+                <TableHeader>Artifact Type</TableHeader>
                 <TableHeader>FileName/URL</TableHeader>
                 <TableHeader />
               </TableRow>

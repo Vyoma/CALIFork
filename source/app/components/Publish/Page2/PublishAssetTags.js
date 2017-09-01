@@ -13,6 +13,8 @@ import { Module, ModuleHeader, ModuleBody, Button,
 import { addTechnologyTag, addClientTag, addIndustryTag, 
   deleteTechnologyTag, deleteClientTag, deleteIndustryTag } from '../../../state/modules/publish'
 
+// SELECTORS 
+import { getUniqueIndustries, getUniqueTechnologies, getUniqueClients } from '../../../state/selectors/publish'
   // APP COMPONENTS
 
 const listTags = (tags) => {
@@ -262,9 +264,12 @@ class PublishAssetTags extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  industryTags: state.publish.industryTags,
-  technologyTags: state.publish.technologyTags,
-  clientTags: state.publish.clientTags
+  // industryTags: state.publish.industryTags,
+  // technologyTags: state.publish.technologyTags,
+  // clientTags: state.publish.clientTags,
+  industryTags: getUniqueIndustries(state), 
+  technologyTags: getUniqueTechnologies(state), 
+  clientTags: getUniqueClients(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

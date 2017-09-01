@@ -13,6 +13,8 @@ export const FETCH_ASSET_REQUEST = 'FETCH_ASSET_REQUEST'
 export const FETCH_ASSET_FAILURE = 'FETCH_ASSET_FAILURE'
 
 import { SET_SEARCH_RESULTS_SUCCESS } from './search'
+import { PUBLISH_ASSET, initialDemoState } from './modules/publish'
+import assetPlaceholder from './__democonstants/assetPlaceholder'
 
 // ----------------------------- REDUCERS ----------------------------- //
 const initialState = {
@@ -24,6 +26,7 @@ const initialState = {
 	clearAssets: false,  // -> Nav to home will trigger new fetch
 	loadingAssets: false, // -> Overlaps with fetching asset 
 	fetchedAssetObject: null, // -> Implement getSelectedAssetObject selector
+	publishAssetObject: assetPlaceholder, 
 }
 
 const assets = ( state = initialState, action) => {
@@ -65,6 +68,12 @@ const assets = ( state = initialState, action) => {
 				...state, 
 				fetchingAsset: true, 
 				selectedAsset: action.assetID
+			}
+		}
+		case PUBLISH_ASSET: {
+			return {
+				...state, 
+				publishAssetObject: action.publishAssetObject
 			}
 		}
 		default: 

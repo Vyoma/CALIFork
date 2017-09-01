@@ -13,6 +13,9 @@ import { Table, TableData, TableHead, TableHeader, TableRow, TableBody, Tag } fr
 // ACTION CREATORS
 import { getAssetTags, addAssetArtifact, startFileLoad } from '../../../state/modules/publish'
 
+// SELECTORS 
+import { getUniqueIndustries, getUniqueTechnologies, getUniqueClients } from '../../../state/selectors/publish'
+
 const LOCAL_AssetDetailRow = ({label, value}) => {
 	return (
 		<Row>
@@ -55,10 +58,9 @@ class PublishReviewInfo extends Component {
 	        artifacts.map((artifact, index) => {
 	          return (
 	            <TableRow key={index}>
-	              <TableData>{artifact.name}</TableData>
+	              <TableData>{artifact.title}</TableData>
 	              <TableData>{artifact.type}</TableData>
 	              {artifact.url && <TableData>{artifact.url}</TableData>}
-	              {artifact.fileName && <TableData>{artifact.fileName}</TableData>}
 	            </TableRow>
 	          )
 	        })
@@ -72,25 +74,18 @@ class PublishReviewInfo extends Component {
 	    return (
 	        tags.map((tag, index) => {
 	          return (
-	            <Tag className='some-class' type='beta' key={index} >{tag}</Tag> 
+	            <Tag className='some-class' type='beta' key={index}>{tag}</Tag> 
 	          )
 	        })
 	    )
 	  }
 	}
 
-	handlePublishAsset = () => {
-		// TODO: DEFINE PUBLISH ASSET ACTION
-		// -> CALL TO ROOT SERVICE
-		
-	}
-
 	render() {
 		const { assetTitle, assetType, assetOwner, assetContributors, artifacts, clientTags, industryTags, technologyTags } = this.props; 
 		
 		return (
-			<Container fluid={true}>
-				<LOCAL_AssetDetailRow label={'Publisher'} value={'TODO: Asset publisher name (w3 Login)'} />
+			<div>
 				<LOCAL_AssetDetailRow label={'Asset Title'} value={assetTitle} />
 				<LOCAL_AssetDetailRow label={'Asset Type'} value={assetType} />
 				<LOCAL_AssetDetailRow label={'Asset Owner'} value={assetOwner.name} />
@@ -168,7 +163,7 @@ class PublishReviewInfo extends Component {
 				     </Col>
 				  </Row>
 				</Row>
-			</Container>	
+			</div>	
 		)
 	}
 }
@@ -179,9 +174,12 @@ const mapStateToProps = (state, ownProps) => ({
   assetOwner: state.publish.assetOwner,
   assetContributors: state.publish.assetContributors,
   artifacts: state.publish.artifacts,
-  clientTags: state.publish.clientTags,
-  industryTags: state.publish.industryTags,
-  technologyTags: state.publish.technologyTags
+  // clientTags: state.publish.clientTags,
+  // industryTags: state.publish.industryTags,
+  // technologyTags: state.publish.technologyTags,
+  industryTags: getUniqueIndustries(state), 
+  technologyTags: getUniqueTechnologies(state), 
+  clientTags: getUniqueClients(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
