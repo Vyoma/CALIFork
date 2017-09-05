@@ -9,7 +9,12 @@ import { TextArea, Tooltip} from 'carbon-components-react'
 import { Container, Row } from 'react-grid-system'
 import Col from '../../Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
-const PublishAssetDescription = (props) => {
+const PublishAssetDescription = ({ assetDescription, setAssetDescription }) => {
+
+  const handleChange = (event) => {
+    setAssetDescription(event.target.value)
+  }
+
   return (
     <Row className='nt-publishAssetDesc' style={{marginTop: 20}}>
       <Col md={2} offset={{md: 1}}>
@@ -24,7 +29,8 @@ const PublishAssetDescription = (props) => {
         <TextArea
           className='some-class'
           labelText=''
-          placeholder='Input description of the asset to be published'
+          value={assetDescription}
+          onChange={handleChange}
         />
       </Col>
     </Row>

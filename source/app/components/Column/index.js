@@ -5,7 +5,7 @@ import { Col } from 'react-grid-system'
 
 export default class ColumnSSR extends Component {
 	render() {
-		let { children, xs, sm, md, lg, xl, size, offset } = this.props; 
+		let { children, xs, sm, md, lg, xl, size, offset, className } = this.props; 
 		let columnDefaultSize = md || size || sm || lg || xs || xl || 12; 
 		xs = xs || columnDefaultSize; 
 		sm = sm || columnDefaultSize; 
@@ -14,7 +14,7 @@ export default class ColumnSSR extends Component {
 		xl = xl || columnDefaultSize; 
 
 		return (
-			<Col xs={xs} sm={sm} md={md} lg={lg} xl={xl} offset={offset}>
+			<Col xs={xs} sm={sm} md={md} lg={lg} xl={xl} offset={offset} className={className} {...this.props}>
 				{children}
 			</Col>
 		)

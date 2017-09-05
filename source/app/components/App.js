@@ -9,6 +9,7 @@ import Nav from '../containers/Nav'
 import Home from '../containers/Home/HomePage'
 import Asset from '../containers/Asset/AssetPage'
 import Publish from '../containers/Publish/PublishPage'
+import PublishedAsset from '../containers/PublishedAsset'
 import About from '../containers/About/AboutPage'
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
   	        <Route exact path='/' component={Home}/>
             <Route path='/asset/:assetID' component={Asset}/>
             <Route path='/publish' component={Publish}/>
+            <Route path='/publishedasset' component={PublishedAsset}/>
             <Route path='/about' component={About}/>
           </Switch>
         </div>

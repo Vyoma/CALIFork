@@ -52,7 +52,7 @@ class AssetCard extends Component {
 
 		return (
 			<Container key={assetID} fluid={true} className={styles["ar-card"]}>
-				<img src={'http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg'} className={styles["ar-card-img"]} />
+				<img src={assetCardImage} className={styles["ar-card-img"]} />
 				<Row>
 					<Col sm={10} md={10}>
 						<div className={styles["ar-card-title-div"]} onClick={handleSelectAsset}>

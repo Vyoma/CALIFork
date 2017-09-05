@@ -14,11 +14,29 @@ import { Module, ModuleHeader, ModuleBody, Button } from 'carbon-components-reac
 import PublishReviewInfo from '../../../components/Publish/Page3/PublishReviewInfo.js'
 
 // ACTION CREATORS
-import { setPrevPage } from '../../../state/modules/publish'
+import { setPrevPage, publishAssetThunk } from '../../../state/modules/publish'
+import { Route, Redirect } from 'react-router-dom';
 
 class PublishPage3 extends Component {
+	static PropTypes = {
+		publishAssetThunk: PropTypes.func.isRequired, 
+	}
+
+	handlePublishAsset = () => {
+		// TODO: DEFINE PUBLISH ASSET ACTION
+		// -> CALL TO ROOT SERVICE
+		const { publishAssetThunk } = this.props; 
+		console.log("PUBLISHING ASSET")
+		publishAssetThunk(); 
+	}
+
   render () {
-    const { setPrevPage, assetTitle, assetOwner, assetType, assetContributors, artifacts, technologyTags, industryTags, clientTags } = this.props
+    const { setPrevPage, assetID, assetTitle, assetOwner, assetType, assetContributors, artifacts, technologyTags, industryTags, clientTags, publishedAssetBool } = this.props
+
+    // HANDLE NAVIGATION TO ASSET PAGE
+    if (publishedAssetBool) {
+    	return <Redirect from="/publish" to="/publishedasset"/>
+    }
 
     return (
       <Container fluid={true}>
@@ -30,7 +48,7 @@ class PublishPage3 extends Component {
 	        </Col>
 	      </Row>
 	      <Row>
-	        <Col md={8} offset={{md: 2}}>
+	        <Col md={10} offset={{ md: 2 }}>
 	          <Module>
 	            <ModuleHeader>Review</ModuleHeader>
 	            <ModuleBody>
@@ -55,7 +73,7 @@ class PublishPage3 extends Component {
 	          </Button>
           </Col>
           <Col md={2} offset={{md: 5}}>
-            <Button className='some-class'>
+            <Button className='some-class' onClick={this.handlePublishAsset}>
 		          Publish
 	          </Button>
           </Col>
@@ -74,13 +92,17 @@ const mapStateToProps = (state, ownProps) => ({
   artifacts:state.publish.artifacts,
   clientTags: state.publish.clientTags,
   industryTags: state.publish.industryTags,
-  technologyTags: state.publish.technologyTags
+  technologyTags: state.publish.technologyTags,
+  publishedAssetBool: state.publish.publishedAssetBool
 })
 
 const mapDispatchToProps = (dispatch) => ({
   setPrevPage: () => {
     dispatch(setPrevPage())
-  }
+  },
+  publishAssetThunk: () => {
+    dispatch(publishAssetThunk())
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PublishPage3)

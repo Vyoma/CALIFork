@@ -10,9 +10,10 @@ import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERV
 const PublishAssetProgress = ({ page }) => {
   return (
   	<Container fluid={true}>
-	    <Row style={{marginTop: 50}}>
-	      <Col md={9} offset={{md: 3}}>
-	        <ProgressIndicator currentIndex={page}>
+	    <Row style={{marginTop: 50 }}>
+	      <Col md={10} offset={{ md: 2 }} style={{textAlign: 'center'}}>
+	        <ProgressIndicator currentIndex={page + 1}>
+		        <ProgressStep label='' description='' />
 	          <ProgressStep label='' description='' />
 	          <ProgressStep label='' description='' />
 	          <ProgressStep label='' description='' />

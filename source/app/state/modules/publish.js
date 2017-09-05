@@ -9,6 +9,7 @@ export const SET_ASSET_TITLE = 'SET_ASSET_TITLE'
 export const SET_ASSET_TYPE = 'SET_ASSET_TYPE'
 export const SET_ASSET_OWNER = 'SET_ASSET_OWNER'
 export const SET_ASSET_CONTRIBUTOR = 'SET_ASSET_CONTRIBUTOR'
+export const SET_ASSET_DESCRIPTION = 'SET_ASSET_DESCRIPTION'
 export const ADD_ARTIFACT = 'ADD_ARTIFACT'
 export const NEXT_PAGE = 'NEXT_PAGE'
 export const PREV_PAGE = 'PREV_PAGE'
@@ -30,6 +31,7 @@ export const UPLOAD_FILE_TO_BOX_REQUEST = 'UPLOAD_FILE_TO_BOX_REQUEST';
 export const UPLOAD_FILE_TO_BOX_SUCCESS = 'UPLOAD_FILE_TO_BOX_SUCCESS'; 
 export const UPLOAD_FILE_TO_BOX_FAILURE = 'UPLOAD_FILE_TO_BOX_FAILURE'; 
 export const SET_ASSET_FOLDER_ID = 'SET_ASSET_FOLDER_ID'
+export const PUBLISH_ASSET = 'PUBLISH_ASSET'
 
 // ----------------------------- REDUCERS ----------------------------- //
 const initialAssetOwnerState = {
@@ -47,7 +49,41 @@ const initialPublishState = {
   industryTags: ['randomTestingTag'],
   technologyTags: ['randomTestingTag'],
   clientTags: ['randomClientTag'],
-  loading: false
+  loading: false,
+  publishedAssetBool: false
+}
+
+const demoContributors = [
+  {
+    name: 'Brian Balagot', 
+    role: 'Data Scientist', 
+    email: 'Brian.Balagot@ibm.com'
+  }, 
+  {
+    name: 'Layne Miao', 
+    role: 'Cognitive Developer', 
+    email: 'Layne.Miao@ibm.com'
+  }, 
+  {
+    name: 'John Smith', 
+    role: 'Project Manager', 
+    email: 'John.Smith@ibm.com'
+  }
+]
+
+export const initialDemoState = {
+  page: 0,
+  assetTitle: 'Cognitive Demo Service',
+  assetType: 'Prototype',
+  assetOwner: { name: 'Austin Riedel', email: 'Austin.Riedel@ibm.com'},
+  assetDescription: 'This is a sample description of a cognitive asset that is being entered into Project CALI. The description should include information about the use case for the asset, the technologies utilized in the solution and the industries and clients that have benefitted from this asset.',
+  assetContributors: demoContributors,
+  artifacts: [],
+  industryTags: ["Energy and Utilities", "Energy and Utilities", "Energy & Utilities", "Media and Entertainment"],
+  technologyTags: [],
+  clientTags: [],
+  loading: false,
+  publishedAssetBool: false
 }
 
 const assetOwner = (state = initialAssetOwnerState, action) => {
@@ -70,7 +106,7 @@ const removeElement = (list, index) => {
   return [...list.slice(0, index), ...list.slice(index + 1)]
 }
 
-const publish = (state = initialPublishState, action) => {
+const publish = (state = initialDemoState, action) => {
   switch (action.type) {
     case INITIALIZE_ASSET:
       return {
@@ -88,24 +124,29 @@ const publish = (state = initialPublishState, action) => {
         ...state,
         assetType: action.assetType
       }
-    // case SET_ASSET_OWNER:
-    //   return {
-    //     ...state,
-    //     assetOwner: assetOwner(state.assetOwner, action)
-    //   }
     case SET_ASSET_OWNER:
       return {
         ...state,
-        assetOwner: {
-          ...state.assetOwner, 
-          name: action.name, 
-          email: action.email
-        }
+        assetOwner: assetOwner(state.assetOwner, action)
       }
+    // case SET_ASSET_OWNER:
+    //   return {
+    //     ...state,
+    //     assetOwner: {
+    //       ...state.assetOwner, 
+    //       name: action.name, 
+    //       email: action.email
+    //     }
+    //   }
     case SET_ASSET_CONTRIBUTOR:
       return {
         ...state,
         assetContributors: [...state.assetContributors, action.contributor]
+      }
+    case SET_ASSET_DESCRIPTION:
+      return {
+        ...state,
+        assetDescription: action.assetDescription
       }
     case ADD_ASSET_ARTIFACT:
       return {
@@ -193,6 +234,12 @@ const publish = (state = initialPublishState, action) => {
         ...state,
         loading: false
       }
+    case PUBLISH_ASSET: {
+      return {
+        ...state, 
+        publishedAssetBool: true
+      }
+    }
     default:
       return state
   }
@@ -276,6 +323,13 @@ export const setAssetContributor = (contributor) => {
   }
 }
 
+export const setAssetDescription = (assetDescription) => {
+  return {
+    type: SET_ASSET_DESCRIPTION, 
+    assetDescription, 
+  }
+}
+
 // ===== ASSET FILE - COGNITIVE TAGS ====== //
 export const getAssetTagsSuccess = ({ technologies, industries }) => {
   return {
@@ -356,10 +410,10 @@ export const addAssetArtifactThunk = (artifact) => {
     if (category === 'link') {
       let artifactObject = {
         boxFileID: null, 
-        artifactTitle: name, 
-        artifactType: type,
-        artifactLink: url, 
-        artifactDescription: description, 
+        title: name, 
+        type: type,
+        url: url, 
+        description: description, 
         confidential, 
       }
       dispatch(addAssetArtifact(artifactObject))
@@ -414,8 +468,8 @@ export const uploadFileToBoxThunk = ({ file, type, name, description, confidenti
     assetTitle = assetTitle || assetID; 
 
     // DETERMINE PROPER ROUTING
-    // let path = 'https://calibox.mybluemix.net/folder';
-    let path = 'http://localhost:2000/folder'
+    let path = 'https://calibox.mybluemix.net/folder';
+    // let path = 'http://localhost:2000/folder'
     if (assetFolderID !== '') {
       path = `${path}/upload/${assetFolderID}`; 
     } else {
@@ -432,19 +486,27 @@ export const uploadFileToBoxThunk = ({ file, type, name, description, confidenti
         return response.json(); 
       })
       .then((body) => {
+        console.log('RESPONSE FROM UPLOAD TO BOX')
         console.log(body); 
-        let { mediaFileID, mediaLink, parentFileID } = body; 
 
+        // ERROR HANDLING
+        if (body.statusCode && body.statusCode !== 200) {
+          dispatch(uploadFileToBoxFailure())
+          return; 
+        }
+
+        // DISPATCH ACTIONS WITH FOLDER INFORMATION
+        let { mediaFileID, mediaLink, parentFileID } = body; 
         if (assetFolderID === '') {
           dispatch(setAssetFolderID(parentFileID)); 
         }
 
         let artifactObject = {
           boxFileID: mediaFileID, 
-          artifactTitle: name, 
-          artifactLink: mediaLink, 
-          artifactType: type,
-          artifactDescription: description, 
+          title: name, 
+          url: mediaLink, 
+          type: type,
+          description: description, 
           confidential, 
         }
         console.log(artifactObject); 
@@ -548,5 +610,35 @@ export const destructuredAction = ({ assetOwnerName, assetOwnerEmail }) => {
     type: SET_ASSET_CONTRIBUTOR,
     assetOwnerName,
     assetOwnerEmail
+  }
+}
+
+// ===== HANDLE PUBLISH ASSET ====== //
+
+const convertToMongoSchema = (publishAssetObject) => {
+  // const { assetID, assetBoxFolderID, assetTitle, assetType, assetOwner, assetContributors, assetDescription, assetOneLiner, artifacts, industryTags, technologyTags, clientTags, duration, complexity } = publishAssetObject; 
+  const { industryTags, technologyTags, clientTags } = publishAssetObject; 
+  return {
+    ...publishAssetObject, 
+    industries: industryTags, 
+    technologies: technologyTags, 
+    clients: clientTags,
+    assetPageImage: "https://my3.digitalexperience.ibm.com/api/44ecf1d9-b58c-482c-9eed-2b8b72103240/delivery/v1/resources/dd6243ef4325a29f7f0554682319f400?resize=1350px:792px&crop=1350:300;0,134",
+  }
+}
+
+export const publishAsset = (publishAssetObject) => {
+  return {
+    type: PUBLISH_ASSET, 
+    publishAssetObject
+  }
+}
+
+export const publishAssetThunk = () => {
+  return (dispatch, getState) => {
+    const state = getState(); 
+    let publishAssetObject = state.publish; 
+    publishAssetObject = convertToMongoSchema(publishAssetObject)
+    dispatch(publishAsset(publishAssetObject))
   }
 }
