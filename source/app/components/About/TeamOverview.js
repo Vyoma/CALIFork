@@ -40,11 +40,11 @@ const TeamOverview = () => {
             <p>To drive Product and Engineering Eminence in our service offerings in Cognitive.</p>
           </AccordionItem>
 
-          <AccordionItem 
+          {/* <AccordionItem 
             title="What are our Skills?" 
             open ={false}> 
             <p>Our team comprises of skills needed to build end-to-end cognitive solutions starting from Storage, Compute, DevOps, ETL, Data Foundation, Analytical Modeling, Data Science, Machine Learning, Deep Learning, NLP, Enterprise Solution, Mobile Development, Cloud, SAS, Micro services, On-Premise, Process Transformation, Cognitive Assistant, Unsupervised AI enhancements, Mean Stack, NOSQL Databases, and FULL Stack application development.</p>
-          </AccordionItem>
+          </AccordionItem> */}
 
           <AccordionItem 
             title="What do we Do?" 

@@ -9,6 +9,9 @@ import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERV
 // CARBON COMPONENTS 
 import {Accordion, AccordionItem} from 'carbon-components-react'
 
+// STYLING IMPORT
+import styles from '../../styles/about.scss'
+
 const placeholderImage = 'http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg'; 
 
 const TeamBios = () => {
@@ -19,7 +22,7 @@ const TeamBios = () => {
   };
   return (
     <div>
-      {/* <Col md={12}>   
+      <Col md={12}>   
         <Row>
           <div className={styles['tl-team-bio']}>
             <label className='bx--label'>
@@ -27,95 +30,265 @@ const TeamBios = () => {
             </label>
             <div className={styles['tl-team-bio-line']}></div>
               <p className={styles['example-p-style']}> 
-                Pumpkin spice Write Me A Song Country. Music Hall of Fame write a song about pumpkin spice. Cats vote for Taylor trouble Loft 89. Available at Target best dress best dress Meredith. Grey enchanted I'm on the bleachers sparkly dress girlnextdooritis Karlie. Kloss Kanye West Famous Loft 89 Emma Stone available at. Target Lily Aldridge Tribeca gym Ed Sheeran Jake Gyllenhaal Tree. Paine situation Christmas music darling I'm a nightmare. Dressed like a daydream 22 for me I think Met Gala. Romeo so basically Katy Perry mean refrigerator light. 
+              Our team comprises of skills needed to build end-to-end cognitive solutions starting from Storage, Compute, DevOps, ETL, Data Foundation, Analytical Modeling, Data Science, Machine Learning, Deep Learning, NLP, Enterprise Solution, Mobile Development, Cloud, SAS, Micro services, On-Premise, Process Transformation, Cognitive Assistant, Unsupervised AI enhancements, Mean Stack, NOSQL Databases, and FULL Stack application development.
               </p>
           </div>
         </Row>
-            <Row>
-              <div className={styles['tl-team-overview']}>
-              <Accordion>
-                <AccordionItem 
-                  title="Our Mission Statement" 
-                  open ={false}> 
-                  <p>To drive Product and Engineering Eminence in our service offerings in Cognitive.</p>
-                </AccordionItem>
+          <Row>
+            <div className={styles['tl-team-overview']}>
+            <Accordion>
+              <AccordionItem 
+                title="Priya Vijayarajendran | CBDS CTO" 
+                open ={false}> 
+                <p>
+                  Email: Priya.Vijayarajendran@ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/priyavijayarajendran<br/>
+                  Twitter: @vcPriya <br/>
+                  Fun Fact: I have travelled around the world except Antarctica and I have done around the world trip in 7 days.
+                </p>     
+              </AccordionItem>
 
-                <AccordionItem 
-                  title="Who are We?" 
-                  open ={false}> 
-                  <p>.</p>
-                </AccordionItem>
+              <AccordionItem 
+                title="Manoj Gaddam | Solution Architect" 
+                open ={false}> 
+                <p>
+                  Email: Manoj.Gaddam@ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/manojkgaddam 
+                </p> 
+              </AccordionItem>
 
-                <AccordionItem 
-                  title="What are our Skills?" 
-                  open ={false}> 
-                  <p>We are a team of engineers, hackers, and futurists who are passionate problem solvers using technology and science. We believe in being a multi disciplinary team collectively bringing the best. We are driven by using the latest and greatest Artificial Intelligence capabilities to resolve challenging business pain points. Our unique, multi-disciplinary expertise enables us to deliver excellent technological solutions for our clients. We are actively reshaping the perception of IBM GBS in the marketplace with strong internal and external eminence from our practice-wide hackathons and innovative white papers. Our team comprises of skills needed to build end-to-end cognitive solutions starting from Storage, Compute, DevOps, ETL, Data Foundation, Analytical Modeling, Data Science, Machine Learning, Deep Learning, NLP, Enterprise Solution, Mobile Development, Cloud, SAS, Micro services, On-Premise, Process Transformation, Cognitive Assistant, Unsupervised AI enhancements, Mean Stack, NOSQL Databases, and FULL Stack application development.</p>
-                </AccordionItem>
 
-                <AccordionItem 
-                  title="What do we Do?" 
-                  open ={false}> 
-                  <p>
-                    <ul>
-                      <li>Approach and understand the problem at the source and data level</li>
-                      <li>Create a solution stack which is agnostic and leverages the architectural design principles</li>
-                      <li>Embrace a fully agile development cycle of realization</li>
-                      <li>Operate under a co-located development model</li>
-                    </ul>
-                  </p>
-                </AccordionItem>
-              </Accordion>
-              </div>
-            </Row>
-        </Col> */}
-      
-      <Accordion>
-        <AccordionItem 
-          title="Priya Vijayarajendran | CBDS CTO" 
-          open ={true}> 
-            <img src={placeholderImage} style={profStyle}/> 
-            <br/>
+
+              <AccordionItem 
+                title="Anatoly Tulchinsky | Head of Development &amp; Technical Leader" 
+                open ={false}> 
+                <p>
+                  Email: Anatoly.Tulchinsky@ca.ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/anatoly-tulchinsky
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Ali Khanafer | Data Scientist" 
+                open ={false}> 
+                <p>
+                  Email: Ali.Khanafer@ca.ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/alikhanafer<br/> 
+                  Twitter: @thealikhanafer<br/>
+                  Fun Fact: I got married in Lebanon, honeymooned in Italy, and my three kids were born in Canada.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Brian Woodsworth | Solution Architect" 
+                open ={false}> 
+                <p>
+                  Email: Brian.Woodsworth@ca.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/brianwoodsworth<br/> 
+                  Twitter: @@BrianWoodsworth 
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Nareen Rayapati" 
+                open ={false}> 
+                <p>
+                  Email: rayapati@ca.ibm.com<br/>
+                  
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Evan Chapman | Managing Consultant" 
+                open ={false}> 
+                <p>
+                  Email: epchapma@us.ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/evan-chapman-4a319339<br/> 
+                  Twitter: @ChapmanEvan <br/>
+                  Fun Fact: Spent two weeks immersed in Argentinian and Uruguayan culture while backpacking in South America with a friend.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Sonali Guleria | Data Scientist" 
+                open ={false}> 
+                <p>
+                  Email: Sonali.Guleria@ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/sonali-guleria<br/>
+                  Fun Fact: I had six animals when I was a kid (no, I did not live on a farm) and one of my aims in life is to keep seven dogs at once!
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Vyoma Gajjar | Data/Software Engineer" 
+                open ={false}> 
+                <p>
+                  Email: vgajjar@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/vyomagajjar<br/> 
+                  Twitter: @vyomagajjar
+                  
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Haroun Ahmed | Senior Consultant" 
+                open ={false}> 
+                <p>
+                  Email: hahmed@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/haroun-ahmed<br/> 
+                  
+                  Fun Fact: My three favorite things in life are traveling, learning, and playing &amp; watching basketball!
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Karen Huang | Consultant" 
+                open ={false}> 
+                <p>
+                  Email: KarenHuang@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/karen-huang-93755bb7<br/> 
+                  
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Shilpee Magoo | Managing Consultant" 
+                open ={false}> 
+                <p>
+                  Email: smagoo@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/shilpee-magoo-60a40b6<br/> 
+                  Fun Fact: I love to play any and all racquet sports. You name it and I can play it! (Squash, tennis, table tennis, badminton, racquetball)
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Dennis Noto | Executive Architect" 
+                open ={false}> 
+                <p>
+                  Email: Dennis.Noto@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/dennisfnoto <br/> 
+                  Twitter: @dennisnoto
+                
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Jessica Bock | Managing Consultant" 
+                open ={false}> 
+                <p>
+                  Email: jfbock@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/jessicafbock<br/> 
+                  Twitter: @jesscabock  <br/>
+                  Fun Fact: I am a duel citizen and hold a US and a German passport.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Nancy Thornton | Senior Consultant" 
+                open ={false}> 
+                <p>
+                  Email: njthornt@us.ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/nancyjthornton<br/> 
+                  Twitter: @nancyjacq <br/>
+                  Fun Fact: Before joining IBM, I was a professional dancer and choreographer.  You can (try) to tell its me as the dance double for the Step Up 2 lead.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Brian Balagot | Data Scientist, Cognitive Apps Engineer" 
+                open ={false}> 
+                <p>
+                  Email: Brian.Balagot@ibm.com <br/>
+                  LinkedIn: https://www.linkedin.com/in/briancbalagot<br/>
+                  Fun Fact: I love applied mathematics, data science, powerlifting, cooking, building things that don't break, and bringing the future to the present through cognitive computing.
+                </p>   
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Barak Krakauer | Data Scientist, Cognitive App Developer" 
+                open ={false}> 
+                <p>
+                  Email: Barak.Krakauer@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/barak-krakauer<br/> 
+                  Twitter: @barak_krakauer<br/>
+                  Fun Fact: I used to be a professor and taught philosophy.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Sandhya Iyer | Senior Consultant" 
+                open ={false}> 
+                <p>
+                  Email: Sandhya.R.Iyer@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/iyersandhya<br/> 
+                 
+                  Fun Fact: At school I was fondly known as Lord Varys! ( Ignore the negative streak)
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Asad Qureshi | Software Engineer" 
+                open ={false}> 
+                <p>
+                  Email: asquresh@us.ibm.com<br/>
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Layne Miao | Software Engineer" 
+                open ={false}> 
+                <p>
+                  Email: Layne.Miao@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/layne-miao<br/> 
+                  Twitter: @laynemiao <br/>
+                  Fun Fact: I like traveling, snowboarding and New England Patriots. The coolest place I've traveled is Osaka.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Aljosha Novakovic | Full Stack Software Engineer" 
+                open ={false}> 
+                <p>
+                  Email: Aljosha.Novakovic@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/aljosha-novakovic<br/> 
+                  Twitter: @yoshcode<br/>
+                  Fun Fact: A life goal of mine has always been to purchase a small Caribbean island. Work would mainly involve writing a few lines of code from the beach, and collecting coconuts.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Austin Riedel | Full Stack Software Engineer" 
+                open ={false}> 
+                <p>
+                  Email: Austin.Riedel@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/austin-riedel<br/> 
+                 
+                  Fun Fact: I went swimming with sharks in Hawaii.
+                </p>
+              </AccordionItem>
+
+              <AccordionItem 
+                title="Trinh Le | Frontend Developer &amp; UX Specialist" 
+                open ={false}> 
+                <p>
+                  Email: Trinh.Le@ibm.com<br/>
+                  LinkedIn: https://www.linkedin.com/in/trinh-le<br/> 
+                  Twitter: @uyentrinh194 <br/>
+                  Fun Fact: Before I joined IBM, I programmed and controlled a robot to mediate conflict between children ages 3-6.
+                </p>
+              </AccordionItem>
+
+
+
+
+
             
-            <br/>
-            <label className='bx--label'>
-            Expertise:
-            </label>
-            <p>Banjo some indie record that's much. Cooler than mine wonderstruck December pumpkin spice Loki I would. Very much like to be 1989 ex 13 Jake.
-            </p>
-             <br/>
-            <label className='bx--label'>
-              Fun Fact:
-            </label>
-            <p>
-            2 a.m. cat stickers cheer captain genius no chill. Vote for Taylor banana quinoa muffin. Shellback Scott Swift banana quinoa muffin Jaime King crop tops.
-            </p>
-            <a href='https://w3.ibm.com/bluepages/profile.html?uid=6G1808897'>Bluepages</a>
-            <br/>
-        </AccordionItem>
-        <AccordionItem 
-          title="Manoj Gaddam | AI Dev Solution Architect" > 
-            <img src={placeholderImage} style={profStyle}/> 
-            <br/>
-            <br/>
-            <label className='bx--label'>
-            Expertise:
-            </label>
-            <p>I'm on the bleachers breakup cat. Stickers club red Taylor Nation dear John 13 Management. Enchanted banjo mean sparks fly 13 Management eff sewing machines.
-            </p>
-             <br/>
-            <label className='bx--label'>
-              Fun Fact:
-            </label>
-            <p>
-            Awkward iHeart Radio the struggle is real fearless banana quinoa muffin. Banana quinoa muffin scottish fold Lily Aldridge take me. Somewhere we can be alone.
-            </p>
-            <a href='https://w3.ibm.com/bluepages/profile.html?uid=6G1808897'>Bluepages</a>
-            <br/>
-        </AccordionItem>
-      </Accordion>
 
-
-
+            </Accordion>
+            </div>
+          </Row>
+        </Col>
+      
 
    </div>
     )
