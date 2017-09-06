@@ -26,7 +26,7 @@ const TeamBios = () => {
         <Row>
           <div className={styles['tl-team-bio']}>
             <label className='bx--label'>
-              <h2 className={styles['tl-team-bio-title']}>Meet the Team</h2>
+              <h2 className={styles['tl-team-bio-title']}>Work with Us</h2>
             </label>
             <div className={styles['tl-team-bio-line']}></div>
               <p className={styles['example-p-style']}> 
