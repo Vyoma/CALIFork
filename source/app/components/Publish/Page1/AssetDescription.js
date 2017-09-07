@@ -9,7 +9,7 @@ import { TextArea, Tooltip} from 'carbon-components-react'
 import { Container, Row } from 'react-grid-system'
 import Col from '../../Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
-const PublishAssetDescription = ({ assetDescription, setAssetDescription }) => {
+const PublishAssetDescription = ({ validateInput, assetDescription, setAssetDescription }) => {
 
   const handleChange = (event) => {
     setAssetDescription(event.target.value)
@@ -29,6 +29,8 @@ const PublishAssetDescription = ({ assetDescription, setAssetDescription }) => {
         <TextArea
           className='some-class'
           labelText=''
+          invalid={assetDescription === '' && validateInput}
+          invalidText={'Please provide an asset description'}
           value={assetDescription}
           onChange={handleChange}
         />
