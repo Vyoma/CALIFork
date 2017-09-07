@@ -54,7 +54,7 @@ export const getTechnologyFilters = createSelector(
   (assetObjectsArray) => {
   	let technologyFilters = []; 
   	assetObjectsArray.forEach((asset) => {
-  		technologyFilters = technologyFilters.concat(asset.technologyStack); 
+  		technologyFilters = technologyFilters.concat(asset.technologies); 
   	}); 
   	technologyFilters = _.uniq(technologyFilters); 
   	technologyFilters = _.intersection(technologyConstantsArray, technologyFilters)
@@ -67,7 +67,7 @@ export const getClientFilters = createSelector(
   (assetObjectsArray) => {
   	let clientFilters = []; 
   	assetObjectsArray.forEach((asset) => {
-  		clientFilters = clientFilters.concat(asset.clientList); 
+  		clientFilters = clientFilters.concat(asset.clients); 
   	}); 
   	clientFilters = _.uniq(clientFilters); 
   	return clientFilters;
