@@ -14,7 +14,7 @@ export const REMOVE_ALL_ASSET_FILTERS = 'REMOVE_ALL_ASSET_FILTERS'
 export const SELECT_ASSET = 'SELECT_ASSET'
 
 import { SET_SEARCH_RESULTS_SUCCESS } from './search'
-import { PUBLISH_ASSET_SUCCESS } from './publish'
+import { INITIALIZE_ASSET, PUBLISH_ASSET_SUCCESS } from './publish'
 
 // ----------------------------- REDUCERS ----------------------------- //
 const initialState = {
@@ -85,6 +85,13 @@ const assets = ( state = initialState, action) => {
 					...action.items
 				]
 			}
+		case INITIALIZE_ASSET: {
+			return {
+				...state, 
+				publishedAssetID: null, 
+				publishedAssetObject: null,
+			}
+		}
 		case PUBLISH_ASSET_SUCCESS: 
 			return {
 				...state, 
