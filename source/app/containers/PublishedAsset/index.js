@@ -8,18 +8,22 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // ACTION CREATORS 
-import { fetchAssetThunk } from '../../state/assets' 
+import { getAssetThunk } from '../../state/modules/assets' 
+
+// SELECTORS 
+import { getSelectedAssetObject } from '../../state/selectors/assets'
 
 // STYLING
 import styles from '../../styles/assetPage.scss'
 
 class PublishedAssetPage extends Component {
-	// static fetchData(store, params) {
-	// 	let { assetID } = params
-	// 	if (assetID) {
-	// 	  return store.dispatch(fetchAssetThunk(assetID));		
-	// 	}
-	// }
+	static fetchData(store, params) {
+		let { assetID } = params
+		console.log(assetID); 
+		if (assetID) {
+		  return store.dispatch(getAssetThunk(assetID));		
+		}
+	}
 
   static propTypes = {
     assetObject: PropTypes.object.isRequired, 
@@ -150,13 +154,10 @@ class PublishedAssetPage extends Component {
     const teamBorderConst = teamHeightConst > infoHeightConst; 
     const infoBorder = teamBorderConst ? 'vertical-border-col-none' : 'vertical-border-col-right'
     const teamBorder = teamBorderConst ? 'vertical-border-col-left' : 'vertical-border-col-none'; 
-    console.log(infoBorder); 
-    console.log(teamBorder); 
-    console.log(styles[teamBorder]); 
-		console.log(styles["test-class"]);
+
     // HANDLE RENDERING VALID ROWS OF MEDIA ELEMENTS 
     let mediaElements = artifacts; 
-    mediaElements = mediaElements.filter((media) => media.hasOwnProperty('title')); 
+    mediaElements = mediaElements.filter((media) => media.hasOwnProperty('artifactTitle')); 
     const mediaElementRow1 = mediaElements.slice(0, 3); 
     const mediaElementRow2 = mediaElements.slice(3); 
     // console.log(mediaElementRow1);
@@ -203,16 +204,16 @@ class PublishedAssetPage extends Component {
 	            <Col md={12}>
 	              <h2 className={styles["tl-asset-secondary-title"]}>Asset Documentation</h2>
 	            </Col>
-	            {mediaElementRow1.map((media, i) => {
-	            	if (media.hasOwnProperty('title')) {
-	            		const { title, type, url } = media; 
+	            {mediaElementRow1.map((artifact, i) => {
+	            	if (artifact.hasOwnProperty('artifactTitle')) {
+	            		const { artifactTitle, artifactType, artifactURL } = artifact; 
 		            	return (
-		            		<Col md={4} key={i + '' + title} style={{ minHeight: 80, marginTop: 5, marginBottom: 10}}>
+		            		<Col md={4} key={i + '' + artifactTitle} style={{ minHeight: 80, marginTop: 5, marginBottom: 10}}>
 		            			<Row>	
 		            				<Col md={10}>
-		            					<h2 className={styles["tl-asset-member-body-text"]}>{type}</h2>
-		            					<a className={styles["ar-asset-member-name"]} target="_blank" href={url}>
-		            						{title}
+		            					<h2 className={styles["tl-asset-member-body-text"]}>{artifactType}</h2>
+		            					<a className={styles["ar-asset-member-name"]} target="_blank" href={artifactURL}>
+		            						{artifactTitle}
 		            					</a>
 		            				</Col>
 		            			</Row>
@@ -220,16 +221,16 @@ class PublishedAssetPage extends Component {
 		            	)
 		            }
 	            })}
-	            {mediaElementRow2.map((media, i) => {
-	            	if (media.hasOwnProperty('title')) {
-	            		const { title, type, url } = media; 
+	            {mediaElementRow2.map((artifact, i) => {
+	            	if (artifact.hasOwnProperty('artifactTitle')) {
+	            		const { _id, artifactTitle, artifactType, artifactURL } = artifact; 
 		            	return (
-		            		<Col md={4} key={i + '' + title} style={{ minHeight: 80}}>
+		            		<Col md={4} key={_id} style={{ minHeight: 80}}>
 		            			<Row>	
 		            				<Col md={10}>
-		            					<h2 className={styles["tl-asset-member-body-text"]}>{type}</h2>
-		            					<a className={styles["ar-asset-member-name"]} target="_blank" href={url}>
-		            						{title}
+		            					<h2 className={styles["tl-asset-member-body-text"]}>{artifactType}</h2>
+		            					<a className={styles["ar-asset-member-name"]} target="_blank" href={artifactURL}>
+		            						{artifactTitle}
 		            					</a>
 		            				</Col>
 		            			</Row>
@@ -250,7 +251,7 @@ class PublishedAssetPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  assetObject: state.assets.publishAssetObject
+  assetObject: state.assets.publishedAssetObject,   
 }); 
 
 const mapDispatchToProps = (dispatch) => ({
