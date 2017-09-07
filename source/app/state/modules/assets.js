@@ -88,8 +88,12 @@ const assets = ( state = initialState, action) => {
 		case PUBLISH_ASSET_SUCCESS: 
 			return {
 				...state, 
-				publishedAssetID: action.actionID, 
-				publishedAssetObject: action.actionObject
+				publishedAssetID: action.assetID, 
+				publishedAssetObject: action.assetObject,
+				items: [
+					...state.items, 
+					action.assetID
+				], 
 			}
 		default: 
 			return state; 
@@ -218,7 +222,7 @@ const shouldGetAllAssets = (assetState) => {
 
 	if (assetState.isFetching) {
 		return false; 
-	} else if (assetState.items.length > 0) {
+	} else if (assetState.items.length > 1) {
 		return false; 
 	} else {
 		return true; 
@@ -231,6 +235,9 @@ export const getAllAssetsConditionalThunk = () => {
 		if (shouldGetAllAssets(state.assets)) {
 			console.log('GETTING ALL ASSETS');
 			dispatch(getAllAssetsThunk()); 
+		} else {
+			const items = state.assets.items; 
+			// dispatch(setSearchResults())
 		}
 	}
 }
