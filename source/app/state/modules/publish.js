@@ -119,7 +119,10 @@ const publish = (state = initialDemoState, action) => {
       return {
         ...state,
         assetID: action.assetID, 
-        assetFolderID: action.assetFolderID
+        assetFolderID: action.assetFolderID,
+        isPending: false, 
+        isPublished: false, 
+        page: 0,
       }
     case SET_ASSET_TITLE:
       return {
@@ -280,8 +283,12 @@ export const initializeAsset = () => {
 export const initializeAssetConditional = () => {
   return (dispatch, getState) => {
     const state = getState(); 
+    console.log("ATTEMPING TO INITIALIZE PUBLISH")
     const assetID = state.publish.assetID; 
-    if (!assetID) {
+    const publishedAssetID = state.assets.publishedAssetID; 
+    if (assetID && publishedAssetID && assetID === publishedAssetID) {
+      dispatch(initializeAsset()); 
+    } else if (!assetID) {
       dispatch(initializeAsset()); 
     }
   }
