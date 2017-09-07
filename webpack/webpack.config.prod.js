@@ -6,13 +6,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
+const BUILD_DIR = path.resolve(__dirname, '../public');
+const SOURCE_DIR = path.resolve(__dirname, '../source');
+const STATIC_DIR = path.resolve(__dirname, '../static'); 
+
 module.exports = [
 	{
 		name: 'client',
 		target: 'web',
-		entry: './source/client/index.js',
+		entry: SOURCE_DIR + '/client/index.js',
 		output: {
-			path: path.join(__dirname, 'static'),
+			path: STATIC_DIR,
 			filename: 'client.js',
 			publicPath: '/static/',
 		},
@@ -73,9 +77,9 @@ module.exports = [
 	{
 		name: 'server',
 		target: 'node',
-		entry: './source/server/server.jsx',
+		entry: SOURCE_DIR + '/server/index.js',
 		output: {
-			path: path.join(__dirname, 'static'),
+			path: STATIC_DIR,
 			filename: 'server.js',
 			libraryTarget: 'commonjs2',
 			publicPath: '/static/',

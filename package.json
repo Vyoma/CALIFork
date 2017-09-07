@@ -12,7 +12,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node serve/development.js",
-    "test:dev": "node source/server/development.js"
+    "test:dev": "node source/server/development.js",
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js --progress --profile --colors",
+    "production": "node serve/production.js"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -49,6 +51,7 @@
     "optimize-css-assets-webpack-plugin": "^3.1.1",
     "redux-logger": "^3.0.6",
     "sass-loader": "^6.0.6",
+    "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.5",
     "webpack-cleanup-plugin": "^0.5.1",
