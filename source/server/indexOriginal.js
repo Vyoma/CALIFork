@@ -32,6 +32,7 @@ const store = createStore(reducers, applyMiddleware(thunk));
 export default function serverRenderer({ clientStats, serverStats }) {
 	return (req, res, next) => {
 
+		console.log('REQUEST TO SERVER RENDERER'); 
 		const branch = matchRoutes(routes, req.url);
 		const promises = branch.map(({ route, match }) => {
 		  let fetchData = route.component.fetchData;

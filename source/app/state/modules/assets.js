@@ -19,6 +19,8 @@ import { PUBLISH_ASSET_SUCCESS } from './publish'
 // ----------------------------- REDUCERS ----------------------------- //
 const initialState = {
 	items: [],
+	isFetching: false, 
+	// SELECTED 
 	selectedAsset: null, 
 	selectedAssetObject: null, 
 	fetchingAsset: false,
@@ -53,12 +55,19 @@ const assets = ( state = initialState, action) => {
 				...state, 
 				assetFilters: [] 
 			}
+		case GET_ALL_ASSETS_REQUEST: {
+			return {
+				...state, 
+				isFetching: true, 
+			}
+		}
 		case GET_ALL_ASSETS_SUCCESS: 
 		case SET_SEARCH_RESULTS_SUCCESS: {
 			return {
 				...state,
 				items: action.items,
 				clearAssets: false,
+				isFetching: false, 
 			}
 		}
 		case SELECT_ASSET: 
@@ -66,12 +75,7 @@ const assets = ( state = initialState, action) => {
 			return {
 				...state, 
 				selectedAsset: action.assetID, 
-			}
-		case PUBLISH_ASSET_SUCCESS: 
-			return {
-				...state, 
-				publishedAssetID: action.actionID, 
-				publishedAssetObject: action.actionObject
+				isFetching: true, 
 			}
 		case GET_ASSET_SUCCESS:
 			return {
@@ -81,21 +85,12 @@ const assets = ( state = initialState, action) => {
 					...action.items
 				]
 			}
-
-		// case FETCH_ASSET_SUCCESS: {
-		// 	return {
-		// 		...state, 
-		// 		fetchingAsset: false, 
-		// 		fetchedAssetObject: action.fetchedAssetObject, 
-		// 	}
-		// }
-		// case FETCH_ASSET_REQUEST: {
-		// 	return {
-		// 		...state, 
-		// 		fetchingAsset: true, 
-		// 		selectedAsset: action.assetID
-		// 	}
-		// }
+		case PUBLISH_ASSET_SUCCESS: 
+			return {
+				...state, 
+				publishedAssetID: action.actionID, 
+				publishedAssetObject: action.actionObject
+			}
 		default: 
 			return state; 
 	}
@@ -202,20 +197,41 @@ export const getAllAssetsThunk = () => {
 		dispatch(getAllAssetsRequest()); 
 		return mongoGetAll()
 		.then((assets) => {
-			// console.log("BODY IN THUNK")
 			let items = []; 
 			let entities = {}; 
 			assets.forEach((asset) => {
 				entities[`${asset.assetID}`] = asset; 
 				items.push(asset.assetID); 
 			})
-			// console.log(items); 
-			// console.log(JSON.stringify(entities, null, 2)); 
 			dispatch(getAllAssetsSuccess(items, entities)); 
 		}).catch((err) => {
 			console.log(`ERROR: ${err}`); 
 			dispatch(getAllAssetsFailure(err)); 
 		})
+	}
+}
+
+const shouldGetAllAssets = (assetState) => {
+	console.log('asset state'); 
+	console.log('isFetching', assetState.isFetching); 
+	console.log('items.length', assetState.items.length); 
+
+	if (assetState.isFetching) {
+		return false; 
+	} else if (assetState.items.length > 0) {
+		return false; 
+	} else {
+		return true; 
+	}
+}
+
+export const getAllAssetsConditionalThunk = () => {
+	return (dispatch, getState) => {
+		const state = getState(); 
+		if (shouldGetAllAssets(state.assets)) {
+			console.log('GETTING ALL ASSETS');
+			dispatch(getAllAssetsThunk()); 
+		}
 	}
 }
 

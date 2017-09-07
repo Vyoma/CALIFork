@@ -8,7 +8,7 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // ACTION CREATORS 
-import { addAssetFilter, removeAssetFilter, removeAllFilters } from '../../../state/assets' 
+import { addAssetFilter, removeAssetFilter, removeAllFilters } from '../../../state/modules/assets' 
 
 // SELECTORS 
 import { getIndustryFilters, getTechnologyFilters, getClientFilters } from '../../../state/selectors/filters' 

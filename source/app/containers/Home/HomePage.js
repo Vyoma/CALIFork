@@ -9,7 +9,7 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // ACTION CREATORS 
-import { getAllAssetsThunk, selectAsset } from '../../state/modules/assets' 
+import { getAllAssetsThunk, getAllAssetsConditionalThunk, selectAsset } from '../../state/modules/assets' 
 import { setSearchParameterThunk, searchAssetsThunk } from '../../state/modules/search' 
 
 // APP COMPONENTS
@@ -26,6 +26,12 @@ class HomePage extends Component {
     searchParameter: PropTypes.string.isRequired,
     searchSuggestions: PropTypes.array.isRequired, 
     searchResults: PropTypes.array.isRequired, 
+  }
+
+  componentWillMount = () => {
+    console.log('HOME PAGE WILL MOUNT'); 
+    const { getAllAssetsConditionalThunk } = this.props; 
+    getAllAssetsConditionalThunk(); 
   }
 
   handleChangeSearchParameter = (e) => {
@@ -107,6 +113,9 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllAssetsThunk: () => {
     dispatch(getAllAssetsThunk())
+  },
+  getAllAssetsConditionalThunk:  () => {
+    dispatch(getAllAssetsConditionalThunk())
   },
   selectAsset: (assetID) => {
     dispatch(selectAsset(assetID))

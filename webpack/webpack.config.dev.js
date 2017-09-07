@@ -1,4 +1,5 @@
 const path = require('path');
+  const nodeExternals = require('webpack-node-externals')
 
 const BUILD_DIR = path.resolve(__dirname, '../public');
 // const TEMPLATE = path.resolve(__dirname, '../public/index.html');
@@ -31,6 +32,10 @@ module.exports = [
 					]
 				},
 				{
+				  test: /\.json$/,
+				  loader: 'json-loader'
+				},
+				{
 					test: /\.scss$/,
 					use: [
 						{
@@ -47,11 +52,23 @@ module.exports = [
 						},
 						{
 							loader: 'sass-loader'
-						}
+						},
 					]
-				}
-			],
-		},
+				},
+				{
+				  test: /\.(jpg|png|svg)$/,
+				  loader: 'url-loader',
+				  options: {
+				    // limit: 25000,
+				    name: '[name].[ext]',
+				  },
+				},
+				{
+				  test: /\.(eot|ttf|woff|woff2)$/,
+				  loader: 'file-loader'
+				} 
+			]
+		}
 	},
 	{
 		name: 'server',
@@ -79,6 +96,10 @@ module.exports = [
 					]
 				},
 				{
+				  test: /\.json$/,
+				  loader: 'json-loader'
+				},
+				{
 					test: /\.scss$/,
 					use: [
 						{
@@ -97,8 +118,19 @@ module.exports = [
 							loader: 'sass-loader'
 						}
 					]
-				}
-			],
-		},
+				},
+				{
+				  test: /\.(jpg|png|svg)$/,
+				  loader: 'url-loader',
+				  options: {
+				    name: '[name].[ext]',
+				  },
+				},
+				{
+				  test: /\.(eot|ttf|woff|woff2)$/,
+				  loader: 'file-loader'
+				} 
+			]
+		} 
 	}
 ];

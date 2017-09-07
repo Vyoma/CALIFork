@@ -43,7 +43,6 @@ class AssetCard extends Component {
 		// const cardImage = assetCardImage ||'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg'; 
 		const placeholderImages = [0, 1081, 1079, 1075, 1067, 1064, 1053, 1048, 1042, 1021, 992, 989, 983, 980]; 
 		const randomImage = placeholderImages[Math.floor(Math.random() * (placeholderImages.length - 2))]; 
-		console.log(randomImage); 
 		const cardImage = `https://unsplash.it/400/180/?image=${randomImage}`
 		const renderCognitiveTagsBoolean = true; 
 		const cognitiveTags = technologies.slice(0,4) || []; 

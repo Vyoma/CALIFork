@@ -18,8 +18,8 @@ export const mongoGet = (assetID) => {
 	.then((response) => {
 		return response.json(); 
 	})
-	.catch((err) => {
-		return err; 
+	.catch((error) => {
+		throw new Error(error)
 	}); 
 }
 
@@ -34,8 +34,8 @@ export const mongoGetAll = () => {
 	.then((json) => {
 		return json.response; 
 	})
-	.catch((err) => {
-		return err; 
+	.catch((error) => {
+		throw new Error(error)
 	}); 
 }
 

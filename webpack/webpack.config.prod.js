@@ -5,6 +5,7 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const StatsPlugin = require('stats-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const nodeExternals = require('webpack-node-externals')
 
 const BUILD_DIR = path.resolve(__dirname, '../public');
 const SOURCE_DIR = path.resolve(__dirname, '../source');
@@ -36,6 +37,10 @@ module.exports = [
 					]
 				},
 				{
+				  test: /\.json$/,
+				  loader: 'json-loader'
+				},
+				{
 					test: /\.scss$/,
 					use: [
 						{
@@ -52,10 +57,22 @@ module.exports = [
 						},
 						{
 							loader: 'sass-loader'
-						}
+						},
+						{
+						  test: /\.(jpg|png|svg)$/,
+						  loader: 'url-loader',
+						  options: {
+						    limit: 25000,
+						    name: '[name].[ext]',
+						  },
+						},
+						{
+						  test: /\.(eot|ttf|woff|woff2)$/,
+						  loader: 'file-loader'
+						} 
 					]
-				}     
-			],
+				}
+			]
 		},
 		plugins: [
 			new webpack.DefinePlugin({
@@ -100,6 +117,10 @@ module.exports = [
 					]
 				},
 				{
+				  test: /\.json$/,
+				  loader: 'json-loader'
+				},
+				{
 					test: /\.scss$/,
 					use: ExtractTextPlugin.extract({
 						fallback: "isomorphic-style-loader",
@@ -118,7 +139,19 @@ module.exports = [
 							}
 						]
 					})
-				}
+				},
+				{
+				  test: /\.(jpg|png|svg)$/,
+				  loader: 'url-loader',
+				  options: {
+				    limit: 25000,
+				    name: '[name].[ext]',
+				  },
+				},
+				{
+				  test: /\.(eot|ttf|woff|woff2)$/,
+				  loader: 'file-loader'
+				}  
 			],
 		},
 		plugins: [
