@@ -9,7 +9,8 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // ACTION CREATORS 
-import { fetchAllAssetsThunk, setSearchParameterThunk, searchAssetsThunk } from '../../state/search' 
+import { getAllAssetsThunk, selectAsset } from '../../state/modules/assets' 
+import { setSearchParameterThunk, searchAssetsThunk } from '../../state/modules/search' 
 
 // APP COMPONENTS
 import Autocomplete from '../../components/Autocomplete/Autocomplete'
@@ -17,7 +18,8 @@ import SearchResults from './SearchResults/SearchResults'
 
 class HomePage extends Component {
 	static fetchData(store, params) {
-	  return store.dispatch(fetchAllAssetsThunk());
+    console.log('GETTING ALL ASSETS'); 
+	  return store.dispatch(getAllAssetsThunk());
 	}
 
   static propTypes = {
@@ -43,8 +45,8 @@ class HomePage extends Component {
   }
 
   handleSelectAsset = (assetID) => {
-  	const { selectAssetThunk } = this.props; 
-  	selectAssetThunk(assetID);
+  	const { selectAsset } = this.props; 
+  	selectAsset(assetID);
 
   	// TODO: REFACTOR TO WORK AS LINK 
   	// -> SERVER CAN MAKE REQUEST TO MONGODB OBJECT  
@@ -54,7 +56,12 @@ class HomePage extends Component {
   }
 
   render() {
-  	const { searchParameter, searchSuggestions, showSearchSuggestions } = this.props; 
+  	const { assetItems, assetEntities, searchResults, selectedAssetID, searchParameter, searchSuggestions, showSearchSuggestions } = this.props; 
+
+    // RENDER REDIRECT FOR SELECT ASSET 
+    // console.log('assetItems: ', assetItems); 
+    // console.log(Object.keys(assetEntities)); 
+    // console.log('searchResults', searchResults); 
 
   	return (
   		<Container fluid={true}>
@@ -89,12 +96,20 @@ const mapStateToProps = (state, ownProps) => ({
   searchSuggestions: state.search.searchSuggestions, 
   searchResults: state.search.searchResults, 
   fetchingResults: state.search.fetchingResults, 
-  showSearchSuggestions: state.search.showSearchSuggestions, 
+  showSearchSuggestions: state.search.showSearchSuggestions,
+  // TODO: IMPLEMENT LOGIC HERE 
+  selectedAssetID: null, 
+  assetItems: state.assets.items,  
+  assetEntities: state.entities.assets, 
+
 }); 
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAllAssetsThunk: () => {
-    dispatch(fetchAllAssetsThunk())
+  getAllAssetsThunk: () => {
+    dispatch(getAllAssetsThunk())
+  },
+  selectAsset: (assetID) => {
+    dispatch(selectAsset(assetID))
   },
   setSearchParameterThunk: (searchParameter) => {
     dispatch(setSearchParameterThunk(searchParameter))
@@ -102,18 +117,6 @@ const mapDispatchToProps = (dispatch) => ({
   searchAssetsThunk: (searchParameter) => {
     dispatch(searchAssetsThunk(searchParameter))
   },
-  selectAssetThunk: (assetID) => {
-    dispatch(selectAssetThunk(assetID))
-  },
-  // navToAssetPage: (assetTitle) => {
-  //   dispatch(navToAssetPage(assetTitle))
-  // },
-  // blurSearchSuggestions: () => {
-  //   dispatch(blurSearchSuggestions())
-  // },
-  // focusSearchSuggestions: () => {
-  //   dispatch(focusSearchSuggestions())
-  // },
 }); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

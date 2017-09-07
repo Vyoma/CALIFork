@@ -1,6 +1,7 @@
 // REACT
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 // REACT-GRID-SYSTEM
 import { Container, Row } from 'react-grid-system'
@@ -11,6 +12,8 @@ import { Icon, Button } from 'carbon-components-react'
 
 // SEARCH ICON
 // import searchIcon from '../../resources/search-icon.svg'
+// STYLES
+import styles from '../../styles/styles.scss'
 
 class Autocomplete extends Component {
 	static propTypes = {
@@ -65,8 +68,8 @@ class Autocomplete extends Component {
 
 		if (searchParameter === '' && dropdownOpen) {
 			return (
-				<div className="ar-autocomplete-suggestion-div">
-					<p className="ar-autocomplete-suggestion-text">Suggested Inputs: Keywords, Asset Title, Name</p>
+				<div className={styles["ar-autocomplete-suggestion-div"]}>
+					<p className={styles["ar-autocomplete-suggestion-text"]}>Suggested Inputs: Keywords, Asset Title, Name</p>
 				</div>
 			)
 		} else if (searchSuggestions && dropdownOpen) {
@@ -77,21 +80,23 @@ class Autocomplete extends Component {
 							const { suggestionText, suggestionType, assetID } = suggestion; 
 							if (suggestionType === 'asset') {
 								return (
-									<li 
-										key={`${i}-${suggestionText}`} 
+									<Link 
+										key={assetID} 
 										className="bx--dropdown-link" 
+										to={`/asset/${assetID}`}
 										onClick={() => this.handleSelectAsset(assetID)}>
+									>
 										{suggestionText}
-									</li>
+									</Link>
 								)
 							// HANDLE THE DIVIDERS
 							} else if (suggestionType === 'divider') {
 								return (
 									<li 
 										key={`${i}-${suggestionText}`} 
-										className="ar-dropdown-divider">
-										<p className="ar-dropdown-divider-text">{suggestionText}</p>
-										<div className="ar-dropdown-divider-div"></div>
+										className={styles["ar-dropdown-divider"]}>
+										<p className={styles["ar-dropdown-divider-text"]}>{suggestionText}</p>
+										<div className={styles["ar-dropdown-divider-div"]}></div>
 									</li>
 								)
 							// HANDLE NORMAL SEARCH FUNCTIONALITY
@@ -123,8 +128,8 @@ class Autocomplete extends Component {
 
 		return (
 			<Container fluid={true}>
-				<Row>
-					<Col md={12}>
+				<Row style={{marginTop: 40}}>
+					<Col md={6} offset={{md: 3}}>
 						<div>
 							<form className="bx--form-item" onSubmit={this.handleSubmit} autoComplete="off">
 							  <input 
@@ -135,7 +140,7 @@ class Autocomplete extends Component {
 							  	value={searchParameter}
 							  	onChange={this.handleSearchInput}
 							  />
-							  <Icon className='ar-search-icon' name="search" />
+							  <Icon className={styles["ar-search-icon"]} name="search" />
 						  </form>
 						</div>
 						{this.renderDropdown()}

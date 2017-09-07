@@ -29,19 +29,19 @@ class SearchResults extends Component {
 	}
 
 	render() {
-		const { fetchingResults, filteredResults } = this.props; 
+		const { searchResults, fetchingResults, filteredResults } = this.props; 
 
-		if (fetchingResults) {
-			return (
-				<Container fluid={true}>
-					<Row>
-						<Col sm={12} md={12}>
-							<Loading className="some-class" />
-						</Col>
-					</Row>
-				</Container>
-			)
-		}
+		// if (fetchingResults) {
+		// 	return (
+		// 		<Container fluid={true}>
+		// 			<Row>
+		// 				<Col sm={12} md={12}>
+		// 					<Loading className="some-class" />
+		// 				</Col>
+		// 			</Row>
+		// 		</Container>
+		// 	)
+		// }
 
 		return (
 			<Container fluid={true}>
@@ -72,6 +72,7 @@ class SearchResults extends Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
+	searchResults: state.search.searchResults, 
   filteredResults: getFilteredResults(state), 
   fetchingResults: state.search.fetchingResults,
 }); 
