@@ -2,10 +2,10 @@
 import { combineReducers } from 'redux'
 
 // REDUCERS
-import assets from './assets'
-import entities from './entities'
-import search from './search'
+import assets from './modules/assets'
+import search from './modules/search'
 import publish from './modules/publish'
+import entities from './modules/entities'
 
 const rootReducer = combineReducers({
 	assets, 
