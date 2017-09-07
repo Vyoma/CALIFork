@@ -288,3 +288,45 @@ html, body {
 .ar-checkbox-filter {
 	height: 30px;
 }
+
+// ---------------------- AUTOCOMPLETE ----------------------//
+
+.ar-autocomplete-suggestion-div { 
+	margin-right: 25%; 
+	margin-left: 25%;
+}
+
+.ar-autocomplete-suggestion-text { 
+	padding-right: 20px; 
+	padding-left: 15px; 
+	font-weight: 300; 
+}
+
+.ar-dropdown-divider {
+	display: flex; 
+}
+
+.ar-dropdown-divider-text {
+	// display: inline;
+	margin: 5px; 
+	margin-left: 15px;
+	font-weight: 500;
+}
+
+.ar-dropdown-divider-div {
+	display: block; 
+	border-bottom: 1px solid $ui05; 
+	flex-shrink: 0;
+	flex-grow: 1;
+	flex-basis: auto;
+	align-self: center;
+	margin-right: 10px;
+	margin-left: 5px;
+	margin-top: 3px;
+}
+
+.ar-search-icon {
+	position: relative; 
+	top: -35px; 
+	left: 95%; 
+}
