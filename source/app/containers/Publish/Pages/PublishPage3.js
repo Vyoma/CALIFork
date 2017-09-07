@@ -23,19 +23,17 @@ class PublishPage3 extends Component {
 	}
 
 	handlePublishAsset = () => {
-		// TODO: DEFINE PUBLISH ASSET ACTION
-		// -> CALL TO ROOT SERVICE
 		const { publishAssetThunk } = this.props; 
 		console.log("PUBLISHING ASSET")
 		publishAssetThunk(); 
 	}
 
   render () {
-    const { setPrevPage, assetID, assetTitle, assetOwner, assetType, assetContributors, artifacts, technologyTags, industryTags, clientTags, publishedAssetBool } = this.props
+    const { setPrevPage, assetID, assetTitle, assetOwner, assetType, assetContributors, artifacts, technologyTags, industryTags, clientTags, isPublished } = this.props
 
     // HANDLE NAVIGATION TO ASSET PAGE
-    if (publishedAssetBool) {
-    	return <Redirect from="/publish" to="/publishedasset"/>
+    if (isPublished) {
+    	return <Redirect from="/publish" to={`/publish/asset/${assetID}`}/>
     }
 
     return (
@@ -85,6 +83,7 @@ class PublishPage3 extends Component {
 
 
 const mapStateToProps = (state, ownProps) => ({
+	assetID: state.publish.assetID, 
   assetTitle: state.publish.assetTitle,
   assetType: state.publish.assetType,
   assetOwner: state.publish.assetOwner,
@@ -93,7 +92,8 @@ const mapStateToProps = (state, ownProps) => ({
   clientTags: state.publish.clientTags,
   industryTags: state.publish.industryTags,
   technologyTags: state.publish.technologyTags,
-  publishedAssetBool: state.publish.publishedAssetBool
+  // publishedAssetBool: state.publish.publishedAssetBool,
+  isPublished: state.publish.isPublished, 
 })
 
 const mapDispatchToProps = (dispatch) => ({

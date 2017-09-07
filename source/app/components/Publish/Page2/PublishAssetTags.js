@@ -15,6 +15,27 @@ import { addTechnologyTag, addClientTag, addIndustryTag,
 
 // SELECTORS 
 import { getUniqueIndustries, getUniqueTechnologies, getUniqueClients } from '../../../state/selectors/publish'
+
+const industryArray = [
+  "Aerospace & Defense",
+  "Automotive",
+  "Banking",
+  "Chemical & Petroleum",
+  "Consumer Products",
+  "Education",
+  "Electronics",
+  "Energy and Utilities",
+  "Financial Markets",
+  "Government",
+  "Healthcare & Life Sciences",
+  "Industrial Products",
+  "Insurance",
+  "Media & Entertainment",
+  "Retail",
+  "Telecommunications",
+  "Travel & Transportation",
+  "Wholesale Distribution & Services",
+]
   // APP COMPONENTS
 
 const listTags = (tags) => {
@@ -31,23 +52,22 @@ const listTags = (tags) => {
 }
 
 const editTags = (tags, deleteCategoryTag) => {
-  console.log('the delete function is: ', deleteCategoryTag)
   let displayTable = tags.length > 0
   if (displayTable) {
     return (
       tags.map((tag, index) => {
         return (
-            <Button 
-              kind='ghost' 
-              href='#' 
-              className='some-class' 
-              key={'delete'+index} 
-              icon='delete' 
-              iconDescription='delete'
-              onClick={()=>{
-                deleteCategoryTag(index)
-              }}
-              small>{tag}</Button>
+          <Button 
+            kind='ghost' 
+            href='#' 
+            className='some-class' 
+            key={'delete'+index} 
+            icon='delete' 
+            iconDescription='delete'
+            onClick={()=>{
+              deleteCategoryTag(index)
+            }}
+            small>{tag}</Button>
         )
       })
     )
@@ -56,17 +76,15 @@ const editTags = (tags, deleteCategoryTag) => {
 
 
 class PublishAssetTags extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      technology: '',
-      industry: '',
-      client: '',
-      editTechnology: false,
-      editIndustry: false,
-      editClient: false
-    }
+  state = {
+    technology: '',
+    industry: '',
+    client: '',
+    editTechnology: false,
+    editIndustry: false,
+    editClient: false
   }
+
   handleEditTag = (event) => {
     console.log(event)
     if (event.hasOwnProperty('target')) {
@@ -85,20 +103,36 @@ class PublishAssetTags extends Component {
       })
     }
   }
+
   handleAddIndustryTag = () => {
     // console.log('in add industry', this.state.industry)
+    const { industry } = this.state; 
+    if (industry === '') {
+      return; 
+    }
+
     this.props.addIndustryTag(this.state.industry)     
     this.setState({
       industry: ''
     })
   }
   handleAddTechnologyTag = () => {
+    const { technology } = this.state; 
+    if (technology === '') {
+      return; 
+    }
+
     this.props.addTechnologyTag(this.state.technology)     
     this.setState({
       technology: ''
     })
   }
   handleAddClientTag = () => {
+    const { client } = this.state; 
+    if (client === '') {
+      return; 
+    }
+
     this.props.addClientTag(this.state.client)     
     this.setState({
       client: ''
@@ -195,12 +229,10 @@ class PublishAssetTags extends Component {
                   className='some-class'
                   id='industry'
                   value={this.state.industry}
-                  defaultText='Add Industry' >
-                  <DropdownItem itemText='Media & Entertainment' value='mediaEntertainment' />
-                  <DropdownItem itemText='Distribution' value='distribution' />
-                  <DropdownItem itemText='Energy & Utilities' value='energyUtilities' />
-                  <DropdownItem itemText='Financial Services' value='financialServices' />
-                  <DropdownItem itemText='Other' value='other' />
+                  defaultText='Add Industry'>
+                  {industryArray.map((i) => (
+                    <DropdownItem key={i} itemText={i} value={i} />
+                  ))}
                 </Dropdown>
               </Col>
               <Col md={2}>

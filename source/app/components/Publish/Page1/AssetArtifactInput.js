@@ -28,71 +28,58 @@ const LOCAL_ModalHeaderComponent = () => (
 	</div>
 )
 
-const initialState = {
-  type: '',
-  url: '',
-  name: '',
-  // fileName: '',
-  description: '',
-  confidential: false, 
-  open: false,
-  file: null, 
-}
+// NOTE: SAVING IN CASE WE NEED TO EXPAND THE EXPLANATION OF THE TOGGLE
+const LOCAL_ToggleConfidential = ({ confidential, handleToggle}) => (
+  <Container fluid={true}>
+    <Row>
+      <Col md={8}>
+      </Col>
+      <Col md={4}>
+        <p>{confidential ? 'IBM CONFIDENTIAL' : 'IBM SHAREABLE'}</p>
+      </Col>
+    </Row>
+  </Container>
+)
 
-const initialTestState = {
-  type: 'Whitepaper',
-  url: '',
-  name: 'Test Whitepaper-v2',
-  // fileName: '',
-  description: 'I am testing the upload for a document',
+const initialState = {
+  artifactType: '',
+  artifactTitle: '',
+  artifactURL: '',
+  artifactDescription: '',
   confidential: false, 
   open: false,
-  file: null, 
+  file: null,
+  validateInput: false,  
 }
 
 class PublishAddAssetModal extends Component {
-	state = initialTestState
+	state = initialState
 
   handleChangeType = (event) => {
-  	const type = event.target.value
-    this.setState({ type }); 
+  	const artifactType = event.target.value
+    console.log(artifactType); 
+    this.setState({ artifactType }); 
   }
 
-  handleChangeName = (event) => {
-  	const name = event.target.value
-    this.setState({ name }); 
+  handleChangeTitle = (event) => {
+  	const artifactTitle = event.target.value
+    this.setState({ artifactTitle }); 
   }
 
   handleChangeUrl = (event) => {
-  	const url = event.target.value
-    this.setState({ url }); 
+  	const artifactURL = event.target.value
+    this.setState({ artifactURL }); 
   }
 
   handleChangeDescription = (event) => {
-		const description = event.target.value
-	  this.setState({ description }); 
+		const artifactDescription = event.target.value
+	  this.setState({ artifactDescription }); 
   }
 
   handleToggle = (event) => {
   	let { confidential } = this.state; 
   	this.setState({ confidential: !confidential }); 
   }
-
-  // handleUpload = (event) => {
-  //   event.stopPropagation();    
-  //   let files = event.target.files
-  //   console.log('files', files)
-  //   this.props.startFileLoad()
-  //   if (files.length > 0) {
-  //     let singleFile = files[0]
-  //     this.setState({fileName: singleFile.name})
-  //     this.props.getAssetTags(files)
-  //   }
-
-  //   // TODO: TRIGGER UPLOAD THUNK 
-  //   // -> SET LOAD
-  //   // -> SEND TO BARAK
-  // }
 
   handleUpload = (event) => {
     event.stopPropagation(); 
@@ -102,7 +89,6 @@ class PublishAddAssetModal extends Component {
       return; 
     }
 
-    // 
     const { getAssetTagsThunk } = this.props; 
     let file = files[0]
     getAssetTagsThunk(file); 
@@ -110,27 +96,29 @@ class PublishAddAssetModal extends Component {
   }
 
   handleSubmit = (event) => {
-    console.log('FIRING SUBMIT')
     event.preventDefault(); 
     const { addAssetArtifactThunk } = this.props; 
 
     // ERROR HANDLING FOR BLANK FIELDS 
-    const { name, type, description, url, file } = this.state; 
-    if (!name || !type || !description || (!url && !file)) {
+    const { artifactTitle, artifactType, artifactDescription, artifactURL, file } = this.state; 
+    if (!artifactTitle || !artifactType || !artifactDescription || (!artifactURL && !file)) {
+      console.log('ABORTING SUBMIT DUE TO MISSING PARAMETERS')
+      this.setState({ validateInput: true }); 
       return; 
     }
 
+    // CALL ADD THUNK 
     addAssetArtifactThunk(this.state)
 
     // RESET TO INITIAL STATE AND CLOSE MODAL
     this.setState({
-      type: '',
-      name: '',
-      url: '',
-      // fileName: '',
-      description: '',
-      confidential: false,
       file: null, 
+      artifactTitle: '',
+      artifactType: '',
+      artifactURL: '',
+      artifactDescription: '',
+      confidential: false,
+      validateInput: false, 
     })
     this.handleCloseModal()
   }
@@ -149,8 +137,8 @@ class PublishAddAssetModal extends Component {
   }
 
   renderConditionalArtifactInterface = () => {
-    let { type } = this.state; 
-    const renderInterface = type !== ''; 
+    let { artifactType, artifactURL } = this.state; 
+    const renderInterface = artifactType !== ''; 
 
     // ESCAPE IF WE HAVEN"T SELECTED A TYPE; 
     if (!renderInterface) {
@@ -159,7 +147,7 @@ class PublishAddAssetModal extends Component {
 
     // DETERMINE TYPE 
     const links = ['Demo Video Link','Code Repo','Reference Website']
-    const interfaceType = links.includes(type) ? 'link' : 'file'; 
+    const interfaceType = links.includes(artifactType) ? 'link' : 'file'; 
     let interfaceComponent; 
 
 
@@ -188,8 +176,10 @@ class PublishAddAssetModal extends Component {
 		    		<TextInput
 		          labelText='URL:'
 		          id='URL'
-		          value={this.state.url}
+		          value={artifactURL}
 		          onChange={this.handleChangeUrl}
+              invalid={artifactURL === '' && validateInput}
+              invalidText='Please provide a link to this artifact'
 		        />
 		      </Col>
 		    </Row>
@@ -204,7 +194,7 @@ class PublishAddAssetModal extends Component {
   }
 
   render () {
-    let { type, open } = this.state; 
+    let { artifactTitle, artifactType, artifactDescription, confidential, open, validateInput } = this.state; 
 
     return (
       <Row style={{marginTop: 20}}>
@@ -217,30 +207,37 @@ class PublishAddAssetModal extends Component {
             handleSubmit={this.handleSubmit}
             handleOpen={this.handleOpenModal}
             handleClose={this.handleCloseModal}
+            styles={{maxHeight: '90%'}}
           >
             <LOCAL_ModalHeaderComponent />
             {/* Artifact Type Picker */}
             <SelectArtifactType
-              type={type}
+              type={artifactType}
+              invalid={artifactType === '' && validateInput}
               handleChangeType={this.handleChangeType}
             />
             {/* Artifact File Name Text Input */}
             <TextInput
-              labelText='Artifact Name:'
+              labelText='Artifact Title:'
               id='FileName'
-              placeholder='Artifact Name to be displayed'
-              value={this.state.name}
-              onChange={this.handleChangeName}
+              placeholder='Artifact Title to be displayed'
+              value={artifactTitle}
+              onChange={this.handleChangeTitle}
+              invalid={artifactTitle === '' && validateInput}
+              invalidText='Please enter a title for this artifact'
             />
-            {this.renderConditionalArtifactInterface()}
             <TextArea
               labelText='Artifact Description:'
               placeholder='Short description of artifact uploaded'
               disabled={false}
-              value={this.state.description}
+              value={artifactDescription}
               onChange={this.handleChangeDescription}
+              invalid={artifactDescription === '' && validateInput}
+              invalidText='Please enter a description for this artifact'
+              rows={2}
             />
-            <Toggle onToggle={this.handleToggle} className="some-class" id="toggle-1" toggled={this.state.confidential}/>
+            {this.renderConditionalArtifactInterface()}
+            <Toggle id="toggle-1" labelA="IBM Shareable" labelB="Confidential" onToggle={this.handleToggle}/>
           </ModalWrapper>
         </Col>
       </Row>

@@ -66,7 +66,7 @@ class ModalWrapper extends Component {
     return (
       <div onKeyDown={this.handleKeyDown}>
         <Button onClick={this.props.handleOpen}>{buttonTriggerText}</Button>
-        <Modal {...props}>
+        <Modal {...props} style={{minHeight: '90% !important'}}>
           {this.props.children}
         </Modal>
       </div>

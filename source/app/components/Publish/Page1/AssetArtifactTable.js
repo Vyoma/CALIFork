@@ -8,7 +8,7 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // CARBON COMPONENTS
-import { Tooltip, Button, Table, TableHead, TableRow, TableHeader, TableBody, TableData} from 'carbon-components-react'
+import { Tooltip, Button, Table, TableHead, TableRow, TableHeader, TableBody, TableData, Loading } from 'carbon-components-react'
 
 // APP COMPONENTS
 import ModalWrapper from './ModalWrapper.js'
@@ -34,11 +34,12 @@ class AssetArtifactTable extends Component {
     if (displayTable) {
       return (
         artifacts.map((artifact, index) => {
+          const { artifactTitle, artifactType, artifactURL } = artifact; 
           return (
             <TableRow key={index}>
-              <TableData>{artifact.title}</TableData>
-              <TableData>{artifact.type}</TableData>
-              {artifact.url && <TableData>{artifact.url}</TableData>}
+              <TableData>{artifactTitle}</TableData>
+              <TableData>{artifactType}</TableData>
+              <TableData>{artifactURL}</TableData>
               <TableData>
                 <Button
                   kind='ghost'
@@ -94,6 +95,9 @@ class AssetArtifactTable extends Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => ({
+  loading: state.publish.loading,
+})
 
 const mapDispatchToProps = (dispatch) => ({
   deleteArtifactThunk: (index) => {

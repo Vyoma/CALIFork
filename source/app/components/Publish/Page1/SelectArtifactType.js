@@ -9,7 +9,11 @@ import { Select, SelectItem } from 'carbon-components-react'
 import { Container, Row } from 'react-grid-system'
 import Col from '../../Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
-const SelectArtifactType = ({ type, handleChangeType }) => {
+const SelectArtifactType = ({ type, invalid, handleChangeType }) => {
+	if (invalid) {
+		type = 'invalid'
+	}
+
 	// NOTE: The empty string will be used as the placeholder select item
 	return (
 		<Select className='some-class' labelText='Artifact Type' id='select-1' value={type} onChange={handleChangeType}>
@@ -19,6 +23,12 @@ const SelectArtifactType = ({ type, handleChangeType }) => {
 		    value=''
 		    text='Select Artifact Type'
 		   />
+		   <SelectItem
+		     disabled
+		     hidden
+		     value='invalid'
+		     text='Artifact Type is Required'
+		    />
 		  <SelectItem value='Contracts' text='Contracts' />
 		  <SelectItem value='Business Use Case' text='Business Use Case' />
 		  <SelectItem value='Whitepaper' text='Whitepaper' />

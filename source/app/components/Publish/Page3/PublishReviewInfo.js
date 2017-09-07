@@ -56,11 +56,12 @@ class PublishReviewInfo extends Component {
 	  if (displayArtifactTable) {
 	    return (
 	        artifacts.map((artifact, index) => {
+	        	const { artifactTitle, artifactType, artifactURL } = artifact; 
 	          return (
 	            <TableRow key={index}>
-	              <TableData>{artifact.title}</TableData>
-	              <TableData>{artifact.type}</TableData>
-	              {artifact.url && <TableData>{artifact.url}</TableData>}
+	              <TableData>{artifactTitle}</TableData>
+	              <TableData>{artifactType}</TableData>
+	              <TableData>{artifactURL}</TableData>
 	            </TableRow>
 	          )
 	        })

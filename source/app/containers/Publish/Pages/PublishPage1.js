@@ -8,10 +8,10 @@ import { Container, Row } from 'react-grid-system'
 import Col from '../../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERVERS SIDE RENDERING
 
 // CARBON COMPONENTS
-import { Module, ModuleHeader, ModuleBody, Button } from 'carbon-components-react'
+import { Module, ModuleHeader, ModuleBody, Button, Loading } from 'carbon-components-react'
 
 // ACTION CREATORS
-import { setAssetTitle, setAssetType, setAssetOwner, setAssetContributor, setAssetDescription, setNextPage, setPrevPage } from '../../../state/modules/publish'
+import { setAssetTitle, setAssetType, setAssetDescription, getTagsFromStringThunk, setAssetOwner, setAssetContributor, setNextPage, setPrevPage } from '../../../state/modules/publish'
 
 // APP COMPONENTS
 import PublishAssetTitle from '../../../components/Publish/Page1/AssetTitle'
@@ -25,12 +25,21 @@ import PublishAddAssetModal from '../../../components/Publish/Page1/AssetArtifac
 import PublishAssetArtifactTable from '../../../components/Publish/Page1/AssetArtifactTable.js'
 
 class PublishPage1 extends Component {
+
+  handleDescriptionBlur = () => {
+    console.log('DESCRIPTION BLUR!'); 
+    const { assetDescription, getTagsFromStringThunk } = this.props; 
+    if (assetDescription) {
+      getTagsFromStringThunk(assetDescription)
+    }
+  }
+
   render () {
     const { 
       // STATE
-      assetDescription, assetContributors, artifacts, assetTitle, assetType, assetOwner,
+      assetDescription, assetContributors, artifacts, assetTitle, assetType, assetOwner, loading, 
       // ACTIONS
-      setAssetTitle, setAssetType, setAssetOwner, setAssetContributor, setNextPage
+      setAssetTitle, setAssetType, setAssetDescription, setAssetOwner, setAssetContributor, setNextPage
     } = this.props;
 
     return (
@@ -58,6 +67,9 @@ class PublishPage1 extends Component {
 
   	              {/* Added Asset Artifacts */}
   	              <PublishAssetArtifactTable artifacts={artifacts} />
+                  {loading && (
+                    <Loading small withOverlay={false} style={{marginLeft: '50%'}}/>
+                  )}
 
   	              {/* Add Asset Artifacts */}
   	              <PublishAddAssetModal />
@@ -88,6 +100,7 @@ const mapStateToProps = (state, ownProps) => ({
   assetDescription: state.publish.assetDescription,
   assetContributors: state.publish.assetContributors,
   artifacts: state.publish.artifacts,
+  loading: state.publish.loading, 
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -97,13 +110,16 @@ const mapDispatchToProps = (dispatch) => ({
   setAssetType: (assetType) => {
     dispatch(setAssetType(assetType))
   },
+  setAssetDescription: (assetDescription) => {
+    dispatch(setAssetDescription(assetDescription))
+  },
+  getTagsFromStringThunk: (assetDescription) => {
+    dispatch(getTagsFromStringThunk(assetDescription))
+  },
   setAssetOwner: (ownerSubType, value) => {
     dispatch(setAssetOwner(ownerSubType, value))
   },
   setAssetContributor: (contributor) => {
-    dispatch(setAssetContributor(contributor))
-  },
-  setAssetDescription: (contributor) => {
     dispatch(setAssetContributor(contributor))
   },
   setNextPage: () => {

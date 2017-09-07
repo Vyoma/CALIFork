@@ -50,7 +50,7 @@ class PublishPage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  page: state.publish.page
+  page: state.publish.page,
 })
 
 const mapDispatchToProps = (dispatch) => ({
