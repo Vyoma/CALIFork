@@ -52,9 +52,6 @@ export const getUniqueTechnologies = createSelector(
 export const getUniqueClients = createSelector(
   [getClients],
   (clients) => {
-  	clients = clients.filter((i) => typeof i === 'string').map((i) => i.toLowerCase()); 
-  	clients = _.uniq(clients); 
-  	clients = clients.map((i) => formatString(i)); 
   	return clients; 
   }
 )

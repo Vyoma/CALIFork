@@ -40,6 +40,7 @@ export const technologyConstantsArray = [
 export const getIndustryFilters = createSelector(
   [getAssetObjectsArray],
   (assetObjectsArray) => {
+  	console.log(assetObjectsArray); 
   	let industryFilters = []; 
   	assetObjectsArray.forEach((asset) => {
   		industryFilters = industryFilters.concat(asset.industries); 

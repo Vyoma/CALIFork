@@ -6,15 +6,21 @@ const getAssetEntities = (state) => state.entities.assets
 export const getAssetObjectsArray = createSelector(
   [getAssetItems, getAssetEntities],
   (assetItems, assetEntities) => {
-  	return assetItems.map((c) => assetEntities[`${c}`])
+  	return assetItems.map((c) => assetEntities[`${c}`]).filter((c) => c); 
   }
 )
 
+const getParameterAssetID = (state, props) => props.match.params.assetID; 
 const getSelectedAssetID = (state) => state.assets.selectedAsset
 export const getSelectedAssetObject = createSelector(
-  [getSelectedAssetID, getAssetEntities],
-  (selectedAssetID, assetEntities) => {
-  	return assetEntities[`${selectedAssetID}`]; 
+  [getSelectedAssetID, getParameterAssetID, getAssetEntities],
+  (selectedAssetID, parameterID, assetEntities) => {
+    const assetID = parameterID || selectedAssetID; 
+    console.log(`parameterID ${parameterID}`)
+    console.log(`selectedAssetID ${selectedAssetID}`)
+    console.log(`assetID ${assetID}`)
+    console.log(Object.keys(assetEntities)); 
+  	return assetEntities[`${assetID}`]; 
   }
 )
 
@@ -67,8 +73,10 @@ export const getFilteredResults = createSelector(
   [getSearchResultsObjectsArray, getAssetFilters],
   (searchResults, assetFilters) => {
     if (assetFilters.length === 0) {
+      searchResults = _.uniq(searchResults);
       return searchResults; 
     } else {
+      searchResults = _.uniq(searchResults); 
       return searchResults.filter((asset) => assetFilterFn(asset, assetFilters))
     }
   }
