@@ -1,3 +1,18 @@
-.example-p-style {
-	color: blue; 
+// Team Overview
+.tl-team-bio{
+	padding-left:50px;
+	padding-right:50px;
+	color:#152935;
+	font-size: 1rem;
+	font-family: 'IBM Helvetica', 'Helvetica Neue', 'HelveticaNeue', Helvetica, sans-serif;
+}
+.tl-team-bio-title{
+	font-weight: 600;
+	font-size: 1.625rem;
+	padding: 1rem 0 0.5rem;
+}
+.tl-team-overview{
+	padding-top:20px;
+	padding-left:50px;
+	padding-right:50px;
 }
