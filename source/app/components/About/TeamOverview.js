@@ -10,6 +10,7 @@ import Col from '../../components/Column' // CUSTOM COLUMN -> OPTIMIZED FOR SERV
 import {Accordion, AccordionItem} from 'carbon-components-react'
 
 const placeholderImage = 'http://cdn3-www.dogtime.com/assets/uploads/gallery/30-impossibly-cute-puppies/impossibly-cute-puppy-21.jpg'; 
+const teamImage = '../../styles/Ismailvisit.jpg'; 
 
 // STYLING IMPORT
 import styles from '../../styles/about.scss'
@@ -18,7 +19,7 @@ const TeamOverview = () => {
   return (
     <Col md={12}>
       <Row>
-        <img src={placeholderImage}/>
+        <img src={teamImage}/>
       </Row>
       <Row>
         <div className={styles['tl-team-bio']}>
