@@ -3,6 +3,10 @@ const v4 = require('uuid/v4');
 const axios = require('axios'); 
 require('isomorphic-fetch');
 
+// SERVICES 
+import { mongoSave } from '../services/mongo'
+import { elasticIndex } from '../services/elastic'
+
 // ----------------------------- CONSTANTS ----------------------------- //
 export const INITIALIZE_ASSET = 'INITIALIZE_ASSET'
 export const SET_ASSET_TITLE = 'SET_ASSET_TITLE'
@@ -31,7 +35,10 @@ export const UPLOAD_FILE_TO_BOX_REQUEST = 'UPLOAD_FILE_TO_BOX_REQUEST';
 export const UPLOAD_FILE_TO_BOX_SUCCESS = 'UPLOAD_FILE_TO_BOX_SUCCESS'; 
 export const UPLOAD_FILE_TO_BOX_FAILURE = 'UPLOAD_FILE_TO_BOX_FAILURE'; 
 export const SET_ASSET_FOLDER_ID = 'SET_ASSET_FOLDER_ID'
-export const PUBLISH_ASSET = 'PUBLISH_ASSET'
+// PUBLISH ASSET
+export const PUBLISH_ASSET_REQUEST = 'PUBLISH_ASSET_REQUEST'
+export const PUBLISH_ASSET_SUCCESS = 'PUBLISH_ASSET_SUCCESS'
+export const PUBLISH_ASSET_FAILURE = 'PUBLISH_ASSET_FAILURE'
 
 // ----------------------------- REDUCERS ----------------------------- //
 const initialAssetOwnerState = {
@@ -50,7 +57,8 @@ const initialPublishState = {
   technologyTags: ['randomTestingTag'],
   clientTags: ['randomClientTag'],
   loading: false,
-  publishedAssetBool: false
+  isPending: false, 
+  isPublished: false, 
 }
 
 const demoContributors = [
@@ -79,7 +87,7 @@ export const initialDemoState = {
   assetDescription: 'This is a sample description of a cognitive asset that is being entered into Project CALI. The description should include information about the use case for the asset, the technologies utilized in the solution and the industries and clients that have benefitted from this asset.',
   assetContributors: demoContributors,
   artifacts: [],
-  industryTags: ["Energy and Utilities", "Energy and Utilities", "Energy & Utilities", "Media and Entertainment"],
+  industryTags: [],
   technologyTags: [],
   clientTags: [],
   loading: false,
@@ -89,7 +97,6 @@ export const initialDemoState = {
 const assetOwner = (state = initialAssetOwnerState, action) => {
   switch (action.subType) {
     case 'name':
-      console.log('in sub type name')
       return {
         ...state,
         name: action.value
@@ -225,21 +232,23 @@ const publish = (state = initialDemoState, action) => {
         clientTags: removeElement(state.clientTags, action.index)
       }
     case START_FILE_LOAD:
+    case UPLOAD_FILE_TO_BOX_REQUEST: 
       return {
         ...state,
         loading: true
       }
     case FINISH_FILE_LOAD:
+    case UPLOAD_FILE_TO_BOX_SUCCESS: 
+    case UPLOAD_FILE_TO_BOX_FAILURE: 
       return {
         ...state,
         loading: false
       }
-    case PUBLISH_ASSET: {
+    case PUBLISH_ASSET_SUCCESS:
       return {
-        ...state, 
-        publishedAssetBool: true
+        ...state,
+        isPublished: true
       }
-    }
     default:
       return state
   }
@@ -248,7 +257,6 @@ const publish = (state = initialDemoState, action) => {
 export default publish; 
 
 // ----------------------------- SERVICE CALL FUNCTIONS ----------------------------- //
-
 const fetchBoxMicroservice = (path, data) => {
   return fetch(path, {
     method: 'POST',
@@ -343,6 +351,20 @@ export const getAssetTagsFailure = (error) => {
   console.log(error)
 }
 
+export const getTagsFromStringThunk = (text) => {
+  return (dispatch) => {
+    dispatch(getAssetTagsSuccess())
+    // CALL TAGGING MICROSERVICE
+    // axios.post('https://autotagger-rudderlike-notedness.mybluemix.net/attachments', data)
+    // .then(response => {
+    //   dispatch(getAssetTagsSuccess())
+    // })
+    // .catch(error => {
+    //   dispatch(getAssetTagsFailure(error))
+    // })
+  }
+}
+
 export const getAssetTagsThunk = (file, text) => {
   return (dispatch) => {
     dispatch(startFileLoad())
@@ -401,19 +423,18 @@ export const addAssetArtifact = (artifact) => {
 
 export const addAssetArtifactThunk = (artifact) => {
   return (dispatch) => {
-    const { type, description, name, confidential, url } = artifact; 
-    console.log(artifact); 
+    const { artifactTitle, artifactType, artifactDescription, artifactURL, confidential } = artifact; 
     const links = ['Demo Video Link','Code Repo','Reference Website']
-    const category = links.includes(type) ? 'link' : 'file'; 
+    const category = links.includes(artifactType) ? 'link' : 'file'; 
 
     console.log(category); 
     if (category === 'link') {
       let artifactObject = {
         boxFileID: null, 
-        title: name, 
-        type: type,
-        url: url, 
-        description: description, 
+        artifactTitle: artifactTitle, 
+        artifactType: artifactType,
+        artifactURL: artifactURL, 
+        artifactDescription: artifactDescription, 
         confidential, 
       }
       dispatch(addAssetArtifact(artifactObject))
@@ -452,20 +473,26 @@ export const setAssetFolderID = (assetFolderID) => {
   }
 }
 
-export const uploadFileToBoxThunk = ({ file, type, name, description, confidential }) => {
+export const uploadFileToBoxThunk = ({ file, artifactType, artifactTitle, artifactDescription, confidential }) => {
   return (dispatch, getState) => {
     const state = getState(); 
     let { assetID, assetFolderID, assetTitle } = state.publish; 
-    console.log(state.publish); 
 
     // CREATE FORM DATA FROM FILE 
     let data = new FormData();
-    let encodedName = encodeURI(name); 
+    let encodedName = encodeURI(artifactTitle); 
     data.append('file', file); 
     data.append('name', encodedName); 
     data.append('assetID', assetID);
 
-    assetTitle = assetTitle || assetID; 
+    // NOTE: This is placeholder differentiator for testing purposes to prevent folder collision
+    // Comment out the the enclosed lines when ready to deploy
+    let date = new Date (); 
+    date = JSON.stringify(date).split('T')[1];
+    date = date.split('.')[0];  
+    assetTitle = assetTitle + date;  
+    console.log('FOLDER TITLE: ', assetTitle); 
+    // ------------------------------------
 
     // DETERMINE PROPER ROUTING
     let path = 'https://calibox.mybluemix.net/folder';
@@ -477,17 +504,17 @@ export const uploadFileToBoxThunk = ({ file, type, name, description, confidenti
       path = `${path}/create/${encodedAssetTitle}`; 
     }
 
-    console.log(path); 
     // CALL BOX MICROSERVICE
+    dispatch(uploadFileToBoxRequest()); 
     fetchBoxMicroservice(path, data)
       .then((response) => {
         dispatch(uploadFileToBoxSuccess())
-        console.log(response); 
+        // console.log(response); 
         return response.json(); 
       })
       .then((body) => {
-        console.log('RESPONSE FROM UPLOAD TO BOX')
-        console.log(body); 
+        // console.log('RESPONSE FROM UPLOAD TO BOX')
+        // console.log(body); 
 
         // ERROR HANDLING
         if (body.statusCode && body.statusCode !== 200) {
@@ -502,14 +529,14 @@ export const uploadFileToBoxThunk = ({ file, type, name, description, confidenti
         }
 
         let artifactObject = {
+          artifactTitle, 
+          artifactType,
+          artifactDescription, 
           boxFileID: mediaFileID, 
-          title: name, 
-          url: mediaLink, 
-          type: type,
-          description: description, 
+          artifactURL: mediaLink, 
           confidential, 
         }
-        console.log(artifactObject); 
+        // console.log(artifactObject); 
         dispatch(addAssetArtifact(artifactObject)); 
       })
       .catch((err) => {
@@ -569,11 +596,9 @@ export const deleteArtifact = (index) => {
 export const deleteArtifactThunk = (index) => {
   return (dispatch, getState) => {
     const state = getState(); 
-    console.log(state.publish.artifacts[index]); 
     const artifactFileID = state.publish.artifacts[index].boxFileID; 
-    console.log(artifactFileID)
-    let path = `http://localhost:2000/folder/delete/${artifactFileID}`
-    // const deletePath = `https://calibox.mybluemix.net/folder/delete/${artifactFileID}`
+    // let path = `http://localhost:2000/folder/delete/${artifactFileID}`
+    const deletePath = `https://calibox.mybluemix.net/folder/delete/${artifactFileID}`
     fetchBoxMicroservice(path)
       .then((response) => {
         dispatch(deleteArtifact(index)); 
@@ -613,32 +638,61 @@ export const destructuredAction = ({ assetOwnerName, assetOwnerEmail }) => {
   }
 }
 
-// ===== HANDLE PUBLISH ASSET ====== //
-
-const convertToMongoSchema = (publishAssetObject) => {
-  // const { assetID, assetBoxFolderID, assetTitle, assetType, assetOwner, assetContributors, assetDescription, assetOneLiner, artifacts, industryTags, technologyTags, clientTags, duration, complexity } = publishAssetObject; 
-  const { industryTags, technologyTags, clientTags } = publishAssetObject; 
+export const publishAssetRequest = () => {
   return {
-    ...publishAssetObject, 
-    industries: industryTags, 
-    technologies: technologyTags, 
-    clients: clientTags,
-    assetPageImage: "https://my3.digitalexperience.ibm.com/api/44ecf1d9-b58c-482c-9eed-2b8b72103240/delivery/v1/resources/dd6243ef4325a29f7f0554682319f400?resize=1350px:792px&crop=1350:300;0,134",
+    type: PUBLISH_ASSET_REQUEST, 
   }
 }
 
-export const publishAsset = (publishAssetObject) => {
+export const publishAssetSuccess = (assetID, assetObject) => {
   return {
-    type: PUBLISH_ASSET, 
-    publishAssetObject
+    type: PUBLISH_ASSET_SUCCESS,
+    assetID, 
+    assetObject
+  }
+}
+
+export const publishAssetFailure = () => {
+  return {
+    type: PUBLISH_ASSET_FAILURE, 
+  }
+}
+
+// ===== HANDLE PUBLISH ASSET SERVICE CALLS ====== //
+const mapToMongoSchema = (assetObject) => {
+  console.log(assetObject); 
+  const { assetID, assetTitle, assetType, assetOneLiner, assetDescription, assetOwner, assetContributors, artifacts, technologyTags, industryTags, clientTags } = assetObject; 
+  return {
+    assetID, 
+    assetTitle, 
+    assetType, 
+    assetOneLiner, 
+    assetDescription, 
+    assetOwner, 
+    assetContributors, 
+    artifacts, 
+    technologies: technologyTags, 
+    industries: industryTags, 
+    clients: clientTags
   }
 }
 
 export const publishAssetThunk = () => {
   return (dispatch, getState) => {
     const state = getState(); 
-    let publishAssetObject = state.publish; 
-    publishAssetObject = convertToMongoSchema(publishAssetObject)
-    dispatch(publishAsset(publishAssetObject))
+    dispatch(publishAssetRequest());
+    const assetObject = mapToMongoSchema(state.publish)
+    const assetID = assetObject.assetID;  
+    console.log(JSON.stringify(assetObject, null, 2)); 
+    return mongoSave(assetObject)
+    .then((response) => {
+      return elasticIndex(assetObject)
+    })
+    .then((response) => {
+      dispatch(publishAssetSuccess(assetID, assetObject))
+    })
+    .catch((err) => {
+      dispatch(publishAssetFailure(err))
+    }) 
   }
 }

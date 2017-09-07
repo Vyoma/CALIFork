@@ -1,0 +1,1724 @@
+{
+  "f579fdf3-3bae-4cbe-b47a-78a30eda6f9b": {
+    "artifacts": [
+      {
+        "artifactTitle": "CMS Sync Microservice Knowledge Transfer Presentation",
+        "_id": "59af09b8904a771312578452",
+        "artifactURL": "https://ibm.box.com/s/5rutymkwqto6upttjtvc4aeok2m4guqm",
+        "boxFileID": null,
+        "artifactDescription": "As there is no UI for the microservice, no video is available and thus the architecture on slide 8 should suffice",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "CMS Sync Microservice Knowledge Transfer Presentation",
+        "_id": "59af09b8904a771312578451",
+        "artifactURL": "https://ibm.box.com/s/5rutymkwqto6upttjtvc4aeok2m4guqm",
+        "boxFileID": null,
+        "artifactDescription": "As this microservice has not yet been repurposed into a generalizable offering, the code cannot be shown as it is client specific",
+        "artifactType": "Asset Code",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "CMS Sync Microservice Knowledge Transfer Presentation",
+        "_id": "59af09b8904a771312578450",
+        "artifactURL": "https://ibm.box.com/s/5rutymkwqto6upttjtvc4aeok2m4guqm",
+        "boxFileID": null,
+        "artifactDescription": "There is volumetric information on slide 7, which gives an idea of the data volumes, sizes that were done with Live Nation",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "CMS Sync Microservice Knowledge Transfer Presentation",
+        "_id": "59af09b8904a77131257844f",
+        "artifactURL": "https://ibm.box.com/s/5rutymkwqto6upttjtvc4aeok2m4guqm",
+        "boxFileID": null,
+        "artifactDescription": "The architecture used for Live Nation is on slide 8; if this were to be moved to Bluemix then the components would include Openwhisk, IBM Streaming Analytics, IBM Message Hub, Softlayer VM's, and Compose Postgres",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "CMS Sync Microservice Implementation Timeline",
+        "_id": "59af09b8904a77131257844e",
+        "artifactURL": "https://ibm.box.com/s/hz8lvd7hbih5jiarc8vubakra5a417pc",
+        "boxFileID": null,
+        "artifactDescription": "This project is a 6 week project which would include at the very least a backend developer, a business analyst, and a WCH SME to guide the project team on how WCH works and performance information on it, as well as configuring WCH",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Media and Entertainment"
+    ],
+    "assetID": "f579fdf3-3bae-4cbe-b47a-78a30eda6f9b",
+    "_id": "59af09b8904a77131257844d",
+    "clients": [
+      "Live Nation"
+    ],
+    "assetDescription": "The Sync Microservice extends WCH's abilities by using serverless frameworks to enable WCH to receive data records from streaming services with elastic infrastructure. The microservice also detects when CMS users make changes in WCH, and then send these to an endpoint. These two data flows are handled automatically so that the only interface the CMS users have with the stream, and the endpoint, is WCH. The data is received via elastic distributed infrastructure to ensure that no data records are lost from the data velocity coming from the stream. Records are processed synchronously so as to not overload WCH (given that WCH has maximum api calls per minute that it has to adhere to so as not to overload the infrastructure). ",
+    "technologies": [
+      "python",
+      "requests",
+      "AWS Lambda",
+      "AWS SQS",
+      "AWS EC2",
+      "AWS RDS",
+      "PostgreSQL",
+      "Watson Content Hub"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Brian Balagot",
+        "role": "Solution Architect, Back End Developer",
+        "email": "brian.balagot@ibm.com",
+        "_id": "59af09b8904a771312578455"
+      },
+      {
+        "name": "Jesse White",
+        "role": "Business Analyst",
+        "email": "jessewhite@us.ibm.com",
+        "_id": "59af09b8904a771312578454"
+      },
+      {
+        "name": "Lisa Tomita",
+        "role": "WCH SME, WCH Developer",
+        "email": "tomato@us.ibm.com",
+        "_id": "59af09b8904a771312578453"
+      }
+    ],
+    "assetTitle": "CMS Sync Microservice",
+    "__v": 0,
+    "assetOneLiner": "This microservice extends Watson Content Hub (WCH) to integrate it into streaming architectures",
+    "assetOwner": {
+      "name": "Brian Balagot",
+      "email": "brian.balagot@ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "58fb5ad4-5ae5-48c7-af55-d11fcd897e35": {
+    "artifacts": [
+      {
+        "artifactTitle": "ATT Recommender Demo",
+        "_id": "59af09b8904a771312578458",
+        "artifactURL": "http://attrecommender.mybluemix.net/",
+        "boxFileID": null,
+        "artifactDescription": "A demo that demonstrates the main capabilities of the recommeder system.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "React code snippet",
+        "_id": "59af09b8904a771312578457",
+        "artifactURL": "https://ibm.ent.box.com/notes/206326965425",
+        "boxFileID": null,
+        "artifactDescription": "React code snippet",
+        "artifactType": "Asset Code",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Telecommunications"
+    ],
+    "assetID": "58fb5ad4-5ae5-48c7-af55-d11fcd897e35",
+    "_id": "59af09b8904a771312578456",
+    "clients": [],
+    "assetDescription": "A tool that helps ATT sellers arrive at recommended offers for their clients using natural text input. The recommender engine analyzes historical sales data, promotions, and ATT strategic product initiatives. In addition, each offer is accompanied with a reason explaining why it is being served. The recommended offers can be refined using natural text.",
+    "technologies": [
+      "Spark",
+      "React",
+      "NodeJS",
+      "dashDB",
+      "Data Science Experience"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Ali Khanafer",
+        "role": "Technical Lead and Data Scientist",
+        "email": "ali.khanafer@ca.ibm.com",
+        "_id": "59af09b8904a77131257845e"
+      },
+      {
+        "name": "Aljosha 'Yosh' Novakovic",
+        "role": "Full Stack Developer and Scrum Master",
+        "email": "aljosha.novakovic@ibm.com",
+        "_id": "59af09b8904a77131257845d"
+      },
+      {
+        "name": "Evan Chapman",
+        "role": "Project Manager",
+        "email": "epchapma@us.ibm.com",
+        "_id": "59af09b8904a77131257845c"
+      },
+      {
+        "name": "Layne Miao",
+        "role": "Full Stack Developer",
+        "email": "layne.miao@ibm.com",
+        "_id": "59af09b8904a77131257845b"
+      },
+      {
+        "name": "Sonali Guleria",
+        "role": "Data Scientist",
+        "email": "sonali.guleria@ibm.com",
+        "_id": "59af09b8904a77131257845a"
+      },
+      {
+        "name": "Trinh Le",
+        "role": "Full Stack Developer",
+        "email": "trinh.le@ibm.com",
+        "_id": "59af09b8904a771312578459"
+      }
+    ],
+    "assetTitle": "ATT Recommender",
+    "__v": 0,
+    "assetOneLiner": "Enterprise-level recommender engine with NLP capabilities",
+    "assetOwner": {
+      "name": "Ali Khanafer",
+      "email": "ali.khanafer@ca.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "cbd33ee0-90d6-4b4a-b479-ea3d006e0233": {
+    "artifacts": [
+      {
+        "artifactTitle": "ARIA Best Practice Client Presentation",
+        "_id": "59af09b9904a771312578472",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/48431",
+        "boxFileID": null,
+        "artifactDescription": "This Power Point presentation shows how ARIA and Watson enable deeper understanding of people’s personality characteristics, needs, and values to help engage users on their own terms.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Intelligence Dashboard - Watson in the Boardroom demonstration.",
+        "_id": "59af09b9904a771312578471",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=2BC3940CFFEF6532852580C9004CA2BE",
+        "boxFileID": null,
+        "artifactDescription": "Cognitive Intelligence Dashboard - Watson in the Boardroom demonstration.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "ARIA Client Success Story",
+        "_id": "59af09b9904a771312578470",
+        "artifactURL": "https://ibm.ent.box.com/s/zey67v4pc83lfmo5u27s63uy1u26lnnb",
+        "boxFileID": null,
+        "artifactDescription": "IBM built a cognitive intelligent advisor to enable business users to get simple answers to complex questions by retrieving unstructured text and images from thousands of documents, synthesizing answers, and integrating the results with real-time external data.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Advanced Research Intelligent Advisor: ARIA",
+        "_id": "59af09b9904a77131257846f",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/30839",
+        "boxFileID": null,
+        "artifactDescription": "This power point presentation describes the Watson components that empowered ARIA.\r\rWatch out here the powerful Watson technologies working in concert to power ARIA.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Explorer Rapid Prototype SOW",
+        "_id": "59af09b9904a77131257846e",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/76731",
+        "boxFileID": null,
+        "artifactDescription": "This document describes the work to be provided by IBM to Client Consumer Goods> under the terms and conditions of the IBM Customer Agreement.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Consumer Products"
+    ],
+    "assetID": "cbd33ee0-90d6-4b4a-b479-ea3d006e0233",
+    "_id": "59af09b9904a77131257846d",
+    "clients": [
+      "Colgate"
+    ],
+    "assetDescription": "With an overwhelming proportion of an organization's data being \"dark data\" (data that an organization is collecting and storing but not systematically using for business decisions) and with the volume and diversity of data surging, organizations are struggling to utilize all data, structured and unstructured, while at the same time maintaining speed, scale, and privacy. ARIA offering enables CDO's to get simple answers and new insights to complex questions by analyzing client's enterprise-wide \"dark\" data and integrating the results with real-time external sources. Organizations gain the ability to easily and efficiently leverage insights from the entire collection of organization data and external sources - structured and unstructured, active and dark. Using cognitive algorithms and advanced analytics, we deliver cross-document synthesis, surfacing of business and consumer insights, and interconnection to external contextual data. Moreover, all of these features are integrated into a cognitive engine that gets smarter over time, learning from user feedback, and leveraging deep learning to make connections in language, images, and data. A typical use case for Aria is enabling marketing teams to leverage years of unstructed consumer market research and reports by searching using natural language. In this way, Aria delivers increased efficiency for teams across your organization , cost reduction, and ultimately optimized decision making.",
+    "technologies": [
+      "mySQL",
+      "NodeJS",
+      "Angular",
+      "python",
+      "mongo",
+      "Watson Conversation Service",
+      "Watson Explorer",
+      "Watson Knowledge Studios",
+      "Watson Visual Recognition",
+      "Watson Speech to Text",
+      "Watson Personality Insights",
+      "Watson Natural Language Classifier",
+      "AlchemyLanguage"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Jorge Malibran",
+        "role": "Asset Owner",
+        "email": "jorge.malibran@us.ibm.com",
+        "_id": "59af09b9904a771312578474"
+      },
+      {
+        "name": "Qin Shirley Held",
+        "role": "Asset Owner",
+        "email": "qinheld@us.ibm.com",
+        "_id": "59af09b9904a771312578473"
+      }
+    ],
+    "assetTitle": "Advanced Research Intelligent Advisor (ARIA)",
+    "__v": 0,
+    "assetOneLiner": "ARIA offering enables CDOs to get simple answers and new insights to complex questions by analyzing client’s enterprise-wide “dark” data and integrating the results with real-time external sources. Organizations gain the ability to easily and efficiently leverage insights from the entire collection of organization data and external sources – structured and unstructured, active and dark.\rUsing cognitive algorithms and Advanced Analytics, we deliver cross-document synthesis, surfacing of business and consumer insights, and interconnection to external contextual data. Moreover, all of these features are integrated into a cognitive engine that gets smarter over time, learning from user feedback and leveraging deep learning to make connections in language, images, and data.",
+    "assetOwner": {
+      "name": "Jorge Malibran",
+      "email": "jorge.malibran@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "5917d8e4-c2c4-475b-8b50-4d3cd4cfbecb": {
+    "artifacts": [
+      {
+        "artifactTitle": "Cognitive Legal Insights - Advanced Analytics",
+        "_id": "59af09b9904a771312578469",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/49293",
+        "boxFileID": null,
+        "artifactDescription": "This module highlights Advanced Analytics for Cognitive Legal Insights. Outside Counsel Insights addresses the #1 pain point of corporate law departments, outside counsel spend, by using cognitive computing to provide a deeper view into outside counsel cost effectiveness and performance effectiveness than anything else on the market.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Legal Outside Counsel Insights Demo",
+        "_id": "59af09b9904a771312578468",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=3B43DE7E67EED48C852580C80060BB78",
+        "boxFileID": null,
+        "artifactDescription": "Outside Counsel Insights demo",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Legal Insights - Minimal Viable Product",
+        "_id": "59af09b9904a771312578467",
+        "artifactURL": "https://ibm.ent.box.com/s/5klkpgkvofx1qgtn440j33uebwhtkm90",
+        "boxFileID": null,
+        "artifactDescription": "This is a sample SOW for the Cognitive Legal Product",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Banking",
+      "Financial Markets",
+      "Insurance"
+    ],
+    "assetID": "5917d8e4-c2c4-475b-8b50-4d3cd4cfbecb",
+    "_id": "59af09b9904a771312578466",
+    "clients": [],
+    "assetDescription": "Corporate law departments within FSS are challenged in the following two areas of Outside Counsel spend: 1. Manual, error-pronse reviews of Outside Counsel invoices for corporate guideline non-compliance 2. Little to no insight into the efficacy of attorney performance. Cognitive Legal Insights addresses these pain points by using cognitive computing to analyze and compare invoices and narratives to provide a deeper view into Outside Counsel, compliance, cost effectiveness and performance effectiveness. Billing abd budget Insights: Analyzes legal invoices, which contain narrative (unstructured) task description from Outside Counsel, and compares them to: (a) historical invoices, and (b) the company's billing guidelines. It vastly expands the amount of data that can be analyzed for context providing greater insights for evaluating and selecting Outside Counsel. Performance insights: Outside Counsel sends their corporate clients everything they file with the court. Thus, corporate law departments have a repository of unstructured benchmarking data regarding the activities Outside Counsel pursued and their effectiveness in similar matters (i.e. outcome of motions, success before certain judges, with an opposing party, etc.). Cognitive Legal Insights ensures that companies pay the right amount to the right client for the right defense.",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Shawnna Hoffman-Childress",
+        "role": "Cognitive Legal Co-Leader",
+        "email": "shawnna.hoffman@us.ibm.com",
+        "_id": "59af09b9904a77131257846c"
+      },
+      {
+        "name": "Marc Hayem",
+        "role": "Asset Owner",
+        "email": "Marc.Hayem@ibm.com",
+        "_id": "59af09b9904a77131257846b"
+      },
+      {
+        "name": "Brian Kuhn, Esq.",
+        "role": "Watson Legal Sales Leader",
+        "email": "kuhnbr@us.ibm.com",
+        "_id": "59af09b9904a77131257846a"
+      }
+    ],
+    "assetTitle": "Cognitive Legal Insights",
+    "__v": 0,
+    "assetOneLiner": "The global legal market is ripe for cognitive opportunities. The U.S. legal market alone generates over $400B in annual revenue between corporate legal departments and law firms. Opportunities abound when viewing cognitive technology as an enabler of the practice of law and the business of law. A legal case is a battle between language that both clarifies and confounds. Legal entities are rich in unstructured data, from motions to contracts to laws to billing task descriptions. Legal work involves manually cross referencing the situation at hand with precedential scenarios to identify a trend that acts in a client’s favor. Cognitive technology is the answer to modernize and enable the legal profession, such that it can deliver efficient and vastly more cost effective legal results.",
+    "assetOwner": {
+      "name": "Shawnna Hoffman-Childress",
+      "email": "shawnna.hoffman@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "58fc3734-86fc-46bf-a39c-cc6e0625e56c": {
+    "artifacts": [
+      {
+        "artifactTitle": "IBM Cognitive Simulator for Pharma - Intro",
+        "_id": "59af09b9904a77131257847a",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/29932",
+        "boxFileID": null,
+        "artifactDescription": "Cognitive Simulator for Pharma offering drives end-to-end dynamic, integrated and streamlined financial planning. Its capabalities are machine learning-based forecast, live scenario planning engine, and real-time investment advice.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Forecast - Investment Advisor",
+        "_id": "59af09b9904a771312578479",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/bluetube/videos/9995",
+        "boxFileID": null,
+        "artifactDescription": "Machine learning based end-to-end integrated financial planning tool deployed for a Large Pharma client.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "PharmaCo Client Reference",
+        "_id": "59af09b9904a771312578478",
+        "artifactURL": "https://ibm.ent.box.com/s/fjomayigzpa16877kcnhseotvfa62tf5",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "IBM Cognitive Simulator for Pharma - Solution Guide",
+        "_id": "59af09b9904a771312578477",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/68943",
+        "boxFileID": null,
+        "artifactDescription": "The following document is the solution guide for Cognitive Simulator for Pharma. You will find the high level governance, architecture, systems, processes, and people needed in place to succeed.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Simulator for Pharmaceutical SOW",
+        "_id": "59af09b9904a771312578476",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/83082",
+        "boxFileID": null,
+        "artifactDescription": "This project is to extend the Japan Pilot to additional Markets. This SOW addresses the Global Scale-Out of the Models and Tools piloted in Japan to implement the Advanced Analytics Business Planning Platform “Application”.  will team with IBM to extend, build, deploy and run Machine Learning Financial Business Planning Models to eleven (11) Countries and fourteen additional Drugs during a twenty-four (24) month Project co-managed by IBM and .",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Healthcare & Life Sciences",
+      "Financial Markets"
+    ],
+    "assetID": "58fc3734-86fc-46bf-a39c-cc6e0625e56c",
+    "_id": "59af09b9904a771312578475",
+    "clients": [
+      "Pharmaco",
+      "Merck"
+    ],
+    "assetDescription": "Increasing forecast accuracy and optimizing investment decisions is a priority for all Pharmaceutical / Life Science CFO's. They are challenged to understand the combined impact of multiple market forces while optimizing their end-to-end financial planning process to drive business outcomes. The Cognitive Foresight for Pharma provides on-demand access to market dynamics (changes in competitor actions, drug launches, policy changes, loss of exclusivity, etc.) and key decision-making levers (sales force alignment, promotion strategy etc.) at a business user's fingertips, allowing him/her to understand the impact of changing marketplace, perform \"what if analysis\" and optimize their response to unlock growth and protifability. Our offering includes self-adapting patented cognitive algorithms to analyze product performance in the context of the entire market and deliver high accuracy forecasts. IBM's unique system dynamics approach enables a deep understanding of competitors, channel partners, and other stakeholders expected behaviors and reactions. Leveraging an efficient machine learning engine that computes millions of possible outcomes in seconds, Sales and Finance professionals gain invaluable actionable insights instantly to leapfrog competition and optimize ROI.",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Shobhit Varshney",
+        "role": "Asset Owner",
+        "email": "svarshn@us.ibm.com",
+        "_id": "59af09b9904a77131257847b"
+      }
+    ],
+    "assetTitle": "Cognitive Foresight for Pharma",
+    "__v": 0,
+    "assetOneLiner": "C-suite gains access to market dynamics and key decision-making levers at their fingertips, understand the impact of changing marketplace, and optimize their response to unlock growth and profitability. Cognitive Forecasting deploys self-adapting patented cognitive algorithms to analyze product performance in the context of the entire market and deliver high accuracy forecasts. By understanding, reasoning and learning the market dynamics, machine learning algorithms accurately quantify the impact of competitive actions (changes in promotion, salesforce alignment, price fluctuations etc.). This enables on-demand scenario planning and investment optimization to enhance decision making and increase profitability.",
+    "assetOwner": {
+      "name": "Shobhit Varshney",
+      "email": "svarshn@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "b5a86d07-67ec-4e5a-98f2-54d7c336d231": {
+    "artifacts": [
+      {
+        "artifactTitle": "Metro Pulse Powered by Watson",
+        "_id": "59af09b9904a771312578463",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/67755",
+        "boxFileID": null,
+        "artifactDescription": "Our intelligent analytics engine develops detailed, actionable micro-clusters that generate new insights to de-average and unlock pockets of growth. Get to know its features and capabilities with this presentation.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "IBM Metro Pulse Powered by Watson Video",
+        "_id": "59af09b9904a771312578462",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/bluetube/videos/6266?seriesId=446",
+        "boxFileID": null,
+        "artifactDescription": "IBM Metro Pulse Powered by Watson is a cloud-based service that combines a diverse set of time-sensitive, hyper-localized city data with your enterprise data and then applies cognitive computing to reveal the pulse of each neighborhood. By understanding the net effect of multiple signals, this solution can help you identify and capture pockets of opportunities with unprecedented speed and precision. To access all the Sales and Marketing assets related to this solution, please visit the IBM Metro Pulse wiki landing page: https://w3-connections.ibm.com/wikis/home?lang=en-us#!/wiki/W95a711a6f0c6_411e_9b4d_15f94528e804/page/Metro%20Pulse%20101",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Client Use Case - IBM Metro Pulse - CPG Client",
+        "_id": "59af09b9904a771312578461",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/34360",
+        "boxFileID": null,
+        "artifactDescription": "Please contact Rafi Ezry to ensure that we have permission to share this use case with other clients. For further details, please reach out to Rafi (Raphael) Ezry, Partner, GBS Strategy & Analytics Advanced Analytics CoC, rezry@us.ibm.com\r\rThis document explains how a global CPG company achieves hundreds of thousand of dollars increase in sales of ice cream with IBM Metro Pulse Powered by Watson\r\rAttachment Details: This presentation includes how cloud based analytics platform built from IBM Metro Pulse Powered by Watson ingested huge volumes of data for two major cities to drive sales for three of their products.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Metro Pulse - Pilot & POC Proposal - Supply Chain",
+        "_id": "59af09b8904a771312578460",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/98913",
+        "boxFileID": null,
+        "artifactDescription": "This document contains a Proposal made by IBM to a client in specific which  Business Development team has identified with 6 potential initiatives that could be prototyped in order to test their viability.\rThe goal of this presentation is to launch new initiatives that will increase the client ’s competitiveness and margins.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Retail",
+      "Consumer Products"
+    ],
+    "assetID": "b5a86d07-67ec-4e5a-98f2-54d7c336d231",
+    "_id": "59af09b8904a77131257845f",
+    "clients": [
+      "Unilever"
+    ],
+    "assetDescription": "Organizations in the Retail and Consumer industries struggle to optimize their assets (eg cabinets, vending machines), promotions, product assortment or pricing without a holistic understanding of the local market dynamics in the neighborhoods where they do business. With MetroPulse and its proprietary data sets and advanced indices, IBM has a unique advantage over any competitor in addressing in these client needs. IBM's MetroPulse for Retail and Consumer supplements traditional forecasting techniques with granular information on many local variables (local events and activities, weather, socio-demographics, points of interest, movement of people, social, etc.) to develop more relevant local predictive models to solve your business challenges. With access to thousands of signals (structured and unstructured) and advanced indices of geo-temporal indicators, retailers and other organizations are able to identify local market dynamics and better predict and plan for demand. Typical use cases include: optimizing asset placement (ice cabinets, vending machines); optimizing product assortments; determining promotions or prices based on local market demand. Key benefits include improved optimization in asset placement, product assortment, pricing, and inventory - driving 2-4% increased sales and higer margins",
+    "technologies": [
+      "Facebook",
+      "Yelp",
+      "waze",
+      "the new york times",
+      "Google Maps",
+      "the weather company",
+      "Twitter",
+      "Zillow",
+      "Watson Personality Insights",
+      "Watson Explorer"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Marc Hayem",
+        "role": "Asset Owner",
+        "email": "Marc.Hayem@ibm.com",
+        "_id": "59af09b9904a771312578465"
+      },
+      {
+        "name": "Rafi Ezry",
+        "role": "GBS Global Leader - Advanced Analytics Practice",
+        "email": "rezry@us.ibm.com",
+        "_id": "59af09b9904a771312578464"
+      }
+    ],
+    "assetTitle": "Metro Pulse for Retail and Consumer Products",
+    "__v": 0,
+    "assetOneLiner": "Hyper-localization for Retail and CP combines a diverse set of time-sensitive, hyper-local city data with your enterprise data and then applies cognitive computing to reveal the block-by-block dynamics and opportunities directly to your employees to enable you to unlock pockets of growth and generate significant economic value at the neighborhood level.",
+    "assetOwner": {
+      "name": "Marc Hayem",
+      "email": "Marc.Hayem@ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "c82e7ab0-3f73-44ee-81c6-1243087139a8": {
+    "artifacts": [
+      {
+        "artifactTitle": "Virtual Agent for Telco Sales Collateral Pitch Deck (Client Presentations)",
+        "_id": "59af09b9904a771312578481",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/61014",
+        "boxFileID": null,
+        "artifactDescription": "This Power Point presentation gives an overview about Virtual Agent offers a conversational self-service platform that can take action through a variety of channels and deflects 20 percent of incoming contact center inquiries",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Virtual Agent Demo for Telecom",
+        "_id": "59af09b9904a771312578480",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=AA954959202FF502852580C8006A3713",
+        "boxFileID": null,
+        "artifactDescription": "Watson Virtual Agent demo for Telecom",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Vodafone Client Reference",
+        "_id": "59af09b9904a77131257847f",
+        "artifactURL": "https://ibm.ent.box.com/s/0zhu05dcz1vjxaeat6bqy41z01u89w2v",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Virtual Assistant",
+        "_id": "59af09b9904a77131257847e",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/87693",
+        "boxFileID": null,
+        "artifactDescription": "This is a power point presentation that shows the architectural overview and solution components of the Cognitive Conversational Virtual Assistant.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Virtual Assistant Production for Customer & Technical Support Engineer SOW",
+        "_id": "59af09b9904a77131257847d",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/67571",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Telecommunications",
+      "Media & Entertainment"
+    ],
+    "assetID": "c82e7ab0-3f73-44ee-81c6-1243087139a8",
+    "_id": "59af09b9904a77131257847c",
+    "clients": [
+      "Vodafone"
+    ],
+    "assetDescription": "Call centers today are staffed with Customer Service Representatives (CSRs) who respond to account inquiries from clients, behind an Interactive Voice Response System (IVR), with many of these interactions requiring special care and attention to maximize client satisfaction. IBM’s Virtual Agent for Telco offering provides availability for CSRs to focus on value add, specialized, or “one off” scenarios that require exceptions and research. This is achieved this through its ability to synthesize written and spoken language to understand the intent of a user's phrase or question and provide an appropriate response. As part of natural language processing, Watson is trained to narrow down the intent of a sentence to be its underlying meaning or goal—ultimately, to grasp what someone means, regardless of how they say it. This translates into an increase in reach of organizational knowledge at scale, increase accessibility of customer support, improvement in the speed of answers, and a nearly infinite scale to process information and store visibility of patterns in consumer engagements to improve future communication. The benefits which are directly correlated to return on investment (ROI) include: \rImprovement in customer satisfaction: Expected 10-15% improvement in customer satisfaction by increasing first contact resolution with contextually relevant answers that can either be custom-trained or pre-trained which also removes employee performance variability in many standard Q&As\rReduction in cost for operations: Expected 20-40% call deflection rate from higher cost channels, based on industry, allows customers to engage with Watson first and your live agents to increase attention to higher impact issues and resolution\rEfficiency of resources: 80% reduction in agent research time to complete calls allows your live agents to be more productive) \r30% improvement in cross-sell to close ratio",
+    "technologies": [
+      "Node Red",
+      "Kubernetes",
+      "Kafka",
+      "Git",
+      "Jenkins",
+      "Mongo",
+      "Redis",
+      "JS",
+      "NodeJS",
+      "React",
+      "WebSocket",
+      "IBM Voice Gateway",
+      "Jquery",
+      "Java",
+      "Public Key Encryption",
+      "Watson Conversation Services",
+      "Watson Knowledge Studios",
+      "Watson Visual Recognition",
+      "Watson Tone Analyzer",
+      "Watson Discovery Services",
+      "Watson Speech to Text",
+      "Watson Text to Speech"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Steve Cranford",
+        "role": "Asset Owner",
+        "email": "stephenc@us.ibm.com",
+        "_id": "59af09b9904a771312578482"
+      }
+    ],
+    "assetTitle": "Virtual Advisor for Telco",
+    "__v": 0,
+    "assetOneLiner": "With Watson Conversational Solutions you can leverage conversational interfaces across multiple channels to communicate and engage with users. Through this service, Watson synthesizes written and spoken language to understand the intent of a user's phrase or question and provide an appropriate response. As part of natural language processing, Watson is trained to narrow down the intent of a sentence to be its underlying meaning or goal—ultimately, to grasp what someone means, regardless of how they say it. There are many different ways to utter the same intent: \"Turn on the lights,\" \"I can't see because it's too dark,\" and \"Illuminate\" all express the same desire to brighten up a room. With your help, Watson can be trained to understand the many ways that a particular question can be posed and take it from there.",
+    "assetOwner": {
+      "name": "Steve Cranford",
+      "email": "stephenc@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "afec75fd-35c0-43c5-a71b-8be593faa12c": {
+    "artifacts": [
+      {
+        "artifactTitle": "Claims Processing Optimization",
+        "_id": "59af09b9904a771312578488",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/69364",
+        "boxFileID": null,
+        "artifactDescription": "The Claims Assist asset will help cut down the claims processing time drastically by providing/extracting all the relevant information in a single glance using Watson Explorer, various cognitive API capabilities. The objective is to integrate Structured and Unstructured Data to create a uniform information access using the Watson Explore to \"Explore and Visualize\".",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Claims Webinar",
+        "_id": "59af09b9904a771312578487",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=C53AFE638AB63A54852580C8005CEEEE",
+        "boxFileID": null,
+        "artifactDescription": "Claims Assist Cognitive asset developed by the Cognitive practice and Insurance industry teams.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson In Insurance: Knowledge Sharing Session",
+        "_id": "59af09b9904a771312578486",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/55951",
+        "boxFileID": null,
+        "artifactDescription": "This brief session shares experiences of Watson cognitive solution in Japan insurance industry by two Japanese CTL (Client Technical Leader).\r\rPlease click here to access to this call record and get your Think40 Credit\r\r\rAgenda \r1. Introduction & overview - 5 minutes\r2-1.Claim automation Automatic coding - 15 minutes\r2-2. Claim Automation Assessor assist - 5 minutes\r3. VOC Voice Of Customer - 5 minutes\r4. Watson solution Positioning & Architecture - 10 minutes\r9. Q&A, Discussion Session Schedule\r\rDate : 09 Feb 2017\rTime : 12:30 to 13:30 hour\rDelivery Method : Live virtual classroom using Webex\rNote: You will get 1 hour of Think40 credit for attending this session.\r\rSession Brief\r\rHow Solutioners can use Watson in Insurance deals for our clients\r\rThe Speaker\r\rShohji Higashino\r\rNotes Id: Shohji Higashino/Japan/IBM\rEmail Id: HIGASHIN@jp.ibm.com\r\rYasuharu Nagai\r\rNotes Id: Yasuharu Nagai/Japan/IBM\rEmail Id: YASUHARU@jp.ibm.com",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Claims Assist - Solution Outline",
+        "_id": "59af09b9904a771312578485",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/75196",
+        "boxFileID": null,
+        "artifactDescription": "This document shows how Watson uses the same capabilities found in IBM software products today to unlock the value embedded in the massive amounts of unstructured information in the many systems and formats you have today.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Proposal for Insurance Industry",
+        "_id": "59af09b9904a771312578484",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/32752",
+        "boxFileID": null,
+        "artifactDescription": "Proposal for Insurance Industry - Cognitive Claims Assist-Phase",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Insurance"
+    ],
+    "assetID": "afec75fd-35c0-43c5-a71b-8be593faa12c",
+    "_id": "59af09b9904a771312578483",
+    "clients": [],
+    "assetDescription": "Insurance companies face several challenges with claims processing including the need to analyze a large amount of unstructured data, the ever-changing regulation landscape, and a significant amount of time spent on investigating un-disclosed information. \r\rCognitive Claims Assist is designed for claims adjudicators to reduce the claims processing time by systematically collecting and analyzing relevant information and recommending adjudication on less complex cases. This will enable adjudicators to focus on more complex cases while improving customer experience through reduced processing time.  \r\rThis offering aggregates information from disparate sources (image/text/social media unstructured data processing, weather data, video, pictures), create event correlations, analyze the data, and recommends to the claims adjudicators actions and next steps. \r\rTypical Benefits\r\rOver 75-80% of claims can be processed straight through in Property and Casualty (P&C) without any manual intervention\rReduction of Claims processing turn around time by 60%\r5% savings in Claims leakage due to fraud, improper recovery, overpayment. ",
+    "technologies": [
+      "Twitter API",
+      "Google Maps API",
+      "Weather API",
+      "Alchemy Data News API",
+      "Fuzzy Wuzzy External API",
+      "IBM Bluemix",
+      "Watson Explorer Application Builder",
+      "IBM WCA Collection",
+      "DB2",
+      "D3",
+      "SPSS Modeler",
+      "Watson Machine Learning API",
+      "Python",
+      "R",
+      "Angular",
+      "Javascript",
+      "Ruby",
+      "Watson Visual Recognition"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Sarma Gadepalli",
+        "role": "Asset Owner",
+        "email": "sgadepal@in.ibm.com",
+        "_id": "59af09b9904a77131257848a"
+      },
+      {
+        "name": "Nagaprasad Vajjala",
+        "role": "Asset Owner",
+        "email": "nvajjala@in.ibm.com",
+        "_id": "59af09b9904a771312578489"
+      }
+    ],
+    "assetTitle": "Cognitive Claims Assist",
+    "__v": 0,
+    "assetOneLiner": "Cognitive Claims Assist offer is designed for claims adjudicators to reduce the claims processing time by extracting all the relevant information in a single view, allowing resources to focus on higher value activities. Essentially, this solution aggregates the information from desperate file systems (which includes not only traditional structured data but also unstructured data) and coverts them in to actionable insights. In addition, claims adjudicators are able to process claims faster with cognitive algorithms applied on natural language processing, image/text/social media unstructured data processing, weather data, and event correlation.",
+    "assetOwner": {
+      "name": "Sarma Gadepalli",
+      "email": "sgadepal@in.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "2d79f104-5810-412b-998d-d9fe5f60e222": {
+    "artifacts": [
+      {
+        "artifactTitle": "GDPR Market Assessment 20170308",
+        "_id": "59af09b9904a771312578495",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/98900",
+        "boxFileID": null,
+        "artifactDescription": "GDPR is relevant for any company conducting business in Europe with 250+ employees. This is approximately 90.000 companies based in Europe.\r\rThis presentation contains aGDPR market assessment (Europe coverage) divided by Market opportunity sizing for GDPR, Industry perspective on GDPR and a Competitive Ecosystem overview.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "GDPR Replay",
+        "_id": "59af09b9904a771312578494",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/bluetube/videos/12520",
+        "boxFileID": null,
+        "artifactDescription": "This video shows the training document which Provides GBS consultants with sufficient know-how to identify client needs for GDPR solutions to consultants in the Go To Market teams and Digital Service Line who can do the first client conversations about this opportunity.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Speedweek SoW 2017 - GDPR Assesment V170324ANONYMOUS",
+        "_id": "59af09b9904a771312578493",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/98896",
+        "boxFileID": null,
+        "artifactDescription": "The Client has commenced activities in order to prepare for the European General Data Protection Regulation (GDPR) coming into force in May 2018.  As part of this the client needs to review GDPR domains and define a roadmap of activities in order to achieve compliance to the incoming regulation.\r\rThe objective of the document will be to jointly identify potential gaps that may exist between the current processes and the target state to meet the client's defined level of compliance for GDPR.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Aerospace & Defense",
+      "Automotive",
+      "Chemical & Petroleum",
+      "Electronics",
+      "Industrial Products",
+      "Education",
+      "Government",
+      "Healthcare & Life Sciences",
+      "Energy and Utilities",
+      "Media and Entertainment",
+      "Telecommunications",
+      "Consumer Products",
+      "Retail",
+      "Travel & Transportation",
+      "Wholesale Distribution & Services",
+      "Banking",
+      "Financial Markets",
+      "Insurance"
+    ],
+    "assetID": "2d79f104-5810-412b-998d-d9fe5f60e222",
+    "_id": "59af09b9904a771312578492",
+    "clients": [
+      "PepsiCo",
+      "Ford",
+      "Barclays",
+      "Rabo Bank"
+    ],
+    "assetDescription": "GDPR is the new EU regulation, enhancing the data privacy and security rights of EU citizens. All organizations , EU and non-EU, have to comply as off 25/5/2018 with penalties up to 4% of global annual turnover. Organizations are challenged by the need to have a comprehensive view of personal data and its usage,  to administer citizen rights around consent, access, retention and deletion, and to respond within 72 hours to breaches. Organizations are looking for point solutions and a holistic approach.\r\rGBS delivered the IBM approach to drive the journey across 5 domains (GDPR Governance, People & Communication, Processes, Data and Security). GBS is developing dedicated methods and accelerators all relevant aspects. \rGBS works with Analytics and Security and their tooling and service solutions around data discovery and management , information security and breach management in a combined “Best of IBM” approach. GBS  provides project management and expert skills to support required GDPR implementation activities\r\rThe offering builds upon the materials developed in Q4 2016 and Q1 2017. Clients are starting to plan implementation of solutions needed to comply, IBM needs to define and integrate the solution to more detail:-\rThis team will drive a standard cross-LoB offering for GTM and service line delivery and expand the GDPR Offering as developed in 2016, leverage this across GBS IMTs and further skill GBS consultants. \rThe Offering team will continue its support of pipeline development through the deliverance of GDPR presentations to IBM sellers, and clients, participating in cross-brand marketing activities, and support client pitches and requests.\rThe Offering team will support important go-to market initiatives\r\rCosts and benefits include:\rRevenue from assessment and implementation of the solutions based on IBM Analytics and Security tooling\rAlthough companies need to comply as per May 2018, clients are expected to enhance their solutions until 2019 \rPotential for CAI and CPS services as add-on for the implementation work\rAdded credibility of IBM as an important player in the Compliance and Risk space\rCost for Q3: $430K for 270 person days and travel",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Bruce Tyler",
+        "role": "Asset Owner",
+        "email": "bruce.tyler@us.ibm.com",
+        "_id": "59af09b9904a771312578496"
+      }
+    ],
+    "assetTitle": "General Data Protection Regulation (GDPR)",
+    "__v": 0,
+    "assetOneLiner": "Working across our Security, Analytics, and Platform teams, GBS helps our multi-national clients to comply with the EU regulation to ensure privacy and security of their customer’s data.",
+    "assetOwner": {
+      "name": "Bruce Tyler",
+      "email": "bruce.tyler@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "45cef03a-8f1d-42e6-b286-64d5b46e7013": {
+    "artifacts": [
+      {
+        "artifactTitle": "IBM Building Analytics Solution Overview",
+        "_id": "59af09b9904a7713125784a5",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/48164",
+        "boxFileID": null,
+        "artifactDescription": "This Power Point presentation provides information and shows that IBM Building Analytics solution is “System of Systems” that integrates and analyzes data from disparate building systems into a single, transparent view  that drives energy and operational efficiencies",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "IBM Building Analytics Demo",
+        "_id": "59af09b9904a7713125784a4",
+        "artifactURL": "https://ibm.ent.box.com/s/947fmg0p5hfquoxsovm6a7r9gmdx5b3c",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Building Optimization with IoT Value Proposition Building Optimization",
+        "_id": "59af09b9904a7713125784a3",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/85402",
+        "boxFileID": null,
+        "artifactDescription": "This document presents the idea about Building Optimization with IoT that it's to deliver a 20% improvement on your total building infrastructure operations costs and improve your occupant experience.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Building Optimization with IoT - Reference Models and Architectures",
+        "_id": "59af09b9904a7713125784a2",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/62729",
+        "boxFileID": null,
+        "artifactDescription": "The documents provide examples of the best practices structures such as the current instance of Building Analytics was developed prior to WIOT for Buildings and advanced Bluemix platform.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Building Analytics Solution - SOW Template",
+        "_id": "59af09b9904a7713125784a1",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/28883",
+        "boxFileID": null,
+        "artifactDescription": "This is a Word document that provides a proposal based on IBM Building Analytics that is a Cloud Service that will enable Client to use an IBM library of analytics against data from Client’s building control systems and energy meters to identify potential operational and energy savings in a shared cloud environment using computing resources from IBM.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Aerospace & Defense",
+      "Automotive",
+      "Chemical & Petroleum",
+      "Electronics",
+      "Industrial Products",
+      "Education",
+      "Media and Entertainment",
+      "Telecommunications",
+      "Consumer Products",
+      "Retail",
+      "Travel & Transportation",
+      "Wholesale Distribution & Services",
+      "Banking",
+      "Financial Markets",
+      "Insurance"
+    ],
+    "assetID": "45cef03a-8f1d-42e6-b286-64d5b46e7013",
+    "_id": "59af09b9904a7713125784a0",
+    "clients": [
+      "Carnegie Mellon",
+      "GSA"
+    ],
+    "assetDescription": "Real Estate represents the second largest cost on most companies balance sheet, and accounts for as much as 60% of the total energy consumed today. According to Herman Miller, individual workstations are unoccupied as much as 60% of the time. Furthermore, companies are sub-optimizing building maintenance, over maintaining some assets and under maintaining others, spending as much as 20-50% more than necessary on maintenance. Today's commercial buildings represent a prime opportunity for improved efficiency, both in the operation of the building itself, and through improved effectiveness of the workers who occupy them. Teaming with some of the world's largest and most respected Building Services companies including ISS, Siemens and Honeywell, IBM is uniquely positioned to offer IoT solutions in the Building marketplace. IBM is recognized as the leader in bringing new value to the Building optimization space. We combine our market leading IoT solutions with our global building consultancy, delivering to customers a vendor neutral offering that can support any building manager/building services customer, in any industry anywhere in the world. IBM's Building Optimization is a cognitive cloud based mobile enabled Consult to Operate offering that can help you maximize the value of real estate assets with benefits beginning in the fourth month. Building Optimization accomplishes these outcomes through the use of Watson Cognitive Analytics, enabled through integrated sensors used in conjunction with legacy building data and the Watson IoT Platform. IBM's IoT solution will drive improvements in building efficiency, reducing energy consumption, improving space utilization, and creating a better user experience for the building occupants. Below is a list of some of the key value drivers you can achieve through the Building Optimization solution: Reduced energy costs by 10-15%, Increased occupancy utilization by up to 20%, Improve occupant efficiency of up to 5%, Improvements in health safety and security, Speed to value in as little as 4 months through out cloud as a service solution model, Enhance the satisfaction and experience of the building tenants and in terms of availability comfort and use",
+    "technologies": [
+      "Yanzi",
+      "Enocean",
+      "Sigma",
+      "LoRa",
+      "Enocean DG",
+      "LoRa Kerlink",
+      "Watson IoT Platform",
+      "Dashboard",
+      "Cognos",
+      "Embed Rep",
+      "InfoSphere Streams",
+      "TRIRIGA",
+      "node.js",
+      "angular.js",
+      "Watson Conversation Services",
+      "DashDB",
+      "Oracle",
+      "SkySpark",
+      "Maximo",
+      "Evault",
+      "Watson Analytics",
+      "Weather API",
+      "Liberty",
+      "Watson Explorer",
+      "Watson Machine learning Service",
+      "Docker",
+      "Auto-Scaling",
+      "Workload Scheduler",
+      "SSO"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Mark Peterson",
+        "role": "Asset Owner",
+        "email": "mpeterso@us.ibm.com",
+        "_id": "59af09b9904a7713125784a8"
+      },
+      {
+        "name": "David Douthit",
+        "role": "Asset Owner",
+        "email": "david.douthit@us.ibm.com",
+        "_id": "59af09b9904a7713125784a7"
+      },
+      {
+        "name": "Brandon Patterson",
+        "role": "Asset Owner",
+        "email": "brandonp@us.ibm.com",
+        "_id": "59af09b9904a7713125784a6"
+      }
+    ],
+    "assetTitle": "Building Optimization (aas/C2O)",
+    "__v": 0,
+    "assetOneLiner": "IBM Building Optimization is a cloud based, mobile enabled offering that integrates with major building systems, collects and normalizes data, performs diagnostics, and dispatches actionable recommendations allowing the customer to actualize benefits immediately. Clients can use an IBM library of analytics against data from the client’s building control systems, energy meters to identify potential operational and energy savings in a shared cloud environment using computing resources from IBM. Solutions include IoT Enabled Fault Detection, Advanced Analytics, and Insights to Actions.",
+    "assetOwner": {
+      "name": "Mark Peterson",
+      "email": "mpeterso@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "827f072b-4342-471c-acb4-78ed7aa8b363": {
+    "artifacts": [
+      {
+        "artifactTitle": "S&A Use Case: Automotive - Predictive Asset Optimization - Sales Presentation",
+        "_id": "59af09b9904a77131257849b",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/81051",
+        "boxFileID": null,
+        "artifactDescription": "This file is part of the 'Sales Presentation' component of the Automotive - PAO use case.\r\rThe attached file 'Predictive Asset Optimization Sales Presentation.ppt', provides an overview of the Predictive Asset Optimization (PAO). The document outlines the background, importance, working, use cases and solution architecture of the PAO. The use cases are specific to the automotive industry which provide an explanation through examples for various solutions implemented using PAO.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "BMW Group IBM Client Reference Materials",
+        "_id": "59af09b9904a77131257849a",
+        "artifactURL": "http://w3-01.ibm.com/sales/ssi/cgi-bin/ssialias?infotype=CR&subtype=NA&htmlfid=0CRDD-9DTFL4&appname=crmd",
+        "boxFileID": null,
+        "artifactDescription": "A car manufacturer in Munich increases customer satisfaction by quickly detecting and correcting problems in its products and processes and delivers reports to key decision makers in days rather than months when it works with IBM SPSS Lab Services to implement a solution based on IBM predictive analytics software",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Predictive Asset Optimization - Predictive Asset Optimization Solution Guideline",
+        "_id": "59af09b9904a771312578499",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/70703",
+        "boxFileID": null,
+        "artifactDescription": "This document is a solution guideline for Predictive Asset Optimization (PAO). The solution is built based our IP, assets, and field experiences. Any PAO solution would need to solve one or more customer-specific challenges to collectively address business outcomes.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Predictive Asset Optimization GBS SOW - Scope of Work Template",
+        "_id": "59af09b9904a771312578498",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/42044",
+        "boxFileID": null,
+        "artifactDescription": "The document is a statement of work (SOW) for Rio Tinto of the Predictive Asset Optimization offering.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Aerospace & Defense",
+      "Automotive",
+      "Chemical & Petroleum",
+      " Industrial Products",
+      "Education",
+      "Government",
+      "Healthcare & Life Sciences",
+      "Energy and Utilities",
+      "Media and Entertainment",
+      "Telecommunications",
+      "Consumer Products",
+      "Retail",
+      "Travel & Transportation",
+      "Wholesale Distribution & Services"
+    ],
+    "assetID": "827f072b-4342-471c-acb4-78ed7aa8b363",
+    "_id": "59af09b9904a771312578497",
+    "clients": [
+      "City of Cambridge",
+      "BMW Group"
+    ],
+    "assetDescription": "COOs and CFOs are collaborating to achieve higher asset utilization and improve corporate financial performance. Most companies are aware of wasteful, ineffective and expensive maintenance efforts, but aren't sure how to eliminate them. Each asset is part of a complex, dependent ecosystem. Hidden dependencies across assets pose real threats to reliability. Given budget limitations, maintenance resources need to be prioritized based upon the most business-critical assets and a complete understanding of risk.IBM’s Asset Optimization offering uniquely provides a Cognitive Asset Management platform combined with proven analytical models to deliver business insights and enhanced visibility, automation and control of mission critical assets, maximizing return on investment, and increasing operational, financial and environmental performance. Combined with the W atson IoTplatform and built on top of our PMQ software asset our offering allows to make smarter maintenance decisions to optimize business processes and enhance machine to human interaction.IBM delivers this successfully to thousands of customers globally, in most industries, with a short time to value. IBM is uniquely positioned with IBM  Research data science, Cloud, and Analytics, combined with hundreds of skilled consultants, data scientists across the globe and economic pricing based on CIC delivery model.  Key Benefits:Reduce asset unplanned downtime –by as much as 47% Increase asset useful life, increased return on assets and enhanced operational efficiencyProvide greater visibility, automation and control over critical assets that affect compliance, risk and business performanceReduce the cost of maintaining assets and Improve Health and Safety for workers",
+    "technologies": [
+      "OSI PI",
+      "BLU Acceleration",
+      "IIB",
+      "IBM PureData System",
+      "InfoSphere Data Replication",
+      "InfoSphere DataStage",
+      "DB2",
+      "Prescriptive Analytics / Decision Optimization",
+      "Cognos",
+      "SPSS",
+      "RAVE"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Skip Snyder",
+        "role": "Asset Owner",
+        "email": "skips@us.ibm.com",
+        "_id": "59af09b9904a77131257849f"
+      },
+      {
+        "name": "Don Barry",
+        "role": "Asset Owner",
+        "email": "dbarry@ca.ibm.com",
+        "_id": "59af09b9904a77131257849e"
+      },
+      {
+        "name": "Mark Peterson",
+        "role": "Asset Owner",
+        "email": "mpeterso@us.ibm.com",
+        "_id": "59af09b9904a77131257849d"
+      },
+      {
+        "name": "Rusty Deane",
+        "role": "Asset Owner",
+        "email": "mrdeane@us.ibm.com",
+        "_id": "59af09b9904a77131257849c"
+      }
+    ],
+    "assetTitle": "Asset Optimization (aaS/C2O)",
+    "__v": 0,
+    "assetOneLiner": "The Asset Optimization is a software and services solution that provides deeper insights into the condition of an organization's assets and processes through continuous monitoring and advanced analytics, driving more intelligent decisions through:\r- Improved forecasting of operational and asset conditions,\r- What-if analysis of business outcomes through scenario planning,\r- Quicker response to critical events through automated detection and response\r- Data mining and analyzing performance through trend analysis and identifying exceptions and opportunities\r- Consolidation of information from multiple systems",
+    "assetOwner": {
+      "name": "Skip Snyder",
+      "email": "skips@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "200802b0-9be9-451c-9e09-1fd193ecf2bb": {
+    "artifacts": [
+      {
+        "artifactTitle": "Data as a Service Overview",
+        "_id": "59af09b9904a771312578490",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/67873",
+        "boxFileID": null,
+        "artifactDescription": "This is a Power Point presentation that provides information about the Project Jaybird that is a high-level open source project focused on the rapid ingestion and analysis of data in a 100% open source environment.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Data as a Service (DaaS) - Deep Dive",
+        "_id": "59af09b9904a77131257848f",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=TechData&unid=6D4CED718ABB7B978525802C005052A8",
+        "boxFileID": null,
+        "artifactDescription": "A review of IBM's DaaS offerings and supporting technology. Participants will understand the foundation, rational and approach to DaaS, our go to market strategy and develop a fundamental understanding of the technical architecture.",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "IBM PoV - Managed Data Lake - Cost Reduction View",
+        "_id": "59af09b9904a77131257848e",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/97080",
+        "boxFileID": null,
+        "artifactDescription": "This proposal presentation provides information about the business and IT benefits and cost savings from a successful data lake implementation can be measured in different ways.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Technical Solution Design",
+        "_id": "59af09b9904a77131257848d",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/82723",
+        "boxFileID": null,
+        "artifactDescription": "he technical solution design (TSD) documents IBM and ’s design for ’s Big Data Platform. The requirements provided from Big Data Term Sheets and outcome of the joint design phase ( and IBM) are inputs for this document.\r\r’s vision is to be one of the world’s great service companies, where service is at the core of your strategy – driving customer growth and building deeper relationships. Your Service Revolution has introduced key initiatives to deliver on that vision, including the Data Driven Customer Experience, Customer Digital Experience and Customer Service Hub.\r\rCheck in this solution guide how IBM is helping this Client changing its strategy using Data.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "RBWM Data as a Service - SoW v2 20151224",
+        "_id": "59af09b9904a77131257848c",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/84321",
+        "boxFileID": null,
+        "artifactDescription": "These document contains a client proposal related to finance. CLIENT Data & Information Management (D&IM) are facing a series of challenges in Big Data sourcing and hosting. To better equip the D&IM function in its enterprise data management, IBM propose to provide a data hosting solution and services that will address the requirements on this document.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Banking",
+      "Financial Markets",
+      "Insurance",
+      "Consumer Products",
+      "Healthcare & Life Sciences",
+      "Industrial Products",
+      "Telecommunications",
+      "Media and Entertainment"
+    ],
+    "assetID": "200802b0-9be9-451c-9e09-1fd193ecf2bb",
+    "_id": "59af09b9904a77131257848b",
+    "clients": [
+      "Knvo Ltd",
+      "MediaWen International"
+    ],
+    "assetDescription": "The Digital Insights Platform provides the foundational enablement of the broader digital ecosystem with IBM Cloud based data services, storage, analytic and cognitive capabilities as a subscription service to our clients.For leading organizations looking to get more value out of their data for less cost, our offering is a flexible, open-source Digital Insights Platform that integrates data science, cognitive and traditional analytics to give businesses the ability toachieve outcomes and make decisions faster with better insight. This solution has the proven ability to reduce data management operating costs by 35% and grow revenue within digital channels up to fivefold.The Digital Insights Platform is a Big Data-driven solution as-a-service that focuses on provisioning digital, operational and analytics data for our clients into a GBS Data Lake with best-in-class, open-source technologies.  It rapidly integrates traditional, digital, and 3rd party data sources into the platform, provides a structured data lake that can be used for enterprise, departmental and application purposes, and offers integrated tools, accelerators and pre-built packages for orchestrated digital, cognitive and analytics purposes35% reduction in data management operating costs, with project ROI in 9-14 monthsTypically a data rationalization program takes between 6 and 18 months for a full transition from multiple data warehouses to the platform Time to value = 2 months with iterative rolloutsNew applications on the platform can be implemented as quickly as 2-4 monthsShift budget dedicated from the data foundation to analytics and outcomesOutcome-based plays moving beyond project workIncreases workflow efficiency by more than 20% 3x-5x  return on investment within 6 months",
+    "technologies": [
+      "Accumulo",
+      "Ambari",
+      "Atlas",
+      "Falcon",
+      "Flume",
+      "Hadoop",
+      "Hbase",
+      "HDFS",
+      "Hive",
+      "Kafka",
+      "Knox",
+      "Hadoop MapReduce",
+      "Oozie",
+      "Pig",
+      "Ranger",
+      "Slider",
+      "Solr",
+      "Spark",
+      "Sqoop",
+      "Yarn",
+      "Zeppelin",
+      "ZooKeeper"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Bruce Tyler",
+        "role": "Asset Owner",
+        "email": "bruce.tyler@us.ibm.com",
+        "_id": "59af09b9904a771312578491"
+      }
+    ],
+    "assetTitle": "Digital Insights Platform",
+    "__v": 0,
+    "assetOneLiner": "Digital Insights Platform from IBM is an integrated solution that provides the foundation to help enable high-value business functions through several “as a service” offerings: experience, orchestration, content and cognitive. It allows your organization to rapidly ingest new data, curate integrated information and analyze that data to gain faster insights and deploy new capabilities at a reduced cost and with greater data security. Find out how Digital Insights Platform from IBM can redefine your operating model.",
+    "assetOwner": {
+      "name": "Bruce Tyler",
+      "email": "bruce.tyler@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "3d255249-89fe-40aa-85ae-4a21678d77a0": {
+    "artifacts": [
+      {
+        "artifactTitle": "IBM @TJ Watson Research Center",
+        "_id": "59af09b9904a7713125784ae",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/63389",
+        "boxFileID": null,
+        "artifactDescription": "IBM @TJ Watson Research Center\r\rThis power point presentation shows the IBM strategy to transform from a Hardware-Software-Services company to a Cognitive Solutions and Cloud Platform for a Digital World.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Manufacturing Advisor\rOverview Video for Clients",
+        "_id": "59af09b9904a7713125784ad",
+        "artifactURL": "https://ql.mediasilo.com/#ql/58a3ba58e4b08a36c6cdb73c/1ca6785d-228d-45a7-a5cb-af6b095cfbca",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Plant Advisor - Sales Collateral",
+        "_id": "59af09b9904a7713125784ac",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/97152",
+        "boxFileID": null,
+        "artifactDescription": "Cognitive Plant Advisor - Use\r\rThis presentation is a narrative sequence of actions that define the interaction between a system and a user.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Proposal for CPA",
+        "_id": "59af09b9904a7713125784ab",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/80776",
+        "boxFileID": null,
+        "artifactDescription": "The following document is a solution proposal for the Cognitive Plant Advisor offering learns from the data & actions taken by your top operator experts and uses this knowledge to support less experienced operators to achieve high performance in plant operations.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Cognitive Plant Advisor - SOW",
+        "_id": "59af09b9904a7713125784aa",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/25474",
+        "boxFileID": null,
+        "artifactDescription": "Cognitive Plant Advisor - SOW\r\rThis document shows how the premier operators of cement manufacturing plants across the globe, has high interest in optimising energy consumption to ensure maximum profitability of its plants, while maintaining the requested production volume and quality.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Consumer Products",
+      "Energy and Utilities",
+      "Industrial Products"
+    ],
+    "assetID": "3d255249-89fe-40aa-85ae-4a21678d77a0",
+    "_id": "59af09b9904a7713125784a9",
+    "clients": [
+      "FLSmidth",
+      "LaFarge Holcim"
+    ],
+    "assetDescription": "Cement Plants have been heavily automated and optimized, but operators run the machines within standard parameters and often have a “if it isn’t broke, don’t change the settings” mentality. \rIBM’s Cognitive Manufacturing Advisor offering leverages the learnings from the most experienced & effective operators across every shift & every mill within the company, combining the OEMs deep industry skills and market reach with IBM’s technology and cognitive solutions to optimize energy consumption, throughput, or product quality. Unlike other market offerings, Cognitive Manufacturing Advisor builds a model using advanced machine learning techniques to reflect an operation or asset in a plant.  The model is adjusted with output from unstructured data like plant maintenance and operator logs (infrequently) and fed with sensor data (regularly).  The cognitive model updates itself (learns) while using the current data and makes recommendations for the operator to adjust the machine settings based on a goal set by the plant, energy efficiency, throughput, quality, etc. This is ideal for a COO who desires to create new streams of revenue by maintaining and operating plants on behalf of their customers. In 10 days, we can assess plant data and inefficiencies and have you in pilot within first 3 months to begin to realize the benefits. IBM is uniquely positioned to deliver Cognitive solutions in industrial settings leveraging the best of IBM Research, Cloud, and Analytics, combined with skilled consultants across the globe.\r",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "David Meek",
+        "role": "Asset Owner",
+        "email": "david.meek@us.ibm.com",
+        "_id": "59af09b9904a7713125784b0"
+      },
+      {
+        "name": "James Dolan",
+        "role": "Asset Owner",
+        "email": "jdolan@us.ibm.com",
+        "_id": "59af09b9904a7713125784af"
+      }
+    ],
+    "assetTitle": "Cognitive Plant Advisor",
+    "__v": 0,
+    "assetOneLiner": "Cognitive IoT Connected Solutions deliver differentiated services and new revenue streams in response to evolving market conditions through IoT enabled business operations. We work with you to help you understand the value of an IoT enabled business and provide you with the inspiration needed to achieve your outcomes. Our Cognitive IoT Connected Solutions infuse intelligence and decision making into the physical world to continually transform businesses and enhance the human experience in real time.",
+    "assetOwner": {
+      "name": "David Meek",
+      "email": "david.meek@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "a95ac35b-dd8b-48f1-a552-4a4e829ef2ab": {
+    "artifacts": [
+      {
+        "artifactTitle": "Next Gen Supply Chain- FoodCo- Client Presentation",
+        "_id": "59af09b9904a7713125784b9",
+        "artifactURL": "https://ibm.ent.box.com/s/korux2u1oji38t9ghqktnmz3tm458zyq",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "White Paper",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Aerospace & Defense",
+      "Automotive",
+      "Chemical & Petroleum",
+      "Electronics",
+      "Industrial Products",
+      "Education",
+      "Government",
+      "Energy and Utilities",
+      "Consumer Products",
+      "Retail",
+      "Travel & Transportation",
+      "Wholesale Distribution & Services"
+    ],
+    "assetID": "a95ac35b-dd8b-48f1-a552-4a4e829ef2ab",
+    "_id": "59af09b9904a7713125784b8",
+    "clients": [
+      "FoodCo"
+    ],
+    "assetDescription": "For most enterprises supply chain costs are typically 5-10% of revenue.  As the supply chain becom es m ore com plex, these costs and associated risks rise.  IBM’s portfolio of Next Generation Supply Chain solutions help you navigate from  vision to invention to operation by leveraging real tim e data to adapt IoTenabled business m odels and operations creating the supply chain of the future.  IBM’s solutions infuse machine learning, intelligence and decision making with unstructured data and IoTinsights to deliver results through new levels of insight into thiem anufacturing process to continually transform businesses in real tim e for optim ized decisions, operational efficiency and cost, customer centricity and asset productivity. Com bined with Cognitive IoT, W atson Supply Chain, em erging technologies and real tim e analytics IBM can help you achieve leady supply chain capabilities and perform anceleveraging em erging technologies and agile operations. ",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Julie Scanio",
+        "role": "Asset Owner",
+        "email": "jmscanio@us.ibm.com",
+        "_id": "59af09b9904a7713125784ba"
+      }
+    ],
+    "assetTitle": "Next Gen Supply Chain Optimization (aas/CSO)",
+    "__v": 0,
+    "assetOneLiner": "Using real time data, Cognitive, IoT, simulations, Analytics and emerging technologies, we will optimize working capital and efficiency, helping clients adjust to continually changing consumer preferences.",
+    "assetOwner": {
+      "name": "Julie Scanio",
+      "email": "jmscanio@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "a5d9b34c-8781-43e0-98f9-91b691d06f83": {
+    "artifacts": [
+      {
+        "artifactTitle": "Connected Products - Executive Presentation",
+        "_id": "59af09b9904a7713125784b6",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/39877",
+        "boxFileID": null,
+        "artifactDescription": "Connected Products - Executive Presentation\r\rThe internet of things (IoT) growth exploded at the beginning of this decade and connected devices are becoming completely ubiquitous. Product companies need to assume connectivity is becoming part of all products.",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Olli cognitive self-driving shuttle with James Corden",
+        "_id": "59af09b9904a7713125784b5",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=B8FA2AD3844CD275852580C90070A255",
+        "boxFileID": null,
+        "artifactDescription": "Cognitive Connected Solutions",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "IBM Connected Vehicle - Value Proposition",
+        "_id": "59af09b9904a7713125784b4",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/78457",
+        "boxFileID": null,
+        "artifactDescription": "IBM Connected Vehicle - Value Proposition\r\rThis is a Power Point presentation that shows how IBM has preinvested in the AutoLAB that helps to build MVPs for cognitive apps with new business models.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Connected Vehicle Blueprint Solution Guide",
+        "_id": "59af09b9904a7713125784b3",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/87901",
+        "boxFileID": null,
+        "artifactDescription": "IBM Connected Vehicle Solution Blueprint – Reference Architecture and Solution Guide",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Connected Products - IBM SOW for Connected Product Template",
+        "_id": "59af09b9904a7713125784b2",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/75441",
+        "boxFileID": null,
+        "artifactDescription": "Connected Products - IBM SOW for Connected Product Template\r\rThis Statement of Work (SOW) describes the work to be undertaken by IBM and the applicable terms and conditions. Set forth within this SOW are required IBM responsibilities, related Client responsibilities plus applicable terms and conditions.",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Aerospace & Defense",
+      "Automotive",
+      "Chemical & Petroleum",
+      "Electronics",
+      "Industrial Products",
+      "Education",
+      "Government",
+      "Energy and Utilities",
+      "Consumer Products",
+      "Retail",
+      "Travel & Transportation",
+      "Wholesale Distribution & Services"
+    ],
+    "assetID": "a5d9b34c-8781-43e0-98f9-91b691d06f83",
+    "_id": "59af09b9904a7713125784b1",
+    "clients": [
+      "Whirlpool",
+      "Local Motors",
+      "Mercedes Benz",
+      "PSA Peugeot Citroen",
+      "SiriusXM",
+      "FleetBoard",
+      "Electrolux",
+      "Dow"
+    ],
+    "assetDescription": "Our clients benefit from these technologies and the internet of things through streamlined manufacturing,\rsimplified maintenance, transformed user experience, new ways of working and new revenue streams. IBM can help you navigate from invention to operation by leveraging data to adapt business models, identify ways to engage old and new partners, and fundamentally change the customer experience\r\rIBM’s portfolio of Connected Devices, Products & Vehicles solutions, combined with Watson Internet of Things and real time analytics, enable clients to establish connected solutions and integrate machine learning and unstructured data with IoT insights.  Our solutions help clients manage millions of IoT devices easily and securely to gain insights, improve the customer experience and incorporate the latest technologies including machine to machine interaction, robot assisted work, drones and wearables.  These products, enabled with IoT connectivity and insights, allow manufacturers to begin to engage directly with consumers.  Combined with cognitive insights, clients can differentiate their business with IoT solutions for continuous innovation, adaption to changes in market demand and creation of new sources of revenue.\r\rKey benefits:\r\rIncremental revenue, costs savings, customer engagement and business process optimization\rPervasive connectivity to enable easy connectivity to existing data and services for enterprise usage\rInsight and interaction to obtain unprecedented insight and interaction with real-time data, devices, products, vehicles, consumers, and in between \rNew sources of revenue through differentiated, high value aftermarket services\rNew value propositions with different subscription models that monetize data, adopt connectivity, creating opportunities for new business models",
+    "technologies": [
+      "Sink",
+      "Streams",
+      "RDB",
+      "HDFS",
+      "Spark Streaming",
+      "Hadoop",
+      "GPFS",
+      "InfoSphere BigInsights",
+      "SPSS",
+      "Cognos",
+      "Maximo",
+      "IBM X-Force",
+      "InfoSphere data encryption",
+      "IBM Security Trusteer",
+      "IBM Security Access and Identity Management",
+      "IBM Security Qradar",
+      "IBM Security AppScan",
+      "IBM Security Services",
+      "V2X Services"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Julie Scanio",
+        "role": "Asset Owner",
+        "email": "jmscanio@us.ibm.com",
+        "_id": "59af09b9904a7713125784b7"
+      }
+    ],
+    "assetTitle": "Connected Devices, Products & Vehicles",
+    "__v": 0,
+    "assetOneLiner": "Connected Devices & Vehicles solutions enable clients to establish on-premise connected solutions and integrate machine learning and unstructured data with IoT insights. From professional services and software platforms to device management and telematics integration our solutions enable clients to strengthen brand loyalty, create new revenue streams, and increase sales and service across several opportunity points both customer and enterprise focused across the value chain.",
+    "assetOwner": {
+      "name": "Julie Scanio",
+      "email": "jmscanio@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "2abb7d8d-ab60-40cf-952b-be2541985732": {
+    "artifacts": [
+      {
+        "artifactTitle": "Watson for Drug Discovery Executive Deck",
+        "_id": "59af09b9904a7713125784d0",
+        "artifactURL": "https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=902efee5-3b0e-4cc3-890f-5b4ba4192f58#fullpageWidgetId=W18de43dfd046_447a_a8d6_8cf86263aa7d&file=502f7308-9d2e-4153-bef0-247508a9ef7c",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Using Watson to Accelerate\rDrug Discovery Demo Video",
+        "_id": "59af09b9904a7713125784cf",
+        "artifactURL": "https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=902efee5-3b0e-4cc3-890f-5b4ba4192f58#fullpageWidgetId=W18de43dfd046_447a_a8d6_8cf86263aa7d&file=91941652-699d-4356-aac4-3439a9ae9493",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "WDD Value Proposition",
+        "_id": "59af09b9904a7713125784ce",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/62583",
+        "boxFileID": null,
+        "artifactDescription": "This document contains a Value Proposition Statement For Watson For Drug Discovery.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "WDD Capabilities Deck",
+        "_id": "59af09b9904a7713125784cd",
+        "artifactURL": "https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=902efee5-3b0e-4cc3-890f-5b4ba4192f58#fullpageWidgetId=W18de43dfd046_447a_a8d6_8cf86263aa7d&file=8c31645c-8141-4b48-8d72-c568f1af2199",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Drug Discovery SOW Template",
+        "_id": "59af09b9904a7713125784cc",
+        "artifactURL": "https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=902efee5-3b0e-4cc3-890f-5b4ba4192f58#fullpageWidgetId=W18de43dfd046_447a_a8d6_8cf86263aa7d&file=20333334-eaca-40e9-86d0-e4e83ed83286",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Healthcare & Life Sciences"
+    ],
+    "assetID": "2abb7d8d-ab60-40cf-952b-be2541985732",
+    "_id": "59af09b9904a7713125784cb",
+    "clients": [
+      "Pfizer",
+      "BMS",
+      "GSL",
+      "Barrow"
+    ],
+    "assetDescription": "The Watson for Drug Discovery solution facilitates the identification of new drug targets and additional uses for existing molecules by helping researchers see possible new relationships between genes, diseases, drugs and potential targets. This cloud-based, cognitive solution analyzes scientific knowledge and data (including private content) to reveal known and hidden connections and rank and prioritize potential outcomes that can help increase the likelihood of scientific breakthroughs. In addition, this platform allows researchers to generate new hypotheses with the help of dynamic visualizations, evidence-backed predictions and natural language processing trained in the life sciences domain.\r\rTypical benefits: \r\rIncrease R&D Efficiency: Drive more informed selection of potential drug candidates and optimized portfolio management, which can lead to better decision making and potential cost savings \rAccelerate Insight Generation: decrease time to drug discovery by 30%; Identify hidden patterns and connections as well as develop evidence-based predictive models from diverse, unstructured data sources at a scale and speed that is beyond what humans can do today along with the ability to dynamically interact with disease pathway visualization \rIncrease Researcher Productivity: Accelerate the investigation and identification of novel patterns and connections across domains and therapeutic areas, creating potential for reduced time to market\r",
+    "technologies": [
+      "DB2",
+      "SOLR",
+      "Hector",
+      "ChemAxon",
+      "CambridgeSoft",
+      "Knowledge Graph"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Sudhir Saxena",
+        "role": "Asset Owner",
+        "email": "saxenasu@us.ibm.com",
+        "_id": "59af09b9904a7713125784d2"
+      },
+      {
+        "name": "Tim McGuire",
+        "role": "Asset Owner",
+        "email": "mcguire@us.ibm.com",
+        "_id": "59af09b9904a7713125784d1"
+      }
+    ],
+    "assetTitle": "Watson for Drug Discovery",
+    "__v": 0,
+    "assetOneLiner": "Watson for Drug Discovery is a cloud-based, cognitive solution that analyzes scientific knowledge and data to reveal known and hidden connections that can help increase the likelihood of scientific breakthroughs. The platform allows researchers to generate new hypotheses with the help of dynamic visualizations, evidence-backed predictions and natural language processing trained in the life sciences domain.",
+    "assetOwner": {
+      "name": "Sudhir Saxena",
+      "email": "saxenasu@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "39d1c32d-1c6b-41b3-abf2-aba82a0d94cf": {
+    "artifacts": [
+      {
+        "artifactTitle": "WH Real World Evidence Project Overview",
+        "_id": "59af09b9904a7713125784c7",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/77993",
+        "boxFileID": null,
+        "artifactDescription": "WH Real World Evidence Project Overview\r\rThis Power Point presentation shows how IBM provides to their clients an integrated set of analytics to support Sales and Marketing",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Sales Demo Video",
+        "_id": "59af09b9904a7713125784c6",
+        "artifactURL": "https://w3-connections.ibm.com/communities/service/html/communityview?communityUuid=902efee5-3b0e-4cc3-890f-5b4ba4192f58#fullpageWidgetId=W18de43dfd046_447a_a8d6_8cf86263aa7d&file=2f58361e-3a50-4133-962c-b007d8a3bf3e",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Insights as a Service Partnership Value",
+        "_id": "59af09b9904a7713125784c5",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/19373",
+        "boxFileID": null,
+        "artifactDescription": "Insights as a Service Partnership Value\r\rThis pdf file gives an overview about Strategic Goals with key capabilities and impacts.",
+        "artifactType": "Use Cases",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Healthcare & Life Sciences"
+    ],
+    "assetID": "39d1c32d-1c6b-41b3-abf2-aba82a0d94cf",
+    "_id": "59af09b9904a7713125784c4",
+    "clients": [
+      "Teva",
+      "Novartis",
+      "Abbvie",
+      "P&G",
+      "Lunbeck",
+      "Sanofi",
+      "NovoNordisk"
+    ],
+    "assetDescription": "One of the biggest challenges in the Life Sciences industry is the inability to optimize Sales & Marketing, Health Economics and Outcomes Research (HEOR), and R&D resource allocation, scale, and ultimately, business impact. The focus of our offering is to deeply understand LS customers and patients so as to help them optimize profitable growth, sales, and overall impact on people’s lives. This includes a focus on prescribers (e.g., determining who to call on, when to call on them, what to say, and how to engage them), people with health conditions (e.g., determining when to intervene, what messages to send, determine why they are discontinuing or switching products), and payers (e.g., how to price the product, what publications support, how to engage with members and providers). \r\rIBM’s RWE (Real World Evidence) & Advanced Analytics for Life Sciences offering leverages RWD (e.g., longitudinal clinical, claims, social media, weather, IOT data), cognitive and advanced analytic capabilities, and Watson Platform for Health to enable and accelerate the generation of scientific and clinical evidence and market insights to optimize efforts in R&D, HEOR, Medical, and Sales & Marketing, at the individual, facility, and population health levels. Leveraging large-scale observational databases (e.g., Explorys, Truven MarketScan, Weather) and curated publically available data (i.e., SmartBase), established cognitive capabilities and API, and proprietary advanced analytics & visualization assets & products, the solution aims to increase market share, sales and/or time to peak sales, ROI, decrease time to publication, and improve clinical trial time to site selection and enrollment fill.\r\rTypical benefits: \rAccelerated Insight Generation: Identify hidden patterns and connections and develop evidence-based predictive models from diverse data sources, at a scale. Enable companies to transform their culture and their business by yielding new insights, accelerating answering business questions and improving decision making throughout the development/ commercialization lifecycle and beyond. \rEnablement of  Optimized R&D, HEOR, and Sales & Marketing Performance: Drive more informed decisions and optimized portfolio management, which can lead to better decision making, cost savings and optimized sales \rIncreased Productivity: Accelerate the investigation and identification of novel patterns and connections across domains and therapeutic areas, creating potential for reduced time to market and increased sales and profitability",
+    "technologies": [
+      "None Submitted"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Keith Hopkins",
+        "role": "Asset Owner",
+        "email": "keith.hopkins@us.ibm.com",
+        "_id": "59af09b9904a7713125784ca"
+      },
+      {
+        "name": "Dimitris Alveras",
+        "role": "Asset Owner",
+        "email": "alevras@us.ibm.com",
+        "_id": "59af09b9904a7713125784c9"
+      },
+      {
+        "name": "Rao Nemani",
+        "role": "Asset Owner",
+        "email": "Rao.R.Nemani@ibm.com",
+        "_id": "59af09b9904a7713125784c8"
+      }
+    ],
+    "assetTitle": "Real World Evidence and Advanced Analytics for Life Sciences",
+    "__v": 0,
+    "assetOneLiner": "Watson for RWE (Real World Evidence) is a solution that leverages RWD (e.g., longitudinal clinical, claims, social media, weather, IOT), cognitive and advanced analytic capabilities, and WHC (Watson Health Cloud) to enable and accelerate the generation of scientific and clinical evidence and market insights to optimize efforts in R&D, HEOR, Medical, and Sales & Marketing, at the individual, facility, and population health levels",
+    "assetOwner": {
+      "name": "Keith Hopkins",
+      "email": "keith.hopkins@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  },
+  "c094223c-fac5-4401-b68c-9aaa491900e1": {
+    "artifacts": [
+      {
+        "artifactTitle": "Watson for Patient Safety\rExecutive Overview",
+        "_id": "59af09b9904a7713125784c0",
+        "artifactURL": "https://ibm.ent.box.com/s/0am3plrm1ibb2pxv6gwb4vkolbzzy720",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "White Paper",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Health - How It Works",
+        "_id": "59af09b9904a7713125784bf",
+        "artifactURL": "http://gbslearn.atlanta.ibm.com/tubes/Video.html?Tube=Cognitive&unid=FADC948303B73450852580C900676D8B",
+        "boxFileID": null,
+        "artifactDescription": "Watson Health - How it works",
+        "artifactType": "Demo Video",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson for Drug Safety Enablement",
+        "_id": "59af09b9904a7713125784be",
+        "artifactURL": "https://ibm.ent.box.com/s/nh1s1n9gld4bf1pzeaa6oggewut34vtl",
+        "boxFileID": null,
+        "artifactDescription": "",
+        "artifactType": "Use Cases",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Patient Safety Client Architecture",
+        "_id": "59af09b9904a7713125784bd",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/46016",
+        "boxFileID": null,
+        "artifactDescription": "Watson Patient Safety Client Architecture\r\rWatson for Patient Safety offers critical capabilities needed to operate in today’s environment, it is built on the Watson Health foundation and additional components which allow for future expansion and configurability., This document explains how IBM's Design-led Agile Development approach to Solution Development combines concepts from Design Thinking and Agile Methodology.",
+        "artifactType": "Asset Architecture",
+        "confidential": false
+      },
+      {
+        "artifactTitle": "Watson Patient Safety SOW Use Cases",
+        "_id": "59af09b9904a7713125784bc",
+        "artifactURL": "https://w3-03.sso.ibm.com/services/lighthouse/documents/19185",
+        "boxFileID": null,
+        "artifactDescription": "This Statement of Work (“SOW”) is for services to provide a Macro Design for the first release (out of 4 planned releases) of “PV Solutions” to support the “Intent” as defined under the terms and conditions of the agreement identified in the signature block of this SOW (the “Agreement”).",
+        "artifactType": "Asset Implementation Plan",
+        "confidential": false
+      }
+    ],
+    "duration": 0,
+    "industries": [
+      "Healthcare & Life Sciences"
+    ],
+    "assetID": "c094223c-fac5-4401-b68c-9aaa491900e1",
+    "_id": "59af09b9904a7713125784bb",
+    "clients": [
+      "Celgene",
+      "Bayer",
+      "Roche/Genentech"
+    ],
+    "assetDescription": "Patient safety is often a manual, extremely time consuming, and reactive process, resulting in several challenges in the healthcare industry. Efficiencies in this process are required to lower the associated costs and provide the ability to process more adverse events, monitor and manage more channels with scale with large volume and a variety of data from fragmented channels whilst complying with increasing regulation. \r\rOur Watson for Patient Safety offering applies machine learning and domain training to support the detection, evaluation, and MedDRA coding of adverse events contained in thousands of pages of spontaneous reports and medical literature. This offering helps life sciences companies by adding speed, consistency and quality throughout their case processing, signal detection, reporting efforts for the critical function of monitoring drug and patient safety. Watson for Patient Safety will enhance signal detection in literature and real world data and provide integrated insights on signals that can drive better, more confidence decisions and initiatives in R&D and clinical trials by life science companies. Watson for Patient Safety is still in development. The GA release for this solution is tentative for mid-2017.\r",
+    "technologies": [
+      "SAML",
+      "Qradar",
+      "IBM API Manager",
+      "DataPower",
+      "oAuth",
+      "Angular",
+      "DB2",
+      "Cognos",
+      "MQ",
+      "DataStage",
+      "IBM Java",
+      "Javascript",
+      "Jquery",
+      "WebSphere Application Server",
+      "IBM Integration Bus",
+      "IBM Business Process Manager",
+      "FHIR Servers",
+      "IBM Consent Manager",
+      "HDFS",
+      "Cloudant",
+      "Python",
+      "R",
+      "Optim",
+      "Jupyter Notebook",
+      "LDAP",
+      "REMS",
+      "BOBJ",
+      "RAVE"
+    ],
+    "complexity": 0,
+    "assetContributors": [
+      {
+        "name": "Chris Hines",
+        "role": "Asset Owner",
+        "email": "christopher.hines@us.ibm.com",
+        "_id": "59af09b9904a7713125784c3"
+      },
+      {
+        "name": "Steve Bonner",
+        "role": "Asset Owner",
+        "email": "stephen.bonner@us.ibm.com",
+        "_id": "59af09b9904a7713125784c2"
+      },
+      {
+        "name": "Craig Bennet",
+        "role": "Asset Owner",
+        "email": "cbennett@us.ibm.com",
+        "_id": "59af09b9904a7713125784c1"
+      }
+    ],
+    "assetTitle": "Watson for Patient Safety",
+    "__v": 0,
+    "assetOneLiner": "Watson for Patient Safety is a cognitive solution that applies machine learning and domain training to support the detection, evaluation, and MedDRA coding of adverse events contained in thousands of pages of spontaneous reports and medical literature. It will help safety data scientists at life sciences companies by adding speed, consistency and quality throughout their case processing, signal detection, reporting efforts for the critical function of monitoring drug and patient safety. Watson for Patient Safety will enhance signal detection in literature and real world data and provide integrated insights on signals that can drive better, more confidence decisions and initiatives in R&D and clinical trials by life science companies. Watson for Patient Safety is still in development. The GA release for this solution is tentative for mid-2017.",
+    "assetOwner": {
+      "name": "Chris Hines",
+      "email": "christopher.hines@us.ibm.com",
+      "role": "Asset Owner"
+    },
+    "assetBoxFolderID": null
+  }
+}
