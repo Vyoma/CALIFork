@@ -16,11 +16,6 @@ class AssetCard extends Component {
 	  handleSelectAsset: PropTypes.func.isRequired, 
 	}
 
-	handleSelectAsset = (assetID) => {
-		const { handleSelectAsset } = this.props; 
-		handleSelectAsset(assetID)
-	}
-
 	renderCognitiveTags = (cognitiveTags, renderCognitiveTagsBoolean) => {
 		if (renderCognitiveTagsBoolean) {
 			return (
@@ -44,15 +39,20 @@ class AssetCard extends Component {
 	}
 
 	render() {
-		const { assetID, assetTitle, assetOneLiner, handleSelectAsset, technologyStack, cognitiveTags, assetCardImage } = this.props; 
-		const cardImage = assetCardImage ? assetCardImage : imageUrl; 
-		const renderCognitiveTagsBoolean = cognitiveTags.length > 0; 
+		const { assetID, assetTitle, assetOneLiner, handleSelectAsset, technologies, assetCardImage } = this.props; 
+		// const cardImage = assetCardImage ||'https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg'; 
+		const placeholderImages = [0, 1081, 1079, 1075, 1067, 1064, 1053, 1048, 1042, 1021, 992, 989, 983, 980]; 
+		const randomImage = placeholderImages[Math.floor(Math.random() * (placeholderImages.length - 2))]; 
+		console.log(randomImage); 
+		const cardImage = `https://unsplash.it/400/180/?image=${randomImage}`
+		const renderCognitiveTagsBoolean = true; 
+		const cognitiveTags = technologies.slice(0,4) || []; 
 		const cardDescriptionClass = (renderCognitiveTagsBoolean) ? styles["ar-card-desc-div"] : styles["ar-card-desc-div-expand"]
 		const followUp = renderCognitiveTagsBoolean ? (<div style={{display: 'none'}}></div>) : (<div className={styles["ar-card-more-div"]}><button className={styles["ar-card-button-more"]} onClick={handleSelectAsset}>See More...</button></div>); 
 
 		return (
 			<Container key={assetID} fluid={true} className={styles["ar-card"]}>
-				<img src={assetCardImage} className={styles["ar-card-img"]} />
+				<img src={cardImage} className={styles["ar-card-img"]} />
 				<Row>
 					<Col sm={10} md={10}>
 						<div className={styles["ar-card-title-div"]} onClick={handleSelectAsset}>
