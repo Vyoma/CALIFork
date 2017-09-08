@@ -41,6 +41,9 @@ const LOCAL_ToggleConfidential = ({ confidential, handleToggle}) => (
   </Container>
 )
 
+//Link to IBM Confidential Guidance
+const ibmConfidentialGuidanceLink = "https://w3-03.ibm.com/ibm/documents/corpdocweb.nsf/ContentDocsByTitle/Corporate+classification+and+control+of+IBM+information+-+Frequently+Asked+Questions"
+
 const initialState = {
   artifactType: '',
   artifactTitle: '',
@@ -237,7 +240,17 @@ class PublishAddAssetModal extends Component {
               rows={2}
             />
             {this.renderConditionalArtifactInterface()}
-            <Toggle id="toggle-1" labelA="IBM Shareable" labelB="Confidential" onToggle={this.handleToggle}/>
+            <label className="bx--label">IBM Confidential: </label>
+                <Button small
+                  kind="ghost"
+                  href={ibmConfidentialGuidanceLink}
+                  target="_blank"
+                  className=""
+                  icon="info--glyph"
+                  iconDescription="Tip"
+                >
+              </Button>
+            <Toggle id="toggle-1" labelA="YES" labelB="NO" onToggle={this.handleToggle}/>
           </ModalWrapper>
         </Col>
       </Row>
