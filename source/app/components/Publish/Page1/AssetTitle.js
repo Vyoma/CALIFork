@@ -14,6 +14,8 @@ const PublishAssetTitle = ({ assetTitle, setAssetTitle }) => {
   const handleChange = (event) => {
     setAssetTitle(event.target.value)
   }
+  const assetTitleLengthLimit = 60;
+  const isWithinLengthLimit = (assetTitle && (assetTitle.length < assetTitleLengthLimit))
 
   return (
     <Row className='nt-AssetTitleRow'>
@@ -31,7 +33,9 @@ const PublishAssetTitle = ({ assetTitle, setAssetTitle }) => {
           labelText=''
           value={assetTitle}
           placeholder='Asset Title'
-          onChange={handleChange} 
+          onChange={handleChange}
+          invalid={!isWithinLengthLimit}
+          invalidText="Please input an asset title, must be less than 60 characters"
         />
       </Col>
     </Row>

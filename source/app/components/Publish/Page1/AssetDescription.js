@@ -15,6 +15,9 @@ const PublishAssetDescription = ({ validateInput, assetDescription, setAssetDesc
     setAssetDescription(event.target.value)
   }
 
+  const assetDescLengthLimit = 500;
+  const isWithinLengthLimit = (assetDescription && (assetDescription.length <= assetDescLengthLimit))
+
   return (
     <Row className='nt-publishAssetDesc' style={{marginTop: 20}}>
       <Col md={2} offset={{md: 1}}>
@@ -29,8 +32,8 @@ const PublishAssetDescription = ({ validateInput, assetDescription, setAssetDesc
         <TextArea
           className='some-class'
           labelText=''
-          invalid={assetDescription === '' && validateInput}
-          invalidText={'Please provide an asset description'}
+          invalid={(assetDescription === '' && validateInput) || !isWithinLengthLimit}
+          invalidText={'Please provide an asset description, must be less than 500 characters'}
           value={assetDescription}
           onChange={handleChange}
           onBlur={onBlur}
